@@ -112,16 +112,16 @@ body.page-priordei{font-family:var(--aktiv)}
 .band__sub{font-size:20px;line-height:1.5;color:var(--ink)}
 .band__left{align-self:flex-start;font-size:40px}
 
-/* Legacy audit */
-.legacy-imgs{display:flex;gap:56px;justify-content:center;width:100%;flex-wrap:wrap}
-.legacy-card{background:var(--gray100);padding:20px;flex:1 1 348px;max-width:388px}
+/* Legacy audit — columnas [imagen + texto]; en escritorio se ven como fila de imágenes + fila de textos */
+.legacy-grid{display:flex;gap:56px;justify-content:center;width:100%;max-width:var(--maxw);flex-wrap:wrap}
+.legacy-col{flex:1 1 348px;max-width:388px;display:flex;flex-direction:column;gap:56px}
+.legacy-card{background:var(--gray100);padding:20px;width:100%}
 .legacy-shot{position:relative;width:100%;aspect-ratio:348/292;overflow:hidden}
 .legacy-shot img{position:absolute;left:0;width:100%;height:449.43%;object-fit:cover;object-position:top}
 .legacy-shot--1 img{top:-20.55%}
 .legacy-shot--2 img{top:-133.82%}
 .legacy-shot--3 img{top:-266.83%}
-.legacy-notes{display:flex;gap:56px;width:100%;max-width:var(--maxw);flex-wrap:wrap}
-.note{flex:1 1 300px;max-width:380px;display:flex;flex-direction:column;gap:16px}
+.note{display:flex;flex-direction:column;gap:16px}
 .note__title{display:flex;align-items:center;gap:8px}
 .note__title img{width:24px;height:24px;flex-shrink:0}
 .note__title .label{font-size:20px;letter-spacing:2px}
@@ -133,11 +133,15 @@ body.page-priordei{font-family:var(--aktiv)}
   position:absolute;inset:0;width:100%;height:100%;object-fit:fill;
   z-index:2;pointer-events:none;
 }
+/* respaldo oscuro tras el vídeo: tapa el fino fleco blanco del borde sin agrandar el vídeo */
+.ipad__screen{
+  position:absolute;left:2.8%;top:4.3%;width:94.5%;height:91.6%;
+  background:#1c1d17;z-index:0;
+}
 .ipad__video{
-  /* subido un poco para que se vean las letras de abajo, sin cortar el chip de arriba */
-  position:absolute;left:3.5%;top:3.3%;width:93%;height:91.4%;
+  position:absolute;left:3.87%;top:5.45%;width:92.26%;height:89.1%;
   object-fit:cover;object-position:center;
-  z-index:1;display:block;background:#000;
+  z-index:1;display:block;background:#1c1d17;
 }
 .cols3{display:flex;gap:56px;width:100%;max-width:var(--maxw);flex-wrap:wrap}
 .cols3>div{flex:1 1 300px;max-width:380px;display:flex;flex-direction:column;gap:16px}
@@ -318,10 +322,11 @@ body.page-priordei{font-family:var(--aktiv)}
   .impact{padding:48px 24px}
   .impact__grid{flex-direction:column;gap:40px}
   .impact__stat{max-width:none}
-  .legacy-imgs{flex-direction:column;align-items:stretch}
-  .legacy-card{max-width:none}
-  .legacy-notes,.cols3{flex-direction:column}
-  .note,.cols3>div{max-width:none}
+  /* Móvil: se intercala imagen → texto → imagen → texto → imagen → texto */
+  .legacy-grid{flex-direction:column}
+  .legacy-col{flex:none;max-width:none;gap:24px}
+  .cols3{flex-direction:column}
+  .cols3>div{max-width:none}
   .band__title,.band__left,.others__title,.catalog__title{font-size:26px}
   .catalog__row{flex-direction:column;gap:48px}
   /* En móvil deja de ser sticky: los textos se muestran arriba y las imágenes debajo */
