@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Milena Jasso · Portafolio</title>
-<meta name="description" content="Construyo marcas que conecten con las personas y que tengan un impacto positivo en el mundo.">
-<link rel="stylesheet" href="css/styles.css">
+<meta name="description" content="Where functional UX meets strategic branding. I translate business goals into high-conversion digital experiences that connect with people and scale businesses.">
+<link rel="stylesheet" href="css/styles.css?v=5">
 </head>
 <body>
 
@@ -13,24 +13,26 @@
   <a class="header__logo" href="#" aria-label="Milena Jasso — inicio">
     <img src="assets/logo-mj.png" alt="Milena Jasso" width="47" height="57">
   </a>
-  <nav class="nav" aria-label="Principal">
-    <a href="#">Home</a>
+  <button class="header__toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-nav">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="nav" id="primary-nav" aria-label="Principal">
     <a href="#">About</a>
     <a href="#work">Work</a>
-    <a href="#">Services</a>
-    <a href="#footer">Say hello!</a>
   </nav>
 </header>
 
 <main>
   <section class="hero" aria-label="Presentación">
-    <img class="hero__badge" src="assets/badge.gif" alt="Available for exciting projects">
-    <img class="hero__wordmark" src="assets/wordmark.png"
-         alt="MILENA JASSO — Branding lover, gastronomy and fashion enthusiastic">
+    <div class="hero__inner">
+      <img class="hero__badge" src="assets/badge.gif" alt="Available for exciting projects">
+      <img class="hero__wordmark" src="assets/wordmark.png"
+           alt="MILENA JASSO — Branding lover, gastronomy and fashion enthusiastic">
+    </div>
   </section>
 
   <section class="intro">
-    <h1 class="intro__title">Construyo marcas que conecten con las personas y que tengan un impacto positivo en el mundo</h1>
+    <h1 class="intro__title">Where functional <strong>UX</strong> meets strategic <strong>branding.</strong><br>I translate business goals into high-conversion digital experiences that connect with people and scale businesses.</h1>
   </section>
 
   <section class="work" id="work" aria-label="Proyectos">
@@ -38,33 +40,36 @@
       <div class="project__info">
         <div class="project__head">
           <h2 class="project__name">PRIORDEI</h2>
-          <span class="project__tag">Diseño web</span>
+          <span class="project__divider" aria-hidden="true"></span>
+          <span class="project__tag">Website</span>
         </div>
-        <p class="project__desc">Construyo marcas que conecten con las personas y que tengan un impacto positivo en el mundo</p>
-        <a class="project__link" href="#">Ver proyecto</a>
+        <p class="project__desc">Bringing premium oil to the digital top shelf.<br>Redesigning the e-commerce experience to turn Priordei's rich heritage into intuitive, high-converting customer journeys.</p>
+        <a class="project__link" href="#">View project</a>
       </div>
       <img class="project__img" src="assets/work-priordei.png" alt="Proyecto PRIORDEI">
     </article>
 
-    <article class="project project--reverse">
+    <article class="project">
+      <img class="project__img" src="assets/work-priordei.png" alt="Proyecto PRIORDEI">
       <div class="project__info">
         <div class="project__head">
           <h2 class="project__name">PRIORDEI</h2>
-          <span class="project__tag">Diseño web</span>
+          <span class="project__divider" aria-hidden="true"></span>
+          <span class="project__tag">Website</span>
         </div>
-        <p class="project__desc">Construyo marcas que conecten con las personas y que tengan un impacto positivo en el mundo</p>
+        <p class="project__desc">Bringing premium oil to the <strong>digital top shelf.</strong><br>Redesigning the e-commerce experience to turn Priordei's rich heritage into intuitive, high-converting customer journeys.</p>
         <a class="project__link" href="#">Ver proyecto</a>
       </div>
-      <img class="project__img" src="assets/work-priordei.png" alt="Proyecto PRIORDEI">
     </article>
 
     <article class="project">
       <div class="project__info">
         <div class="project__head">
           <h2 class="project__name">PRIORDEI</h2>
-          <span class="project__tag">Diseño web</span>
+          <span class="project__divider" aria-hidden="true"></span>
+          <span class="project__tag">Website</span>
         </div>
-        <p class="project__desc">Construyo marcas que conecten con las personas y que tengan un impacto positivo en el mundo</p>
+        <p class="project__desc">Bringing premium oil to the <strong>digital top shelf.</strong><br>Redesigning the e-commerce experience to turn Priordei's rich heritage into intuitive, high-converting customer journeys.</p>
         <a class="project__link" href="#">Ver proyecto</a>
       </div>
       <img class="project__img" src="assets/work-priordei.png" alt="Proyecto PRIORDEI">
@@ -72,32 +77,50 @@
   </section>
 </main>
 
-<footer class="footer" id="footer">
-  <div class="footer__top">
-    <div class="footer__contact">
-      <p>Barcelona</p>
-      <p><a href="mailto:hello@alosdesign.com">hello@alosdesign.com</a></p>
+<footer class="site-footer" id="footer">
+  <div class="site-footer__top">
+    <div class="site-footer__col">
+      <p class="site-footer__head">Descubre el studio</p>
+      <nav class="site-footer__links" aria-label="Secciones">
+        <a href="#">HOME</a>
+        <a href="#">ABOUT</a>
+        <a href="#work">WORK</a>
+      </nav>
     </div>
-    <nav class="footer__sitemap" aria-label="Secciones">
-      <a href="#work">WORKS</a>
-      <a href="#">STUDIO</a>
-      <a href="#footer">CONTACT</a>
-    </nav>
-    <nav class="footer__social" aria-label="Redes sociales">
-      <a href="#">Instagram</a>
-      <a href="#">Linkedin</a>
-    </nav>
+    <a class="site-footer__logo" href="#" aria-label="Milena Jasso — inicio">
+      <img src="assets/logo-mj.png" alt="Milena Jasso" width="72" height="87">
+    </a>
+    <div class="site-footer__col">
+      <p class="site-footer__head">Contacto</p>
+      <nav class="site-footer__links" aria-label="Contacto">
+        <a href="#">LINKEDIN</a>
+        <a href="mailto:milena.jasso@gmail.com">milena.jasso@gmail.com</a>
+      </nav>
+    </div>
   </div>
-
-  <div class="footer__legal">
-    <nav class="footer__legal-links" aria-label="Legal">
-      <a href="#">Aviso legal</a>
-      <a href="#">Política de privacidad</a>
-      <a href="#">Política de cookies</a>
-    </nav>
-    <p class="footer__copy">Copyright 2026</p>
+  <div class="site-footer__bottom">
+    <p class="site-footer__tagline">Where strategic UX meets high-conversion design—connecting people and scaling businesses through intuitive digital experiences.</p>
+    <p class="site-footer__copy">Copyright 2026</p>
   </div>
 </footer>
+
+<script>
+  // Menú hamburguesa (solo visible en móvil)
+  (function () {
+    var btn = document.querySelector('.header__toggle');
+    if (!btn) return;
+    var header = btn.closest('.header');
+    function setOpen(open) {
+      header.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    }
+    btn.addEventListener('click', function () { setOpen(!header.classList.contains('is-open')); });
+    header.querySelectorAll('.nav a').forEach(function (a) {
+      a.addEventListener('click', function () { setOpen(false); });
+    });
+  })();
+</script>
 
 </body>
 </html>

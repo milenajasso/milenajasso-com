@@ -1,0 +1,333 @@
+/* Milena Jasso — Caso de estudio "Priordei" (Figma node 152:415)
+   Tipografías del diseño:
+     · Títulos display -> "Editor's Note" (serif). Sustituido por Fraunces,
+       un serif editorial muy cercano, servido localmente en woff2.
+     · Cuerpo / UI    -> "Aktiv Grotesk" (grotesca neutra). Sustituido por la
+       pila Helvetica Neue/Arial (prácticamente idéntica a Aktiv Grotesk).
+     · Copyright      -> Lato (ya en styles.css). */
+
+/* ---- Fuentes reales del diseño ---- */
+@font-face{font-family:'Editor\'s Note';font-weight:400;font-style:normal;font-display:swap;
+  src:url("../assets/fonts/EditorsNote-Regular.woff2") format("woff2")}
+@font-face{font-family:'Editor\'s Note';font-weight:400;font-style:italic;font-display:swap;
+  src:url("../assets/fonts/EditorsNote-Italic.woff2") format("woff2")}
+@font-face{font-family:'Aktiv Grotesk';font-weight:400;font-style:normal;font-display:swap;
+  src:url("../assets/fonts/AktivGrotesk-Regular.woff2") format("woff2")}
+@font-face{font-family:'Aktiv Grotesk';font-weight:500;font-style:normal;font-display:swap;
+  src:url("../assets/fonts/AktivGrotesk-Medium.woff2") format("woff2")}
+@font-face{font-family:'Aktiv Grotesk';font-weight:700;font-style:normal;font-display:swap;
+  src:url("../assets/fonts/AktivGrotesk-Bold.woff2") format("woff2")}
+@font-face{font-family:'Newsreader';font-weight:400;font-style:italic;font-display:swap;
+  src:url("../assets/fonts/Newsreader-Italic.woff2") format("woff2")}
+
+:root{
+  --gray600:#656565;
+  --gray100:#efefef;
+  --f5:#f5f5f5;
+  --band-elevating:#f3f4f1;
+  --band-new:#e8e2d2;
+  --serif:'Editor\'s Note',Georgia,'Times New Roman',serif;
+  --aktiv:'Aktiv Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+/* Toda la página usa la grotesca (Aktiv Grotesk -> Helvetica) */
+body.page-priordei{font-family:var(--aktiv)}
+
+/* La cabecera de esta página no lleva fondo rosa y usa menos padding vertical */
+.page-priordei .header{background:transparent;padding-top:16px;padding-bottom:16px}
+.page-priordei .nav{font-family:var(--aktiv)}
+.page-priordei .footer__copy{font-family:var(--legal)}
+
+/* ---- Utilidades tipográficas ---- */
+.display{font-family:var(--serif);font-weight:400;color:var(--ink)}
+.label{font-family:var(--aktiv);font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:var(--ink)}
+
+/* ---- Contenedor del caso (contenido interior = 1280) ---- */
+.case{max-width:calc(var(--maxw) + 2*var(--gutter));margin:0 auto;padding:80px var(--gutter) 0}
+
+/* ---- Hero del caso ---- */
+.case-hero{display:flex;flex-direction:column;align-items:center;gap:80px}
+.case-hero__head{display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center;max-width:640px}
+.case-hero__title{font-family:var(--serif);font-weight:400;font-size:64px;line-height:1.05;color:var(--ink)}
+.case-hero__tagline{font-weight:700;font-size:20px;color:var(--ink)}
+.case-hero__tags{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:20px;
+  font-size:16px;text-transform:uppercase;color:var(--ink);
+}
+
+.case-hero__body{display:flex;flex-direction:column;gap:160px;width:100%}
+
+/* Mockup del hero: fondo de ramas de olivo + tarjeta navegador */
+.shot{
+  position:relative;width:100%;aspect-ratio:1280/750;overflow:hidden;
+  background:url("../assets/priordei/rect68.png") center/cover no-repeat;
+}
+.shot__card{
+  position:absolute;left:6.56%;top:16.13%;width:88.75%;height:83.87%;
+  background:#fff;border-radius:11px 11px 0 0;overflow:hidden;
+  box-shadow:0 24px 60px rgba(41,41,41,.18);
+}
+.shot__card img{display:block;width:100%;height:auto}
+.shot__card video{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+
+/* Frase serif grande */
+.case-lead{
+  font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.3;
+  text-align:center;max-width:1064px;margin:0 auto;color:var(--ink);
+}
+
+/* Brief */
+.case-brief{display:flex;flex-direction:column;gap:64px}
+.case-brief__cols{display:flex;justify-content:space-between;gap:56px;align-items:flex-start}
+.case-brief__text{display:flex;flex-direction:column;gap:32px;max-width:738px}
+.case-brief__block{display:flex;flex-direction:column;gap:16px}
+.case-brief__block .label{font-size:20px}
+.case-brief__block p{font-size:20px;line-height:1.5;color:var(--ink)}
+.case-brief__meta{display:flex;flex-direction:column;gap:56px;align-items:flex-start;width:160px;flex-shrink:0}
+.case-brief__meta .label{font-size:18px;letter-spacing:1.2px}
+.case-brief__meta p{font-size:20px;color:var(--ink);margin-top:16px}
+.case-brief__link{font-size:18px;color:var(--gray600);text-decoration:underline;text-underline-position:from-font}
+.case-brief__link:hover{color:var(--ink)}
+
+/* Caja de impacto */
+.impact{background:var(--f5);padding:80px 40px;display:flex;flex-direction:column;gap:56px}
+.impact>.label{font-size:20px}
+.impact__grid{display:flex;justify-content:space-between;gap:56px;align-items:flex-start}
+.impact__stat{display:flex;flex-direction:column;gap:16px;flex:1;max-width:373px}
+.impact__num{font-family:var(--aktiv);font-weight:500;font-size:56px;line-height:1;color:var(--ink)}
+.impact__cap{font-size:20px;color:var(--ink)}
+.impact__desc{font-size:16px;line-height:1.5;color:var(--gray600)}
+
+/* ---- Bandas a ancho completo ---- */
+.band{
+  width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;
+  padding:120px var(--gutter);
+  display:flex;flex-direction:column;align-items:center;gap:56px;
+}
+.band--elevating{background:var(--band-elevating)}
+.band--new{background:var(--band-new)}
+.band__inner{width:100%;max-width:var(--maxw);display:flex;flex-direction:column;align-items:center;gap:56px}
+.band__head{display:flex;flex-direction:column;gap:20px;text-align:center;max-width:1000px}
+.band__title{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.3;color:var(--ink)}
+.band__sub{font-size:20px;line-height:1.5;color:var(--ink)}
+.band__left{align-self:flex-start;font-size:40px}
+
+/* Legacy audit */
+.legacy-imgs{display:flex;gap:56px;justify-content:center;width:100%;flex-wrap:wrap}
+.legacy-card{background:var(--gray100);padding:20px;flex:1 1 348px;max-width:388px}
+.legacy-shot{position:relative;width:100%;aspect-ratio:348/292;overflow:hidden}
+.legacy-shot img{position:absolute;left:0;width:100%;height:449.43%;object-fit:cover;object-position:top}
+.legacy-shot--1 img{top:-20.55%}
+.legacy-shot--2 img{top:-133.82%}
+.legacy-shot--3 img{top:-266.83%}
+.legacy-notes{display:flex;gap:56px;width:100%;max-width:var(--maxw);flex-wrap:wrap}
+.note{flex:1 1 300px;max-width:380px;display:flex;flex-direction:column;gap:16px}
+.note__title{display:flex;align-items:center;gap:8px}
+.note__title img{width:24px;height:24px;flex-shrink:0}
+.note__title .label{font-size:20px;letter-spacing:2px}
+.note p{font-size:20px;line-height:1.5;color:var(--ink)}
+
+/* iPad al tamaño de Figma: marco 964x616 (estirado como en el diseño) + vídeo llenando la pantalla (877x544 @ 43,33) */
+.ipad{position:relative;width:min(964px,100%);aspect-ratio:964/616}
+.ipad__frame{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:fill;
+  z-index:2;pointer-events:none;
+}
+.ipad__video{
+  /* subido un poco para que se vean las letras de abajo, sin cortar el chip de arriba */
+  position:absolute;left:3.5%;top:3.3%;width:93%;height:91.4%;
+  object-fit:cover;object-position:center;
+  z-index:1;display:block;background:#000;
+}
+.cols3{display:flex;gap:56px;width:100%;max-width:var(--maxw);flex-wrap:wrap}
+.cols3>div{flex:1 1 300px;max-width:380px;display:flex;flex-direction:column;gap:16px}
+.cols3 .label{font-size:20px;letter-spacing:2px}
+.cols3 p{font-size:20px;line-height:1.5;color:var(--ink)}
+
+/* New homepage con vídeo */
+.browser{
+  width:min(1083px,100%);border-radius:8px;overflow:hidden;
+  box-shadow:0 30px 70px rgba(41,41,41,.22);background:#fff;aspect-ratio:1084/610;
+}
+.browser video{display:block;width:100%;height:100%;object-fit:cover}
+
+/* ---- Reflections & key takeaways (Figma 236:2219): banner verde + 3 conclusiones ---- */
+.reflections{
+  width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;
+  background:#f3f4f1;
+  padding:120px var(--gutter);
+  display:flex;flex-direction:column;align-items:center;gap:56px;
+}
+.reflections__banner{position:relative;width:1281px;max-width:100%;aspect-ratio:1281/643;overflow:hidden}
+.reflections__banner-bg{position:absolute;inset:0;background:#343828}
+.reflections__mock{position:absolute;overflow:hidden}
+.reflections__mock img{position:absolute;max-width:none;display:block}
+.reflections__mock--1{left:-8.63%;top:3.73%;width:52.85%;height:76.21%}
+.reflections__mock--1 img{left:-60.91%;top:-65.84%;width:222.97%;height:231.15%}
+.reflections__mock--2{left:56.6%;top:19.6%;width:51.83%;height:73.56%}
+.reflections__mock--2 img{left:-63.42%;top:-69.46%;width:226.67%;height:238.69%}
+.reflections__title{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.3;color:var(--ink);width:100%;max-width:var(--maxw)}
+.reflections__grid{display:flex;gap:70px;width:100%;max-width:var(--maxw)}
+.reflections__item{flex:1 1 0;min-width:0;display:flex;gap:11px;align-items:flex-start}
+.reflections__item>img{width:24px;height:24px;flex-shrink:0}
+.reflections__item-body{display:flex;flex-direction:column;gap:10px;min-width:0}
+.reflections__item-body .label{font-size:20px;letter-spacing:2.4px}
+.reflections__item-body p{font-family:var(--aktiv);font-size:20px;line-height:1.5;color:var(--ink)}
+@media (max-width:860px){
+  .reflections__grid{flex-direction:column;gap:32px}
+}
+
+/* ---- Cita de marca + vídeo recolección (Figma 231:2049): banda verde oscura ---- */
+.brandquote{
+  width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;
+  background:#343828;
+  padding:120px var(--gutter);
+  display:flex;justify-content:center;
+}
+.brandquote__stage{position:relative;width:1281px;max-width:100%;aspect-ratio:1281/750;display:flex;gap:1.8%;align-items:center}
+.brandquote__photo{width:49.18%;height:100%;flex-shrink:0;position:relative;overflow:hidden}
+.brandquote__photo img{position:absolute;top:0;left:0;width:100%;height:auto;display:block}
+.brandquote__col{width:49.02%;height:100%;flex-shrink:0;display:flex;flex-direction:column;gap:2.8%}
+.brandquote__quote{width:100%;height:49.2%;background:#747b0e;display:flex;align-items:center;justify-content:center;padding:10px}
+.brandquote__quote-inner{width:67.7%;display:flex;flex-direction:column;align-items:center;gap:32px}
+.brandquote__icon{width:36px;height:34px;flex-shrink:0}
+.brandquote__text{font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:400;font-size:20px;line-height:1.4;text-align:center;color:#fcfcfc}
+.brandquote__video{width:100%;height:48%;overflow:hidden;background:#000}
+.brandquote__video video{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:860px){
+  .brandquote__stage{flex-direction:column;aspect-ratio:auto;gap:24px}
+  .brandquote__photo{width:100%;height:auto;aspect-ratio:630/750}
+  .brandquote__col{width:100%;gap:24px}
+  .brandquote__quote{height:auto;padding:48px 24px}
+  .brandquote__quote-inner{width:100%;max-width:425px}
+  .brandquote__video{height:auto;aspect-ratio:628/360}
+}
+
+/* ---- Product catalog & store redesign (Figma 231:2190): antes/después ---- */
+.catalog{
+  width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;
+  padding:120px var(--gutter);
+  display:flex;flex-direction:column;align-items:center;gap:56px;
+}
+.catalog__head{display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center;max-width:1000px}
+.catalog__title{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.3;color:var(--ink)}
+.catalog__sub{font-family:var(--aktiv);font-size:20px;line-height:1.5;color:var(--ink);max-width:836px}
+.catalog__row{display:flex;gap:21px;width:100%;max-width:var(--maxw);align-items:flex-start}
+.catalog__col{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:55px}
+.catalog__card{background:var(--gray100);padding:20px;width:100%;aspect-ratio:630/900;overflow:hidden;display:flex}
+.catalog__shot{flex:1;min-height:0;width:100%;position:relative;overflow:hidden}
+.catalog__shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.catalog__note{display:flex;flex-direction:column;gap:16px}
+.catalog__note-head{display:flex;align-items:center;gap:8px}
+.catalog__note-head img{width:24px;height:24px;flex-shrink:0}
+.catalog__note-head .label{font-size:20px;letter-spacing:2.4px}
+.catalog__note p{font-family:var(--aktiv);font-size:20px;line-height:1.5;color:var(--ink)}
+
+/* ---- Sección composición (Figma 231:2183): banda #f3f4f1 a ancho completo ---- */
+.composition{
+  width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;
+  background:#f3f4f1;
+  padding:120px var(--gutter);
+  display:flex;justify-content:center;
+}
+/* Escenario a la proporción exacta del diseño (1281x750) */
+.composition__stage{position:relative;width:1281px;max-width:100%;aspect-ratio:1281/750;display:flex;gap:1.56%;align-items:flex-start}
+.composition__green{width:49.18%;height:100%;flex-shrink:0;background:#535d3c}
+.composition__col{width:49.26%;height:100%;flex-shrink:0;display:flex;flex-direction:column;gap:3.6%}
+.composition__ficha{position:relative;width:100%;height:48.13%;overflow:hidden}
+.composition__ficha-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.composition__ficha-card{
+  position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:81.6%;height:89.5%;border-radius:11px 11px 0 0;overflow:hidden;z-index:1;background:#fff;
+}
+.composition__ficha-card img{position:absolute;left:0;top:-8.25%;width:100%;height:113.27%;object-fit:cover}
+.composition__foto{position:relative;width:100%;height:48.27%;overflow:hidden}
+.composition__foto img{width:100%;height:100%;object-fit:cover;display:block}
+.composition__phone{position:absolute;left:12.02%;top:7.6%;width:25.06%;height:88.27%;overflow:hidden}
+.composition__phone img{position:absolute;left:-144.32%;top:-13.97%;width:388.64%;height:125.82%;max-width:none}
+@media (max-width:860px){
+  .composition__stage{flex-direction:column;aspect-ratio:auto;gap:24px}
+  .composition__green{display:none}
+  .composition__col{width:100%;gap:24px}
+  .composition__ficha{height:auto;aspect-ratio:631/361}
+  .composition__foto{height:auto;aspect-ratio:631/362}
+  .composition__phone{position:static;width:70%;max-width:320px;height:auto;aspect-ratio:321/662;margin:0 auto;order:-1}
+}
+
+/* ---- Beyond the product (banda verde, texto sticky que se activa segun la imagen visible) ---- */
+/* Banda a ancho completo (rompe el gutter de .case) con fondo verde oliva */
+.others{
+  width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;
+  background:#4a4d3b;color:#fcfcfc;
+  padding:120px var(--gutter);
+}
+.others__title{
+  font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.3;text-align:center;
+  color:#fcfcfc;max-width:var(--maxw);margin:0 auto 96px;
+}
+.others__row{display:flex;gap:80px;align-items:flex-start;max-width:var(--maxw);margin:0 auto}
+.others__sticky{
+  position:sticky;top:120px;align-self:flex-start;
+  width:300px;flex-shrink:0;
+  display:flex;flex-direction:column;gap:48px;
+}
+.others__step{display:flex;flex-direction:column;gap:12px;transition:opacity .4s ease}
+.others__step:not(.is-active){opacity:.4}
+.others__num{font-family:var(--aktiv);font-weight:700;font-size:14px;letter-spacing:1.8px;text-transform:uppercase;color:#fcfcfc}
+.others__text{font-family:var(--aktiv);font-size:16px;line-height:1.55;color:#fcfcfc}
+.others__media{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:64px}
+.others__img{display:block;width:100%;height:auto}
+
+.footer{margin-top:120px}
+
+/* ---- Reveal al hacer scroll (aparición suave) ---- */
+.reveal-on .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.61,.36,1)}
+.reveal-on .reveal.is-visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal-on .reveal{opacity:1!important;transform:none!important;transition:none!important}
+}
+
+/* El footer (.site-footer) ahora está en styles.css, compartido con index.html */
+
+/* ---- Responsive ---- */
+@media (max-width:1180px){
+  .others__row{gap:80px}
+}
+@media (max-width:1024px){
+  :root{--gutter:48px}
+  .case{padding-top:48px}
+  .case-hero{gap:56px}
+  .case-hero__body{gap:100px}
+  .case-hero__title{font-size:52px}
+  .case-lead{font-size:32px}
+  .band{padding:80px var(--gutter)}
+  .band__title,.band__left,.others__title{font-size:32px}
+  .case-brief__cols{gap:40px}
+  .impact__num{font-size:44px}
+  .footer{margin-top:80px}
+}
+@media (max-width:768px){
+  :root{--gutter:24px}
+  /* El header/nav móvil (hamburguesa) lo controla styles.css */
+  .case-hero__title{font-size:40px}
+  .case-hero__tags{font-size:14px;gap:12px}
+  .case-lead{font-size:26px}
+  .case-hero__body{gap:72px}
+  .case-brief__cols{flex-direction:column;gap:32px}
+  .case-brief__meta{width:100%}
+  .impact{padding:48px 24px}
+  .impact__grid{flex-direction:column;gap:40px}
+  .impact__stat{max-width:none}
+  .legacy-imgs{flex-direction:column;align-items:stretch}
+  .legacy-card{max-width:none}
+  .legacy-notes,.cols3{flex-direction:column}
+  .note,.cols3>div{max-width:none}
+  .band__title,.band__left,.others__title,.catalog__title{font-size:26px}
+  .catalog__row{flex-direction:column;gap:48px}
+  /* En móvil deja de ser sticky: los textos se muestran arriba y las imágenes debajo */
+  .others__title{margin-bottom:48px}
+  .others__row{flex-direction:column;gap:40px}
+  .others__sticky{position:static;width:100%;gap:32px}
+  .others__step:not(.is-active){opacity:1}
+  .others__media{width:100%}
+}
