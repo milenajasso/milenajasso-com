@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Priordei · Case study — Milena Jasso</title>
 <meta name="description" content="Priordei — Where heritage meets high-conversion UX. Redesigning the e-commerce experience to turn Priordei's rich heritage into intuitive, high-converting customer journeys.">
-<link rel="stylesheet" href="css/styles.css?v=5">
-<link rel="stylesheet" href="css/priordei.css?v=51">
+<link rel="stylesheet" href="css/styles.css?v=6">
+<link rel="stylesheet" href="css/priordei.css?v=55">
 </head>
 <body class="page-priordei">
 
@@ -14,14 +14,35 @@
   <a class="header__logo" href="index.html" aria-label="Milena Jasso — inicio">
     <img src="assets/logo-mj.png" alt="Milena Jasso" width="47" height="57">
   </a>
-  <button class="header__toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-nav">
-    <span></span><span></span><span></span>
+  <button class="header__toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-menu">
+    <span></span><span></span>
   </button>
   <nav class="nav" id="primary-nav" aria-label="Principal">
     <a href="#">About</a>
     <a href="index.html#work">Work</a>
   </nav>
 </header>
+
+<!-- Menú móvil a pantalla completa (Figma 277:393) -->
+<div class="menu" id="primary-menu" aria-hidden="true">
+  <div class="menu__bar">
+    <a class="menu__logo" href="index.html" aria-label="Milena Jasso — inicio">
+      <img src="assets/logo-mj.png" alt="Milena Jasso">
+    </a>
+    <button class="menu__close" type="button" aria-label="Cerrar menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="menu__links" aria-label="Menú principal">
+    <a href="index.html">ABOUT</a>
+    <a href="index.html#work">WORK</a>
+    <a href="#footer">CONTACT</a>
+  </nav>
+  <div class="menu__foot">
+    <p class="menu__foot-title">Let´s work together</p>
+    <a class="menu__foot-mail" href="mailto:milena.jasso@gmail.com">milena.jasso@gmail.com</a>
+  </div>
+</div>
 
 <main class="case">
   <article class="case-hero">
@@ -209,7 +230,8 @@
         </div>
       </div>
       <div class="composition__phone">
-        <img src="assets/priordei/montaje-mobile.png" alt="Priordei — versión móvil">
+        <img class="composition__phone-desktop" src="assets/priordei/montaje-mobile.png" alt="Priordei — versión móvil">
+        <img class="composition__phone-mobile" src="assets/priordei/montaje-phone.png" alt="Priordei — versión móvil">
       </div>
     </div>
   </section>
@@ -378,20 +400,24 @@
 </footer>
 
 <script>
-  // Menú hamburguesa (solo visible en móvil)
+  // Menú móvil a pantalla completa (solo visible en móvil)
   (function () {
     var btn = document.querySelector('.header__toggle');
-    if (!btn) return;
-    var header = btn.closest('.header');
+    var menu = document.getElementById('primary-menu');
+    if (!btn || !menu) return;
     function setOpen(open) {
-      header.classList.toggle('is-open', open);
+      document.body.classList.toggle('menu-open', open);
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       btn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      menu.setAttribute('aria-hidden', open ? 'false' : 'true');
     }
-    btn.addEventListener('click', function () { setOpen(!header.classList.contains('is-open')); });
-    header.querySelectorAll('.nav a').forEach(function (a) {
+    btn.addEventListener('click', function () { setOpen(!document.body.classList.contains('menu-open')); });
+    var closeBtn = menu.querySelector('.menu__close');
+    if (closeBtn) closeBtn.addEventListener('click', function () { setOpen(false); });
+    menu.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () { setOpen(false); });
     });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
   })();
 </script>
 
