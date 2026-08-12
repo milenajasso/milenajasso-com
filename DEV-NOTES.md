@@ -22,12 +22,15 @@ DEV-NOTES.md            # este archivo (raíz del repo, FUERA de web/ — web/ e
 web/
   index.html            # Home (Milena Jasso)
   priordei.html         # Case study Priordei
+  centro-medico.html    # Case study Centro Médico Catalunya
   css/
     styles.css          # Compartido por TODAS las páginas (header, footer, menú, tokens)
     priordei.css        # Estilos SOLO de priordei.html
+    centro-medico.css   # Estilos SOLO de centro-medico.html
   assets/
     fonts/              # .woff2 (ver §3)
-    priordei/           # imágenes y vídeos del case study
+    priordei/           # imágenes y vídeos del case study Priordei
+    centro-medico/      # imágenes/vídeo del case study Centro Médico Catalunya
     logo-mj.png, wordmark.png, badge.gif, ...
 ```
 > Este documento vive en la **raíz del repo**, no en `web/`, porque `web/` es exactamente
@@ -42,8 +45,9 @@ web/
 ### Cache-busting (IMPORTANTE)
 Cada `<link>` de CSS lleva `?v=N`. **Cada vez que edites un CSS, sube el número** o el
 navegador (y el preview) sirven la versión cacheada. Estado actual:
-- `styles.css?v=6`
+- `styles.css?v=8`
 - `priordei.css?v=55`
+- `centro-medico.css?v=5`
 
 ---
 
@@ -158,6 +162,14 @@ a los hermanos con `flex-shrink:1`.
 - **Síntoma:** elementos "encimados"/solapados; uno de ellos con alto 0.
 - **Fix:** en la media query resetea `height:auto` y `flex:none` en los hijos que apilas.
 - Ya pasó en `.composition` (la `.composition__col` conservaba `height:100%`).
+
+### 5.5 Apóstrofo escapado en una CUSTOM PROPERTY rompe el parseo
+Definir `--serif:'Editor\'s Note', ...` (apóstrofo escapado con `\'` dentro de un valor
+de variable) **rompe el parser CSS** y descarta silenciosamente TODAS las reglas que van
+después del bloque (aunque `--maxw`, etc. sí resuelvan). Síntoma: la mitad del CSS "no
+aplica" sin error visible. **Fix:** usa comillas dobles: `--serif:"Editor's Note", ...`.
+(En `@font-face` el `'Editor\'s Note'` sí funciona; el problema es solo en custom properties.)
+Ya pasó al crear `centro-medico.css`.
 
 ### 5.4 Regla general al apilar en móvil
 Cuando un layout de escritorio (row, con %/aspect-ratio/height:100%) pasa a columna en

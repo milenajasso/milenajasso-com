@@ -1,0 +1,466 @@
+/* Centro Médico Catalunya — case study
+   Carga DESPUÉS de styles.css (comparte header, footer, menú y tokens).
+   Figma 352:2971 (1440 wide). Cambios responsive: solo en @media (max-width:768px). */
+
+/* ---- Fuentes ---- */
+@font-face{font-family:'Editor\'s Note';font-weight:400;font-style:normal;font-display:swap;
+  src:url("../assets/fonts/EditorsNote-Regular.woff2") format("woff2")}
+@font-face{font-family:'Editor\'s Note';font-weight:400;font-style:italic;font-display:swap;
+  src:url("../assets/fonts/EditorsNote-Italic.woff2") format("woff2")}
+@font-face{font-family:'Aktiv Grotesk';font-weight:400;font-style:normal;font-display:swap;
+  src:url("../assets/fonts/AktivGrotesk-Regular.woff2") format("woff2")}
+@font-face{font-family:'Aktiv Grotesk';font-weight:500;font-style:normal;font-display:swap;
+  src:url("../assets/fonts/AktivGrotesk-Medium.woff2") format("woff2")}
+@font-face{font-family:'Aktiv Grotesk';font-weight:700;font-style:normal;font-display:swap;
+  src:url("../assets/fonts/AktivGrotesk-Bold.woff2") format("woff2")}
+
+/* ---- Tokens locales ---- */
+.page-cmc{
+  --ink:#292929;
+  --g200:#DCDCDC; --g400:#989898; --g500:#7C7C7C; --g600:#656565;
+  --gold:#F7BF0A;      /* yellow 1 */
+  --gold-2:#DB9404;    /* yellow 2 */
+  --cream:#FBEFC6;     /* tarjeta "Cita online" */
+  --orange:#B56A08;    /* forma hero / doctor */
+  --brown:#6E2F14;     /* banda "Expanding" + reflections */
+  --serif:"Editor's Note", Georgia, "Times New Roman", serif;
+  --ui:"Aktiv Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --maxw:1280px;
+  --gutter:80px;
+  background:#FCFCFC;
+  font-family:var(--ui);
+}
+
+/* Reveal on scroll */
+.reveal-on .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal-on .reveal.is-visible{opacity:1;transform:none}
+
+/* ---- Utilidades comunes ---- */
+.cmc{display:block}
+.cmc-label{
+  font-family:var(--ui);font-weight:700;font-size:20px;line-height:1.2;color:var(--ink);
+  margin-bottom:16px;
+}
+.cmc-section-title{
+  font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.28;color:var(--ink);
+  letter-spacing:-.01em;
+}
+.cmc-section-title--left{text-align:left}
+.cmc-section-sub{
+  font-family:var(--ui);font-weight:400;font-size:20px;line-height:1.35;color:var(--g600);
+  margin-top:16px;
+}
+.cmc-head{
+  max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter);
+  text-align:center;
+}
+.cmc-head .cmc-section-title{max-width:1100px;margin:0 auto}
+.cmc-head--light .cmc-section-title{color:#FCFCFC}
+.cmc-head--light .cmc-section-sub{color:rgba(252,252,252,.75)}
+
+/* Punto/tarjeta de texto con título en mayúsculas */
+.cmc-point__title{
+  font-family:var(--ui);font-weight:700;font-size:16px;line-height:1.3;letter-spacing:.02em;
+  text-transform:uppercase;color:var(--ink);margin-bottom:14px;
+}
+.cmc-point__text{
+  font-family:var(--ui);font-weight:400;font-size:16px;line-height:1.5;color:var(--g600);
+}
+
+/* ============ HERO ============ */
+.cmc-hero{max-width:var(--maxw);margin:0 auto;padding:56px var(--gutter) 0}
+.cmc-hero__head{text-align:center;max-width:640px;margin:0 auto}
+.cmc-eyebrow{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px;
+  font-family:var(--ui);font-weight:700;font-size:13px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink);margin-bottom:26px;
+}
+.cmc-eyebrow__sep{color:var(--g400);font-weight:400}
+.cmc-hero__title{
+  font-family:var(--serif);font-weight:400;font-size:64px;line-height:1.05;color:var(--ink);
+  letter-spacing:-.02em;
+}
+.cmc-hero__tagline{
+  font-family:var(--ui);font-weight:700;font-size:20px;line-height:1.3;color:var(--ink);
+  margin-top:18px;
+}
+
+/* Media block (vídeo + panel naranja con móvil) */
+.cmc-hero__media{
+  position:relative;margin-top:52px;width:100%;
+  aspect-ratio:1281/750;border-radius:8px;overflow:hidden;background:#e9e9e9;
+}
+.cmc-hero__video{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+}
+.cmc-hero__panel{
+  position:absolute;right:0;bottom:0;
+  width:34.3%;height:52.8%;
+  background:var(--orange);
+  border-top-left-radius:min(20vw,260px);
+}
+.cmc-hero__phone{
+  position:absolute;right:12%;bottom:0;width:auto;
+  height:118%;max-width:none;
+  filter:drop-shadow(0 18px 40px rgba(0,0,0,.28));
+}
+
+/* Lead serif centrado */
+.cmc-lead{
+  font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.3;color:var(--ink);
+  text-align:center;max-width:1064px;margin:120px auto 0;letter-spacing:-.01em;
+}
+
+/* Brief: Product/Challenge/Solution + meta */
+.cmc-brief{
+  display:flex;justify-content:space-between;gap:48px;
+  margin-top:110px;
+}
+.cmc-brief__text{max-width:738px;display:flex;flex-direction:column;gap:32px}
+.cmc-brief__block p{font-family:var(--ui);font-size:16px;line-height:1.5;color:var(--g600)}
+.cmc-brief__meta{flex:0 0 160px;display:flex;flex-direction:column;gap:56px}
+.cmc-brief__role{font-family:var(--ui);font-size:20px;color:var(--ink)}
+.cmc-brief__link{
+  font-family:var(--ui);font-size:18px;color:var(--g600);
+  text-decoration:underline;text-underline-position:from-font;align-self:flex-start;
+}
+.cmc-brief__link:hover{color:var(--ink)}
+
+/* Impact band (gris claro, full-bleed) */
+.cmc-impact{
+  margin-top:110px;
+  width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;
+  background:#F2F2F0;
+}
+.cmc-impact__inner{max-width:var(--maxw);margin:0 auto;padding:80px var(--gutter)}
+.cmc-impact__title{
+  font-family:var(--ui);font-weight:700;font-size:20px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink);margin-bottom:56px;
+}
+.cmc-impact__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:41px}
+.cmc-impact__num{
+  font-family:var(--ui);font-weight:500;font-size:56px;line-height:1;color:var(--ink);
+}
+.cmc-impact__num span{font-size:.62em}
+.cmc-impact__cap{font-family:var(--ui);font-size:20px;color:var(--ink);margin-top:18px}
+.cmc-impact__desc{font-family:var(--ui);font-size:16px;line-height:1.4;color:var(--g600);margin-top:16px}
+
+/* ============ ORIGINAL SITE DIAGNOSIS ============ */
+.cmc-diagnosis{padding:120px 0 0}
+.cmc-diagnosis__frame{
+  max-width:970px;margin:56px auto 0;padding:20px;
+  background:#fff;border-radius:8px;box-shadow:0 24px 60px rgba(0,0,0,.10);
+}
+.cmc-diagnosis__frame img{width:100%;border-radius:2px;display:block}
+.cmc-points{
+  max-width:var(--maxw);margin:64px auto 0;padding:0 var(--gutter);
+  display:grid;grid-template-columns:repeat(3,1fr);gap:15px;
+}
+.cmc-point{display:flex;gap:17px;max-width:417px}
+.cmc-point__num{font-family:var(--ui);font-weight:400;font-size:20px;color:var(--ink);flex:0 0 auto}
+
+/* ============ DRAG TO COMPARE ============ */
+.cmc-compare{padding:120px 0 0}
+.cmc-slider{
+  position:relative;max-width:760px;margin:56px auto 0;
+  aspect-ratio:1521/1792;border-radius:8px;overflow:hidden;
+  user-select:none;touch-action:none;cursor:ew-resize;
+  box-shadow:0 24px 60px rgba(0,0,0,.12);background:#eee;
+}
+.cmc-slider__img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;
+  display:block;pointer-events:none;
+}
+.cmc-slider__clip{position:absolute;inset:0;width:100%}
+/* el "antes" ocupa todo el slider y se recorta con clip-path (siempre alineado) */
+.cmc-slider__before{clip-path:inset(0 50% 0 0)}
+.cmc-slider__tag{
+  position:absolute;top:16px;z-index:3;
+  font-family:var(--ui);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:#fff;background:rgba(41,41,41,.72);padding:6px 12px;border-radius:20px;
+}
+.cmc-slider__tag--before{left:16px}
+.cmc-slider__tag--after{right:16px}
+.cmc-slider__handle{
+  position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;z-index:4;
+  transform:translateX(-1px);box-shadow:0 0 0 1px rgba(0,0,0,.06);
+}
+.cmc-slider__grip{
+  position:absolute;top:50%;left:50%;width:44px;height:44px;transform:translate(-50%,-50%);
+  background:#fff;border-radius:50%;box-shadow:0 4px 14px rgba(0,0,0,.28);cursor:ew-resize;
+  display:flex;align-items:center;justify-content:center;
+}
+.cmc-slider__grip::before,.cmc-slider__grip::after{
+  content:"";position:absolute;width:0;height:0;border-block:6px solid transparent;
+}
+.cmc-slider__grip::before{left:11px;border-right:8px solid var(--ink)}
+.cmc-slider__grip::after{right:11px;border-left:8px solid var(--ink)}
+.cmc-slider__range{
+  position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;z-index:5;
+}
+.cmc-changes{max-width:var(--maxw);margin:80px auto 0;padding:0 var(--gutter)}
+.cmc-changes__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;margin-top:40px}
+.cmc-changes__grid > div{max-width:380px}
+
+/* ============ WHERE 30 YEARS MEET DIGITAL ============ */
+.cmc-showcase{padding:120px var(--gutter) 0}
+.cmc-showcase__shots{
+  max-width:960px;margin:56px auto 0;
+  display:flex;justify-content:center;align-items:flex-end;gap:36px;
+}
+.cmc-showcase__shot{border-radius:12px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.14)}
+.cmc-showcase__shot img{width:100%;height:100%;object-fit:cover;display:block}
+.cmc-showcase__shot--1{flex:0 0 52%;aspect-ratio:513/920;margin-bottom:0}
+.cmc-showcase__shot--2{flex:0 0 40%;aspect-ratio:391/960;margin-bottom:44px}
+
+/* ============ DESIGN SYSTEM & UI FOUNDATIONS (BENTO) ============ */
+.cmc-bento-section{padding:120px var(--gutter) 0}
+.cmc-bento{
+  max-width:1015px;margin:56px auto 0;
+  display:flex;justify-content:center;align-items:flex-start;gap:33px;
+}
+.cmc-bento__col{display:flex;flex-direction:column;gap:33px}
+.cmc-bento__col:nth-child(1){flex:0 0 322px}
+.cmc-bento__col:nth-child(2){flex:0 0 347px;padding-top:0}
+.cmc-bento__col:nth-child(3){flex:0 0 280px;padding-top:139px}
+.cmc-card{background:#fff;border-radius:16px}
+
+/* Botones */
+.cmc-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--ui);font-weight:600;font-size:15px;line-height:1;
+  padding:12px 20px;border-radius:32px;cursor:pointer;transition:opacity .2s,transform .2s;
+}
+.cmc-btn:hover{opacity:.9}
+.cmc-btn--gold{background:var(--gold);color:var(--ink)}
+.cmc-btn--grey{background:#DCDCDC;color:var(--ink)}
+.cmc-btn--block{width:100%}
+.cmc-btn--center{justify-content:center}
+.cmc-btn--sm{font-size:12px;padding:8px 14px;gap:8px}
+.cmc-arrow{
+  width:20px;height:20px;border-radius:50%;border:1px solid currentColor;flex:0 0 auto;
+  position:relative;
+}
+.cmc-arrow::before{
+  content:"";position:absolute;top:50%;left:50%;width:6px;height:6px;
+  border-top:1.4px solid currentColor;border-right:1.4px solid currentColor;
+  transform:translate(-60%,-50%) rotate(45deg);
+}
+.cmc-btn--sm .cmc-arrow{width:16px;height:16px}
+
+/* Tarjeta "Cita online" */
+.cmc-card--cita{background:var(--cream);padding:36px 30px}
+.cmc-card__title{font-family:var(--ui);font-weight:700;font-size:24px;color:var(--ink)}
+.cmc-card__text{font-family:var(--ui);font-size:16px;line-height:1.4;color:var(--ink);margin:18px 0 28px;max-width:180px}
+
+/* Doctor + forma naranja */
+.cmc-doctor{position:relative;height:317px}
+.cmc-doctor__shape{
+  position:absolute;right:0;bottom:0;width:242px;height:277px;background:var(--orange);
+  border-top-left-radius:130px;
+}
+.cmc-doctor__img{
+  position:absolute;left:0;bottom:0;width:230px;height:315px;object-fit:cover;object-position:top center;
+}
+.cmc-doctor__olive{
+  position:absolute;left:0;top:24px;width:62px;height:62px;z-index:2;
+  background:url("../assets/centro-medico/olive-icon.svg") center/contain no-repeat;
+}
+
+/* Ficha de doctor (perfil) */
+.cmc-docprofile{overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.08)}
+.cmc-docprofile__media{aspect-ratio:347/251;background:#0b0b0b}
+.cmc-docprofile__body{padding:18px 20px 20px}
+.cmc-docprofile__name{font-family:var(--ui);font-weight:700;font-size:16px;color:var(--ink)}
+.cmc-docprofile__spec{font-family:var(--ui);font-size:14px;color:var(--ink);margin-top:6px}
+.cmc-docprofile__col{font-family:var(--ui);font-size:13px;color:var(--g600);margin-top:8px}
+.cmc-docprofile__actions{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.cmc-docprofile__actions .cmc-btn{padding:11px 16px;font-size:13px}
+
+/* 97% */
+.cmc-stat97{background:var(--gold-2);padding:44px 32px;text-align:center;color:#fff}
+.cmc-stat97__num{font-family:var(--ui);font-weight:700;font-size:44px;line-height:1}
+.cmc-stat97__cap{font-family:var(--ui);font-size:20px;margin-top:8px}
+
+/* Consulta sin aseguradora */
+.cmc-insurance{position:relative;aspect-ratio:347/230;overflow:hidden}
+.cmc-insurance__img{width:100%;height:100%;object-fit:cover;display:block}
+.cmc-insurance__overlay{
+  position:absolute;left:50%;bottom:-2px;transform:translateX(-50%);
+  width:78%;background:#fff;border-radius:12px 12px 0 0;padding:16px 18px 18px;text-align:center;
+  box-shadow:0 -8px 24px rgba(0,0,0,.08);
+}
+.cmc-insurance__title{font-family:var(--ui);font-weight:700;font-size:14px;color:var(--ink)}
+.cmc-insurance__text{font-family:var(--ui);font-size:12px;color:var(--g600);margin:6px 0 12px}
+
+/* Buscador */
+.cmc-search{padding:28px 26px;box-shadow:0 14px 40px rgba(0,0,0,.08)}
+.cmc-field + .cmc-field{margin-top:22px}
+.cmc-field__label{display:block;font-family:var(--ui);font-weight:700;font-size:14px;color:var(--ink);margin-bottom:12px}
+.cmc-field__select{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding-bottom:10px;border-bottom:1px solid var(--g400);
+  font-family:var(--ui);font-size:14px;color:var(--g500);
+}
+.cmc-chevron{width:16px;height:16px;flex:0 0 auto;position:relative}
+.cmc-chevron::before{
+  content:"";position:absolute;top:3px;left:3px;width:8px;height:8px;
+  border-bottom:1.5px solid var(--ink);border-right:1.5px solid var(--ink);transform:rotate(45deg);
+}
+.cmc-search .cmc-btn{margin-top:28px}
+
+/* Edificio */
+.cmc-building{position:relative;border-radius:16px;overflow:visible}
+.cmc-building__img{width:100%;aspect-ratio:280/268;object-fit:cover;border-radius:16px;display:block}
+.cmc-building__badge{
+  position:absolute;right:-8px;bottom:16px;background:var(--orange);color:#fff;
+  border-radius:12px;padding:14px 16px;min-width:130px;
+}
+.cmc-building__num{font-family:var(--ui);font-weight:700;font-size:40px;line-height:1}
+.cmc-building__label{font-family:var(--ui);font-size:14px;margin-top:6px}
+
+/* ============ MOBILE FIRST ============ */
+.cmc-mobile-section{padding:120px 0 0}
+.cmc-mobile{
+  max-width:var(--maxw);margin:56px auto 0;padding:0 var(--gutter);
+  display:grid;grid-template-columns:1fr 1fr;align-items:stretch;
+}
+.cmc-mobile__left{position:relative;aspect-ratio:640/769;overflow:hidden}
+.cmc-mobile__photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cmc-mobile__card{
+  position:absolute;left:48px;bottom:53px;right:auto;
+  background:#fff;border-radius:16px;padding:32px;
+  display:flex;flex-direction:column;gap:24px;align-items:flex-start;
+  box-shadow:0 20px 50px rgba(0,0,0,.18);
+}
+.cmc-mobile__stats{display:flex;gap:40px}
+.cmc-mobile__num{font-family:var(--ui);font-weight:700;font-size:52px;line-height:1;color:var(--ink)}
+.cmc-mobile__cap{font-family:var(--ui);font-size:18px;color:var(--ink);margin-top:8px;text-align:center}
+.cmc-mobile__right{
+  background:var(--gold);display:flex;align-items:center;justify-content:center;padding:40px;
+}
+.cmc-mobile__phone{width:auto;height:88%;max-height:660px;filter:drop-shadow(0 20px 45px rgba(0,0,0,.3))}
+
+/* ============ LOCATION ============ */
+.cmc-location-section{padding:120px 0 0}
+.cmc-location{position:relative;margin-top:56px;aspect-ratio:1440/790;overflow:hidden}
+.cmc-location__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cmc-location__phone{
+  position:absolute;width:auto;height:auto;
+  filter:drop-shadow(0 24px 55px rgba(0,0,0,.34));
+}
+.cmc-location__phone--front{
+  left:36%;top:5%;height:90%;z-index:2;
+}
+.cmc-location__phone--back{
+  left:63.5%;top:2%;height:70%;z-index:1;
+}
+
+/* ============ EXPANDING ECOSYSTEM + REFLECTIONS ============ */
+.cmc-eco{background:var(--brown);color:#FCFCFC;margin-top:120px;padding:120px 0 130px}
+.cmc-eco__grid{
+  max-width:1196px;margin:56px auto 0;padding:0 var(--gutter);position:relative;
+  display:grid;grid-template-columns:1fr 1fr;gap:24px 26px;align-items:start;
+}
+.cmc-eco__olive{
+  position:absolute;right:60px;top:-10px;width:70px;height:70px;
+  background:url("../assets/centro-medico/olive-icon.svg") center/contain no-repeat;
+  filter:brightness(0) saturate(100%) invert(72%) sepia(60%) saturate(600%) hue-rotate(3deg);
+}
+.cmc-eco__item{border-radius:8px;overflow:hidden;box-shadow:0 18px 45px rgba(0,0,0,.28);background:#fff}
+.cmc-eco__item img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.cmc-eco__item--a{aspect-ratio:670/500}
+.cmc-eco__item--b{aspect-ratio:502/346;margin-top:154px}
+.cmc-eco__item--c{aspect-ratio:502/350;margin-left:26%}
+.cmc-eco__item--d{aspect-ratio:502/350}
+
+.cmc-reflections{max-width:var(--maxw);margin:96px auto 0;padding:0 var(--gutter)}
+.cmc-reflections .cmc-section-title{color:#FCFCFC}
+.cmc-reflections__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:70px;margin-top:44px}
+.cmc-reflections__item{display:flex;gap:11px;max-width:380px}
+.cmc-reflections__icon{width:24px;height:24px;flex:0 0 auto;filter:brightness(0) invert(1)}
+.cmc-eco .cmc-point__title{color:#FCFCFC}
+.cmc-eco .cmc-point__text{color:rgba(252,252,252,.78)}
+
+/* ============ RESPONSIVE — TABLET ============ */
+@media (max-width:1024px){
+  .page-cmc{--gutter:48px}
+  .cmc-hero__title{font-size:52px}
+  .cmc-lead{font-size:32px;margin-top:80px}
+  .cmc-section-title{font-size:34px}
+  .cmc-brief{gap:32px}
+  .cmc-bento{max-width:760px}
+  .cmc-bento__col:nth-child(3){padding-top:0}
+}
+
+/* ============ RESPONSIVE — MÓVIL (solo aquí, sin tocar desktop) ============ */
+@media (max-width:768px){
+  .page-cmc{--gutter:24px}
+
+  .cmc-hero{padding-top:32px}
+  .cmc-eyebrow{gap:8px;font-size:11px;margin-bottom:20px}
+  .cmc-hero__title{font-size:34px}
+  .cmc-hero__tagline{font-size:17px}
+  .cmc-hero__media{aspect-ratio:auto;height:auto;min-height:0;border-radius:6px;margin-top:32px}
+  .cmc-hero__video{position:relative;inset:auto;height:auto;aspect-ratio:16/10}
+  .cmc-hero__panel{width:46%;height:64%;border-top-left-radius:120px}
+  .cmc-hero__phone{right:8%;height:112%}
+
+  .cmc-lead{font-size:24px;margin-top:64px}
+  .cmc-brief{flex-direction:column;gap:32px;margin-top:56px}
+  .cmc-brief__text{max-width:none}
+  .cmc-brief__meta{flex:none;gap:24px}
+  .cmc-impact{margin-top:64px}
+  .cmc-impact__inner{padding:48px var(--gutter)}
+  .cmc-impact__title{margin-bottom:32px}
+  .cmc-impact__grid{grid-template-columns:1fr;gap:36px}
+  .cmc-impact__num{font-size:48px}
+
+  .cmc-diagnosis,.cmc-compare,.cmc-showcase,.cmc-bento-section,
+  .cmc-mobile-section,.cmc-location-section{padding-top:72px}
+  .cmc-diagnosis__frame{padding:10px;margin-top:32px}
+  .cmc-points{grid-template-columns:1fr;gap:28px;margin-top:40px}
+  .cmc-point{max-width:none}
+
+  .cmc-slider{margin-top:32px}
+  .cmc-changes{margin-top:56px}
+  .cmc-changes__grid{grid-template-columns:1fr;gap:32px;margin-top:28px}
+  .cmc-changes__grid > div{max-width:none}
+
+  .cmc-showcase{padding-left:var(--gutter);padding-right:var(--gutter)}
+  .cmc-showcase__shots{flex-direction:column;align-items:stretch;gap:20px}
+  .cmc-showcase__shot--1,.cmc-showcase__shot--2{flex:none;width:100%;aspect-ratio:auto;margin-bottom:0}
+  .cmc-showcase__shot img{height:auto}
+
+  /* Bento: apilar en una columna */
+  .cmc-bento{flex-direction:column;align-items:stretch;max-width:420px;gap:20px}
+  .cmc-bento__col{flex:none !important;gap:20px;padding-top:0 !important}
+  .cmc-doctor{height:auto;aspect-ratio:322/317}
+  .cmc-building__badge{right:8px}
+
+  /* Mobile first: apilar foto y panel */
+  .cmc-mobile{grid-template-columns:1fr;margin-top:32px}
+  .cmc-mobile__left{aspect-ratio:5/6}
+  .cmc-mobile__card{left:20px;right:20px;bottom:20px;padding:22px}
+  .cmc-mobile__stats{gap:20px}
+  .cmc-mobile__num{font-size:38px}
+  .cmc-mobile__cap{font-size:15px}
+  .cmc-mobile__right{padding:32px 24px}
+  .cmc-mobile__phone{height:auto;width:66%;max-height:none}
+
+  /* Location: pasar a columna con teléfonos en flujo */
+  .cmc-location{aspect-ratio:auto;height:auto;margin-top:32px;display:flex;flex-direction:column;gap:0}
+  .cmc-location__bg{position:relative;inset:auto;height:240px}
+  .cmc-location__phone{position:relative;left:auto !important;top:auto !important;width:70% !important;
+    margin:-60px auto 0;border-radius:22px}
+  .cmc-location__phone--back{margin-top:24px}
+
+  /* Eco */
+  .cmc-eco{margin-top:72px;padding:72px 0 80px}
+  .cmc-eco__grid{grid-template-columns:1fr;gap:20px}
+  .cmc-eco__item--b,.cmc-eco__item--c{margin:0}
+  .cmc-eco__olive{right:24px;width:50px;height:50px}
+  .cmc-reflections{margin-top:64px}
+  .cmc-reflections__grid{grid-template-columns:1fr;gap:32px;margin-top:28px}
+  .cmc-reflections__item{max-width:none}
+}
