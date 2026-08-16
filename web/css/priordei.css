@@ -351,6 +351,8 @@ body.page-priordei{font-family:var(--aktiv)}
   .others__img[data-step="1"]{order:2}
   .others__step[data-step="2"]{order:3}
   .others__img[data-step="2"]{order:4}
+  .others__step[data-step="3"]{order:5}
+  .others__img[data-step="3"]{order:6}
   /* Padding vertical uniforme en todas las secciones (igual que «Elevating»: 80px) */
   .band,.composition,.catalog,.brandquote,.others,.reflections{padding-top:80px;padding-bottom:80px}
 }
