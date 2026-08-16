@@ -218,8 +218,10 @@ body.page-priordei{font-family:var(--aktiv)}
 .catalog__sub{font-family:var(--aktiv);font-size:20px;line-height:1.5;color:var(--ink);max-width:836px}
 .catalog__row{display:flex;gap:21px;width:100%;max-width:var(--maxw);align-items:flex-start}
 .catalog__col{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:55px}
-.catalog__card{background:var(--gray100);padding:20px;width:100%;aspect-ratio:630/900;overflow:hidden;display:flex}
-.catalog__shot{flex:1;min-height:0;width:100%;position:relative;overflow:hidden}
+.catalog__card{background:var(--gray100);padding:20px;width:100%;overflow:hidden}
+/* Ambas imágenes vienen ya recortadas al mismo aspect (≈0.768, como en Figma), así que las
+   dos tarjetas comparten aspect-ratio y miden lo mismo. La imagen llena el recuadro. */
+.catalog__shot{width:100%;position:relative;overflow:hidden;aspect-ratio:1180/1536}
 .catalog__shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block}
 .catalog__note{display:flex;flex-direction:column;gap:16px}
 .catalog__note-head{display:flex;align-items:center;gap:8px}

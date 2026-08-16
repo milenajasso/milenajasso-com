@@ -47,7 +47,7 @@ Cada `<link>` de CSS lleva `?v=N`. **Cada vez que edites un CSS, sube el número
 navegador (y el preview) sirven la versión cacheada. Estado actual:
 - `styles.css?v=8`
 - `priordei.css?v=55`
-- `centro-medico.css?v=5`
+- `centro-medico.css?v=36`
 
 ---
 

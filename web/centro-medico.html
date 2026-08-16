@@ -6,7 +6,7 @@
 <title>Centro Médico Catalunya · Case study — Milena Jasso</title>
 <meta name="description" content="Centro Médico Catalunya — Bridging 30 years of medical care with modern patient UX. Modernizing a legacy medical institution into an intuitive, conversion-focused healthcare portal.">
 <link rel="stylesheet" href="css/styles.css?v=8">
-<link rel="stylesheet" href="css/centro-medico.css?v=5">
+<link rel="stylesheet" href="css/centro-medico.css?v=37">
 </head>
 <body class="page-cmc">
 
@@ -49,13 +49,13 @@
   <!-- ============ HERO ============ -->
   <article class="cmc-hero">
     <header class="cmc-hero__head">
+      <h1 class="cmc-hero__title">Centro Médico Catalunya</h1>
+      <p class="cmc-hero__tagline">Bridging 30 years of medical care with modern patient UX</p>
       <p class="cmc-eyebrow">
         <span>HEALTHCARE REDESIGN</span><span class="cmc-eyebrow__sep">/</span>
         <span>UX strategy</span><span class="cmc-eyebrow__sep">/</span>
         <span>DIGITAL CONVERSION</span>
       </p>
-      <h1 class="cmc-hero__title">Centro Médico Catalunya</h1>
-      <p class="cmc-hero__tagline">Bridging 30 years of medical care with modern patient UX</p>
     </header>
 
     <div class="cmc-hero__media">
@@ -63,10 +63,13 @@
              poster="assets/centro-medico/hero-poster.jpg"
              autoplay muted loop playsinline
              aria-label="Consulta médica en Centro Médico Catalunya"></video>
-      <div class="cmc-hero__panel">
+      <div class="cmc-hero__panel"></div>
+      <div class="cmc-hero__phone-clip">
         <img class="cmc-hero__phone" src="assets/centro-medico/hero-phone.png"
-             alt="App de Centro Médico Catalunya — búsqueda de especialidades" width="346" height="710">
+             alt="App de Centro Médico Catalunya — búsqueda de especialidades">
       </div>
+      <img class="cmc-hero__phone-mobile" src="assets/centro-medico/mobile-mockup.png?v=2"
+           alt="App de Centro Médico Catalunya — búsqueda de especialidades">
     </div>
 
     <p class="cmc-lead">Modernizing a 30-year medical institution with an intuitive portal built for patient trust and direct scheduling.</p>
@@ -164,8 +167,8 @@
       <div class="cmc-slider__clip">
         <img class="cmc-slider__img cmc-slider__before" src="assets/centro-medico/slider-antes.jpg" alt="Web original de Centro Médico Catalunya (antes)" draggable="false">
       </div>
-      <span class="cmc-slider__tag cmc-slider__tag--before">Antes</span>
-      <span class="cmc-slider__tag cmc-slider__tag--after">Después</span>
+      <span class="cmc-slider__tag cmc-slider__tag--before">Before</span>
+      <span class="cmc-slider__tag cmc-slider__tag--after">After</span>
       <div class="cmc-slider__handle" aria-hidden="true">
         <span class="cmc-slider__grip"></span>
       </div>
@@ -197,12 +200,14 @@
     <div class="cmc-head">
       <h2 class="cmc-section-title" id="showcase-title">Where 30 years of medical care meet an intuitive digital experience</h2>
     </div>
-    <div class="cmc-showcase__shots">
-      <div class="cmc-showcase__shot cmc-showcase__shot--1">
-        <img src="assets/centro-medico/home-1.jpg" alt="Nueva home de Centro Médico Catalunya — vista 1">
-      </div>
-      <div class="cmc-showcase__shot cmc-showcase__shot--2">
-        <img src="assets/centro-medico/home-2.jpg" alt="Nueva home de Centro Médico Catalunya — vista 2">
+    <div class="cmc-showcase__band">
+      <div class="cmc-showcase__shots">
+        <div class="cmc-showcase__shot cmc-showcase__shot--1">
+          <img src="assets/centro-medico/home-1.jpg" alt="Nueva home de Centro Médico Catalunya — vista 1">
+        </div>
+        <div class="cmc-showcase__shot cmc-showcase__shot--2">
+          <img src="assets/centro-medico/home-2.jpg" alt="Nueva home de Centro Médico Catalunya — vista 2">
+        </div>
       </div>
     </div>
   </section>
@@ -221,16 +226,19 @@
           <a class="cmc-btn cmc-btn--gold" href="#">Reservar cita <span class="cmc-arrow" aria-hidden="true"></span></a>
         </div>
         <div class="cmc-doctor">
-          <span class="cmc-doctor__olive" aria-hidden="true"></span>
-          <div class="cmc-doctor__shape"></div>
-          <img class="cmc-doctor__img" src="assets/centro-medico/doctor.jpg" alt="Doctor de Centro Médico Catalunya">
+          <img class="cmc-doctor__img" src="assets/centro-medico/doctor.png" alt="Doctor de Centro Médico Catalunya">
         </div>
       </div>
 
       <!-- Columna 2 -->
       <div class="cmc-bento__col">
         <div class="cmc-card cmc-docprofile">
-          <div class="cmc-docprofile__media" aria-hidden="true"></div>
+          <div class="cmc-docprofile__media">
+            <video src="assets/centro-medico/doctor-video.mp4"
+                   poster="assets/centro-medico/doctor-poster.jpg"
+                   autoplay muted loop playsinline
+                   aria-label="Dra. Adriana Izquierdo Domínguez — Centro Médico Catalunya"></video>
+          </div>
           <div class="cmc-docprofile__body">
             <p class="cmc-docprofile__name">Adriana Izquierdo Domínguez</p>
             <p class="cmc-docprofile__spec">Alergología</p>
@@ -245,36 +253,13 @@
           <p class="cmc-stat97__num">97%</p>
           <p class="cmc-stat97__cap">Pacientes nos recomiendan</p>
         </div>
-        <div class="cmc-card cmc-insurance">
-          <img class="cmc-insurance__img" src="assets/centro-medico/bento-consulta.jpg" alt="Consulta médica sin aseguradora">
-          <div class="cmc-insurance__overlay">
-            <p class="cmc-insurance__title">Consulta sin aseguradora</p>
-            <p class="cmc-insurance__text">Accede a atención médica inmediata</p>
-            <a class="cmc-btn cmc-btn--gold cmc-btn--sm" href="#">Contacto <span class="cmc-arrow" aria-hidden="true"></span></a>
-          </div>
-        </div>
+        <img class="cmc-bento-img" src="assets/centro-medico/aseguradora.png?v=2" alt="Consulta sin aseguradora — atención médica inmediata">
       </div>
 
       <!-- Columna 3 -->
       <div class="cmc-bento__col">
-        <div class="cmc-card cmc-search">
-          <div class="cmc-field">
-            <label class="cmc-field__label">Buscar por especialidad</label>
-            <div class="cmc-field__select"><span>Busca por especialidad</span><i class="cmc-chevron" aria-hidden="true"></i></div>
-          </div>
-          <div class="cmc-field">
-            <label class="cmc-field__label">Buscar por centro</label>
-            <div class="cmc-field__select"><span>Busca por centro</span><i class="cmc-chevron" aria-hidden="true"></i></div>
-          </div>
-          <a class="cmc-btn cmc-btn--gold cmc-btn--block cmc-btn--center" href="#">Buscar</a>
-        </div>
-        <div class="cmc-building">
-          <img class="cmc-building__img" src="assets/centro-medico/bento-edificio.jpg" alt="Edificio de Centro Médico Catalunya">
-          <div class="cmc-building__badge">
-            <p class="cmc-building__num">+30</p>
-            <p class="cmc-building__label">años cuidando de ti</p>
-          </div>
-        </div>
+        <img class="cmc-bento-img cmc-filtro" src="assets/centro-medico/filtro-doctores.png?v=3" alt="Buscar por especialidad o por centro">
+        <img class="cmc-bento-img cmc-sede" src="assets/centro-medico/sede.png?v=3" alt="Sede de Centro Médico Catalunya — +30 años cuidando de ti">
       </div>
     </div>
   </section>
@@ -287,7 +272,10 @@
     </div>
     <div class="cmc-mobile">
       <div class="cmc-mobile__left">
-        <img class="cmc-mobile__photo" src="assets/centro-medico/mobile-left.jpg" alt="Profesional sanitario de Centro Médico Catalunya">
+        <video class="cmc-mobile__photo" src="assets/centro-medico/mobile-left-video.mp4"
+               poster="assets/centro-medico/mobile-left-poster.jpg"
+               autoplay muted loop playsinline
+               aria-label="Médico escribiendo una receta"></video>
         <div class="cmc-mobile__card">
           <div class="cmc-mobile__stats">
             <div class="cmc-mobile__stat">
@@ -303,7 +291,7 @@
         </div>
       </div>
       <div class="cmc-mobile__right">
-        <img class="cmc-mobile__phone" src="assets/centro-medico/mobile-mockup.png" alt="App de Centro Médico Catalunya — ficha de especialidad" width="296" height="609">
+        <img class="cmc-mobile__phone" src="assets/centro-medico/mobile-mockup.png?v=2" alt="App de Centro Médico Catalunya — ficha de especialidad" width="632" height="1300">
       </div>
     </div>
   </section>
@@ -316,8 +304,12 @@
     </div>
     <div class="cmc-location">
       <img class="cmc-location__bg" src="assets/centro-medico/location-bg.jpg" alt="Profesional sanitario en Centro Médico Catalunya">
-      <img class="cmc-location__phone cmc-location__phone--front" src="assets/centro-medico/horarios-1.png" alt="App — localización y horarios del centro">
-      <img class="cmc-location__phone cmc-location__phone--back" src="assets/centro-medico/horarios-3.png" alt="App — contenidos de salud y educación preventiva">
+      <div class="cmc-location__phone cmc-location__phone--back">
+        <img src="assets/centro-medico/horarios-3.png?v=3" alt="App — contenidos de salud y educación preventiva">
+      </div>
+      <div class="cmc-location__phone cmc-location__phone--front">
+        <img src="assets/centro-medico/horarios-1.png?v=3" alt="App — localización y horarios del centro">
+      </div>
     </div>
   </section>
 
@@ -330,10 +322,14 @@
 
     <div class="cmc-eco__grid">
       <span class="cmc-eco__olive" aria-hidden="true"></span>
-      <figure class="cmc-eco__item cmc-eco__item--a"><img src="assets/centro-medico/eco-1.jpg" alt="Página de perfil corporativo — Centro Médico Catalunya"></figure>
-      <figure class="cmc-eco__item cmc-eco__item--b"><img src="assets/centro-medico/eco-3.jpg" alt="Buscador de especialistas — Centro Médico Catalunya"></figure>
-      <figure class="cmc-eco__item cmc-eco__item--c"><img src="assets/centro-medico/eco-2.jpg" alt="Artículo de salud — Centro Médico Catalunya"></figure>
-      <figure class="cmc-eco__item cmc-eco__item--d"><img src="assets/centro-medico/eco-4.jpg" alt="Ficha de especialidad — Centro Médico Catalunya"></figure>
+      <div class="cmc-eco__col cmc-eco__col--left">
+        <figure class="cmc-eco__item cmc-eco__item--1"><img src="assets/centro-medico/eco-1.jpg?v=2" alt="Página de perfil corporativo — Centro Médico Catalunya"></figure>
+        <figure class="cmc-eco__item cmc-eco__item--2"><img src="assets/centro-medico/eco-2.jpg?v=2" alt="Artículo de salud — Centro Médico Catalunya"></figure>
+      </div>
+      <div class="cmc-eco__col cmc-eco__col--right">
+        <figure class="cmc-eco__item cmc-eco__item--3"><img src="assets/centro-medico/eco-3.jpg?v=2" alt="Buscador de especialistas — Centro Médico Catalunya"></figure>
+        <figure class="cmc-eco__item cmc-eco__item--4"><img src="assets/centro-medico/eco-4.jpg?v=2" alt="Ficha de especialidad — Centro Médico Catalunya"></figure>
+      </div>
     </div>
 
     <div class="cmc-reflections">
@@ -426,6 +422,9 @@
       pct = Math.max(0, Math.min(100, pct));
       before.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
       handle.style.left = pct + '%';
+      // Visibilidad de etiquetas: cerca del antes solo "Before", cerca del después solo "After", en el centro ambas.
+      slider.classList.toggle('is-before-only', pct >= 80);
+      slider.classList.toggle('is-after-only', pct <= 20);
       if (range && Math.abs(parseFloat(range.value) - pct) > 0.05) range.value = pct;
     }
     if (range) range.addEventListener('input', function () { setPos(parseFloat(range.value)); });

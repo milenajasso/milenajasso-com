@@ -35,11 +35,14 @@
 .reveal-on .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .reveal-on .reveal.is-visible{opacity:1;transform:none}
 
+/* ---- Header igual a Priordei: fondo transparente (blanco) + menos padding vertical ---- */
+.page-cmc .header{background:transparent;padding-top:16px;padding-bottom:16px}
+
 /* ---- Utilidades comunes ---- */
 .cmc{display:block}
 .cmc-label{
   font-family:var(--ui);font-weight:700;font-size:20px;line-height:1.2;color:var(--ink);
-  margin-bottom:16px;
+  letter-spacing:2.4px;text-transform:uppercase;margin-bottom:16px;
 }
 .cmc-section-title{
   font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.28;color:var(--ink);
@@ -47,48 +50,49 @@
 }
 .cmc-section-title--left{text-align:left}
 .cmc-section-sub{
-  font-family:var(--ui);font-weight:400;font-size:20px;line-height:1.35;color:var(--g600);
+  font-family:var(--ui);font-weight:400;font-size:20px;line-height:1.35;color:var(--ink);
   margin-top:16px;
 }
 .cmc-head{
-  max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter);
+  max-width:calc(var(--maxw) + 2*var(--gutter));margin:0 auto;padding:0 var(--gutter);
   text-align:center;
 }
 .cmc-head .cmc-section-title{max-width:1100px;margin:0 auto}
 .cmc-head--light .cmc-section-title{color:#FCFCFC}
-.cmc-head--light .cmc-section-sub{color:rgba(252,252,252,.75)}
+.cmc-head--light .cmc-section-sub{color:#FCFCFC}
 
 /* Punto/tarjeta de texto con título en mayúsculas */
 .cmc-point__title{
-  font-family:var(--ui);font-weight:700;font-size:16px;line-height:1.3;letter-spacing:.02em;
-  text-transform:uppercase;color:var(--ink);margin-bottom:14px;
+  font-family:var(--ui);font-weight:700;font-size:20px;line-height:1.3;letter-spacing:2px;
+  text-transform:uppercase;color:var(--ink);margin-bottom:16px;
 }
 .cmc-point__text{
-  font-family:var(--ui);font-weight:400;font-size:16px;line-height:1.5;color:var(--g600);
+  font-family:var(--ui);font-weight:400;font-size:20px;line-height:1.5;color:var(--g600);
 }
 
 /* ============ HERO ============ */
-.cmc-hero{max-width:var(--maxw);margin:0 auto;padding:56px var(--gutter) 0}
-.cmc-hero__head{text-align:center;max-width:640px;margin:0 auto}
-.cmc-eyebrow{
-  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px;
-  font-family:var(--ui);font-weight:700;font-size:13px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--ink);margin-bottom:26px;
+.cmc-hero{max-width:calc(var(--maxw) + 2*var(--gutter));margin:0 auto;padding:56px var(--gutter) 0}
+.cmc-hero__head{
+  display:flex;flex-direction:column;align-items:center;gap:20px;
+  text-align:center;max-width:640px;margin:0 auto;
 }
-.cmc-eyebrow__sep{color:var(--g400);font-weight:400}
+.cmc-eyebrow{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:20px;
+  font-family:var(--ui);font-weight:400;font-size:16px;
+  text-transform:uppercase;color:var(--ink);
+}
+.cmc-eyebrow__sep{color:var(--g400)}
 .cmc-hero__title{
   font-family:var(--serif);font-weight:400;font-size:64px;line-height:1.05;color:var(--ink);
-  letter-spacing:-.02em;
 }
 .cmc-hero__tagline{
   font-family:var(--ui);font-weight:700;font-size:20px;line-height:1.3;color:var(--ink);
-  margin-top:18px;
 }
 
 /* Media block (vídeo + panel naranja con móvil) */
 .cmc-hero__media{
-  position:relative;margin-top:52px;width:100%;
-  aspect-ratio:1281/750;border-radius:8px;overflow:hidden;background:#e9e9e9;
+  position:relative;margin-top:80px;width:100%;
+  aspect-ratio:1280/750;overflow:hidden;background:#e9e9e9;
 }
 .cmc-hero__video{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
@@ -99,11 +103,19 @@
   background:var(--orange);
   border-top-left-radius:min(20vw,260px);
 }
-.cmc-hero__phone{
-  position:absolute;right:12%;bottom:0;width:auto;
-  height:118%;max-width:none;
+/* Móvil del hero: recortado como en Figma (Mockup_contacto_centromedico 1).
+   El contenedor recorta (overflow) y la imagen se escala/desplaza igual que el diseño. */
+.cmc-hero__phone-clip{
+  position:absolute;left:72.11%;top:28%;width:22.81%;height:72%;
+  overflow:hidden;
   filter:drop-shadow(0 18px 40px rgba(0,0,0,.28));
 }
+.cmc-hero__phone{
+  position:absolute;left:-141.4%;top:-23.77%;width:382.8%;height:155.37%;
+  max-width:none;
+}
+/* Imagen del móvil solo para la versión móvil (oculta en escritorio) */
+.cmc-hero__phone-mobile{display:none}
 
 /* Lead serif centrado */
 .cmc-lead{
@@ -117,7 +129,7 @@
   margin-top:110px;
 }
 .cmc-brief__text{max-width:738px;display:flex;flex-direction:column;gap:32px}
-.cmc-brief__block p{font-family:var(--ui);font-size:16px;line-height:1.5;color:var(--g600)}
+.cmc-brief__block p{font-family:var(--ui);font-size:20px;line-height:1.5;color:var(--ink)}
 .cmc-brief__meta{flex:0 0 160px;display:flex;flex-direction:column;gap:56px}
 .cmc-brief__role{font-family:var(--ui);font-size:20px;color:var(--ink)}
 .cmc-brief__link{
@@ -126,13 +138,9 @@
 }
 .cmc-brief__link:hover{color:var(--ink)}
 
-/* Impact band (gris claro, full-bleed) */
-.cmc-impact{
-  margin-top:110px;
-  width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;
-  background:#F2F2F0;
-}
-.cmc-impact__inner{max-width:var(--maxw);margin:0 auto;padding:80px var(--gutter)}
+/* Impact band (caja gris dentro del contenido, con márgenes blancos como Priordei) */
+.cmc-impact{margin-top:110px;background:#F2F2F0}
+.cmc-impact__inner{padding:80px 40px}
 .cmc-impact__title{
   font-family:var(--ui);font-weight:700;font-size:20px;letter-spacing:.12em;
   text-transform:uppercase;color:var(--ink);margin-bottom:56px;
@@ -146,21 +154,21 @@
 .cmc-impact__desc{font-family:var(--ui);font-size:16px;line-height:1.4;color:var(--g600);margin-top:16px}
 
 /* ============ ORIGINAL SITE DIAGNOSIS ============ */
-.cmc-diagnosis{padding:120px 0 0}
+.cmc-diagnosis{padding:120px 0}
 .cmc-diagnosis__frame{
   max-width:970px;margin:56px auto 0;padding:20px;
   background:#fff;border-radius:8px;box-shadow:0 24px 60px rgba(0,0,0,.10);
 }
 .cmc-diagnosis__frame img{width:100%;border-radius:2px;display:block}
 .cmc-points{
-  max-width:var(--maxw);margin:64px auto 0;padding:0 var(--gutter);
+  max-width:calc(var(--maxw) + 2*var(--gutter));margin:64px auto 0;padding:0 var(--gutter);
   display:grid;grid-template-columns:repeat(3,1fr);gap:15px;
 }
 .cmc-point{display:flex;gap:17px;max-width:417px}
 .cmc-point__num{font-family:var(--ui);font-weight:400;font-size:20px;color:var(--ink);flex:0 0 auto}
 
 /* ============ DRAG TO COMPARE ============ */
-.cmc-compare{padding:120px 0 0}
+.cmc-compare{padding:120px 0;background:#FDF2CE}
 .cmc-slider{
   position:relative;max-width:760px;margin:56px auto 0;
   aspect-ratio:1521/1792;border-radius:8px;overflow:hidden;
@@ -178,9 +186,13 @@
   position:absolute;top:16px;z-index:3;
   font-family:var(--ui);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
   color:#fff;background:rgba(41,41,41,.72);padding:6px 12px;border-radius:20px;
+  transition:opacity .25s ease;
 }
 .cmc-slider__tag--before{left:16px}
 .cmc-slider__tag--after{right:16px}
+/* Al deslizar hacia un extremo, se oculta la etiqueta del lado que deja de verse */
+.cmc-slider.is-before-only .cmc-slider__tag--after{opacity:0}
+.cmc-slider.is-after-only .cmc-slider__tag--before{opacity:0}
 .cmc-slider__handle{
   position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;z-index:4;
   transform:translateX(-1px);box-shadow:0 0 0 1px rgba(0,0,0,.06);
@@ -198,38 +210,53 @@
 .cmc-slider__range{
   position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;z-index:5;
 }
-.cmc-changes{max-width:var(--maxw);margin:80px auto 0;padding:0 var(--gutter)}
+.cmc-changes{max-width:calc(var(--maxw) + 2*var(--gutter));margin:80px auto 0;padding:0 var(--gutter)}
 .cmc-changes__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;margin-top:40px}
 .cmc-changes__grid > div{max-width:380px}
+/* Key changes: toda la tipografía en negro */
+.cmc-changes .cmc-point__text{color:var(--ink)}
 
 /* ============ WHERE 30 YEARS MEET DIGITAL ============ */
-.cmc-showcase{padding:120px var(--gutter) 0}
-.cmc-showcase__shots{
-  max-width:960px;margin:56px auto 0;
-  display:flex;justify-content:center;align-items:flex-end;gap:36px;
+.cmc-showcase{padding:120px 0 0}
+/* Banda de fondo color ladrillo (Figma #763211) detrás de las capturas */
+.cmc-showcase__band{
+  width:calc(100% - 2*var(--gutter));max-width:var(--maxw);margin:56px auto 0;
+  background:#763211;
 }
-.cmc-showcase__shot{border-radius:12px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.14)}
-.cmc-showcase__shot img{width:100%;height:100%;object-fit:cover;display:block}
-.cmc-showcase__shot--1{flex:0 0 52%;aspect-ratio:513/920;margin-bottom:0}
-.cmc-showcase__shot--2{flex:0 0 40%;aspect-ratio:391/960;margin-bottom:44px}
+/* Capturas escalonadas: la 1ª pegada abajo (hueco arriba), la 2ª pegada arriba (hueco abajo) */
+.cmc-showcase__shots{
+  position:relative;max-width:940px;margin:0 auto;aspect-ratio:940/1000;
+}
+.cmc-showcase__shot{position:absolute;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.22)}
+.cmc-showcase__shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.cmc-showcase__shot--1{left:0;bottom:0;width:54%;aspect-ratio:513/920;box-shadow:none}
+.cmc-showcase__shot--2{right:0;top:0;width:41%;aspect-ratio:391/960}
 
 /* ============ DESIGN SYSTEM & UI FOUNDATIONS (BENTO) ============ */
-.cmc-bento-section{padding:120px var(--gutter) 0}
+.cmc-bento-section{padding:120px var(--gutter);background:#F3F3F3}
 .cmc-bento{
   max-width:1015px;margin:56px auto 0;
   display:flex;justify-content:center;align-items:flex-start;gap:33px;
 }
 .cmc-bento__col{display:flex;flex-direction:column;gap:33px}
-.cmc-bento__col:nth-child(1){flex:0 0 322px}
+.cmc-bento__col:nth-child(1){flex:0 0 322px;padding-top:142px}
 .cmc-bento__col:nth-child(2){flex:0 0 347px;padding-top:0}
-.cmc-bento__col:nth-child(3){flex:0 0 280px;padding-top:139px}
-.cmc-card{background:#fff;border-radius:16px}
+.cmc-bento__col:nth-child(3){flex:0 0 280px;padding-top:149px}
+.cmc-card{background:#fff;border-radius:16px;box-shadow:0 4px 10px rgba(174,174,174,.25)}
+/* Cards del bento que ya vienen montadas como imagen (buscador, sede, aseguradora) */
+.cmc-bento-img{display:block;width:100%;height:auto;filter:drop-shadow(0 4px 10px rgba(174,174,174,.25))}
+/* Buscador y sede colocados como en Figma (object-cover en cajas de 308 y 348.5 sobre columna de 280) */
+.cmc-filtro{width:110%;max-width:none;margin-left:-5%}
+/* Sede como en Figma: el edificio llena la columna (ancho del buscador) y el +30 asoma por la derecha */
+.cmc-sede{width:124.5%;max-width:none}
 
 /* Botones */
 .cmc-btn{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
   font-family:var(--ui);font-weight:600;font-size:15px;line-height:1;
-  padding:12px 20px;border-radius:32px;cursor:pointer;transition:opacity .2s,transform .2s;
+  padding:12px 20px;border-radius:32px;transition:opacity .2s,transform .2s;
+  /* Botones decorativos del case study: no navegables */
+  pointer-events:none;cursor:default;
 }
 .cmc-btn:hover{opacity:.9}
 .cmc-btn--gold{background:var(--gold);color:var(--ink)}
@@ -249,27 +276,21 @@
 .cmc-btn--sm .cmc-arrow{width:16px;height:16px}
 
 /* Tarjeta "Cita online" */
-.cmc-card--cita{background:var(--cream);padding:36px 30px}
+.cmc-card--cita{background:var(--cream);padding:36px 30px;display:flex;flex-direction:column;align-items:center;text-align:center}
 .cmc-card__title{font-family:var(--ui);font-weight:700;font-size:24px;color:var(--ink)}
 .cmc-card__text{font-family:var(--ui);font-size:16px;line-height:1.4;color:var(--ink);margin:18px 0 28px;max-width:180px}
 
-/* Doctor + forma naranja */
-.cmc-doctor{position:relative;height:317px}
-.cmc-doctor__shape{
-  position:absolute;right:0;bottom:0;width:242px;height:277px;background:var(--orange);
-  border-top-left-radius:130px;
-}
+/* Doctor + forma naranja (composición completa en un PNG con transparencia) */
+.cmc-doctor{position:relative}
 .cmc-doctor__img{
-  position:absolute;left:0;bottom:0;width:230px;height:315px;object-fit:cover;object-position:top center;
-}
-.cmc-doctor__olive{
-  position:absolute;left:0;top:24px;width:62px;height:62px;z-index:2;
-  background:url("../assets/centro-medico/olive-icon.svg") center/contain no-repeat;
+  display:block;width:100%;height:auto;
+  filter:drop-shadow(0 4px 10px rgba(174,174,174,.25));
 }
 
 /* Ficha de doctor (perfil) */
-.cmc-docprofile{overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.08)}
-.cmc-docprofile__media{aspect-ratio:347/251;background:#0b0b0b}
+.cmc-docprofile{overflow:hidden}
+.cmc-docprofile__media{aspect-ratio:347/251;background:#0b0b0b;overflow:hidden}
+.cmc-docprofile__media video{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block}
 .cmc-docprofile__body{padding:18px 20px 20px}
 .cmc-docprofile__name{font-family:var(--ui);font-weight:700;font-size:16px;color:var(--ink)}
 .cmc-docprofile__spec{font-family:var(--ui);font-size:14px;color:var(--ink);margin-top:6px}
@@ -294,7 +315,7 @@
 .cmc-insurance__text{font-family:var(--ui);font-size:12px;color:var(--g600);margin:6px 0 12px}
 
 /* Buscador */
-.cmc-search{padding:28px 26px;box-shadow:0 14px 40px rgba(0,0,0,.08)}
+.cmc-search{padding:28px 26px}
 .cmc-field + .cmc-field{margin-top:22px}
 .cmc-field__label{display:block;font-family:var(--ui);font-weight:700;font-size:14px;color:var(--ink);margin-bottom:12px}
 .cmc-field__select{
@@ -311,7 +332,7 @@
 
 /* Edificio */
 .cmc-building{position:relative;border-radius:16px;overflow:visible}
-.cmc-building__img{width:100%;aspect-ratio:280/268;object-fit:cover;border-radius:16px;display:block}
+.cmc-building__img{width:100%;aspect-ratio:280/268;object-fit:cover;border-radius:16px;display:block;box-shadow:0 4px 10px rgba(174,174,174,.25)}
 .cmc-building__badge{
   position:absolute;right:-8px;bottom:16px;background:var(--orange);color:#fff;
   border-radius:12px;padding:14px 16px;min-width:130px;
@@ -322,65 +343,73 @@
 /* ============ MOBILE FIRST ============ */
 .cmc-mobile-section{padding:120px 0 0}
 .cmc-mobile{
-  max-width:var(--maxw);margin:56px auto 0;padding:0 var(--gutter);
+  max-width:calc(var(--maxw) + 2*var(--gutter));margin:56px auto 0;padding:0 var(--gutter);
   display:grid;grid-template-columns:1fr 1fr;align-items:stretch;
 }
 .cmc-mobile__left{position:relative;aspect-ratio:640/769;overflow:hidden}
-.cmc-mobile__photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cmc-mobile__photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 62%;display:block}
 .cmc-mobile__card{
   position:absolute;left:48px;bottom:53px;right:auto;
   background:#fff;border-radius:16px;padding:32px;
-  display:flex;flex-direction:column;gap:24px;align-items:flex-start;
+  display:flex;flex-direction:column;gap:24px;align-items:center;
   box-shadow:0 20px 50px rgba(0,0,0,.18);
 }
 .cmc-mobile__stats{display:flex;gap:40px}
 .cmc-mobile__num{font-family:var(--ui);font-weight:700;font-size:52px;line-height:1;color:var(--ink)}
 .cmc-mobile__cap{font-family:var(--ui);font-size:18px;color:var(--ink);margin-top:8px;text-align:center}
 .cmc-mobile__right{
-  background:var(--gold);display:flex;align-items:center;justify-content:center;padding:40px;
+  background:#F8CB51;display:flex;align-items:center;justify-content:center;padding:43px 0;
 }
-.cmc-mobile__phone{width:auto;height:88%;max-height:660px;filter:drop-shadow(0 20px 45px rgba(0,0,0,.3))}
+.cmc-mobile__phone{width:auto;height:100%;max-height:683px;filter:drop-shadow(0 20px 45px rgba(0,0,0,.3))}
 
 /* ============ LOCATION ============ */
 .cmc-location-section{padding:120px 0 0}
 .cmc-location{position:relative;margin-top:56px;aspect-ratio:1440/790;overflow:hidden}
 .cmc-location__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+/* Móviles: caja con overflow + imagen ampliada/posicionada, recortes exactos de Figma */
 .cmc-location__phone{
-  position:absolute;width:auto;height:auto;
+  position:absolute;overflow:hidden;
   filter:drop-shadow(0 24px 55px rgba(0,0,0,.34));
 }
-.cmc-location__phone--front{
-  left:36%;top:5%;height:90%;z-index:2;
-}
-.cmc-location__phone--back{
-  left:63.5%;top:2%;height:70%;z-index:1;
-}
+.cmc-location__phone img{position:absolute;max-width:none;display:block}
+.cmc-location__phone--front{left:37.57%;top:5.19%;width:24.79%;height:89.49%;z-index:2}
+.cmc-location__phone--front img{left:-139.06%;top:-22%;width:378.21%;height:143.22%}
+.cmc-location__phone--back{left:66.11%;top:0;width:25.14%;height:62.41%;z-index:1}
+.cmc-location__phone--back img{left:-133.27%;top:-84.5%;width:372.98%;height:205.38%}
 
 /* ============ EXPANDING ECOSYSTEM + REFLECTIONS ============ */
 .cmc-eco{background:var(--brown);color:#FCFCFC;margin-top:120px;padding:120px 0 130px}
+/* Bento como en Figma: flex de 2 columnas alineadas abajo; cada imagen recortada en su caja */
 .cmc-eco__grid{
-  max-width:1196px;margin:56px auto 0;padding:0 var(--gutter);position:relative;
-  display:grid;grid-template-columns:1fr 1fr;gap:24px 26px;align-items:start;
+  width:calc(100% - 2*var(--gutter));max-width:1196px;margin:56px auto 0;position:relative;
+  display:flex;gap:24px;align-items:flex-end;
 }
 .cmc-eco__olive{
-  position:absolute;right:60px;top:-10px;width:70px;height:70px;
+  position:absolute;left:93.48%;top:0;width:6.5%;aspect-ratio:1;z-index:2;
   background:url("../assets/centro-medico/olive-icon.svg") center/contain no-repeat;
   filter:brightness(0) saturate(100%) invert(72%) sepia(60%) saturate(600%) hue-rotate(3deg);
 }
-.cmc-eco__item{border-radius:8px;overflow:hidden;box-shadow:0 18px 45px rgba(0,0,0,.28);background:#fff}
-.cmc-eco__item img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
-.cmc-eco__item--a{aspect-ratio:670/500}
-.cmc-eco__item--b{aspect-ratio:502/346;margin-top:154px}
-.cmc-eco__item--c{aspect-ratio:502/350;margin-left:26%}
-.cmc-eco__item--d{aspect-ratio:502/350}
+.cmc-eco__col{display:flex;flex-direction:column;gap:25px}
+.cmc-eco__col--left{flex:0 0 56.02%;align-items:flex-end}
+.cmc-eco__col--right{flex:0 0 41.97%;align-items:flex-start}
+.cmc-eco__item{position:relative;overflow:hidden;border-radius:8px;box-shadow:0 18px 45px rgba(0,0,0,.28);background:#fff}
+.cmc-eco__item img{position:absolute;left:0;width:100%;max-width:none;display:block}
+.cmc-eco__item--1{width:100%;aspect-ratio:670/500}
+.cmc-eco__item--1 img{height:453.01%;top:-23%}
+.cmc-eco__item--2{width:74.93%;aspect-ratio:502/350}
+.cmc-eco__item--2 img{height:283.67%;top:-38.75%;left:-0.04%}
+.cmc-eco__item--3{width:100%;aspect-ratio:502/346}
+.cmc-eco__item--3 img{height:207.97%;top:-20.18%}
+.cmc-eco__item--4{width:100%;aspect-ratio:502/350}
+.cmc-eco__item--4 img{height:336.09%;top:-19.79%}
 
-.cmc-reflections{max-width:var(--maxw);margin:96px auto 0;padding:0 var(--gutter)}
+.cmc-reflections{max-width:calc(var(--maxw) + 2*var(--gutter));margin:96px auto 0;padding:0 var(--gutter)}
 .cmc-reflections .cmc-section-title{color:#FCFCFC}
 .cmc-reflections__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:70px;margin-top:44px}
 .cmc-reflections__item{display:flex;gap:11px;max-width:380px}
 .cmc-reflections__icon{width:24px;height:24px;flex:0 0 auto;filter:brightness(0) invert(1)}
 .cmc-eco .cmc-point__title{color:#FCFCFC}
-.cmc-eco .cmc-point__text{color:rgba(252,252,252,.78)}
+.cmc-eco .cmc-point__text{color:#FCFCFC}
 
 /* ============ RESPONSIVE — TABLET ============ */
 @media (max-width:1024px){
@@ -401,10 +430,15 @@
   .cmc-eyebrow{gap:8px;font-size:11px;margin-bottom:20px}
   .cmc-hero__title{font-size:34px}
   .cmc-hero__tagline{font-size:17px}
-  .cmc-hero__media{aspect-ratio:auto;height:auto;min-height:0;border-radius:6px;margin-top:32px}
-  .cmc-hero__video{position:relative;inset:auto;height:auto;aspect-ratio:16/10}
-  .cmc-hero__panel{width:46%;height:64%;border-top-left-radius:120px}
-  .cmc-hero__phone{right:8%;height:112%}
+  /* Hero móvil: sin vídeo, solo el móvil con la figura naranja debajo */
+  .cmc-hero__media{aspect-ratio:1/1;height:auto;min-height:0;background:transparent;overflow:hidden;border-radius:0;margin-top:24px}
+  .cmc-hero__video{display:none}
+  .cmc-hero__phone-clip{display:none}
+  .cmc-hero__panel{left:50%;right:auto;bottom:0;transform:translateX(-50%);width:82%;height:70%;border-top-left-radius:140px}
+  .cmc-hero__phone-mobile{
+    display:block;position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+    height:96%;width:auto;z-index:2;
+  }
 
   .cmc-lead{font-size:24px;margin-top:64px}
   .cmc-brief{flex-direction:column;gap:32px;margin-top:56px}
@@ -418,6 +452,8 @@
 
   .cmc-diagnosis,.cmc-compare,.cmc-showcase,.cmc-bento-section,
   .cmc-mobile-section,.cmc-location-section{padding-top:72px}
+  /* Móvil: menos padding al final de estas secciones (en escritorio siguen a 120px) */
+  .cmc-diagnosis,.cmc-compare{padding-bottom:72px}
   .cmc-diagnosis__frame{padding:10px;margin-top:32px}
   .cmc-points{grid-template-columns:1fr;gap:28px;margin-top:40px}
   .cmc-point{max-width:none}
@@ -427,15 +463,17 @@
   .cmc-changes__grid{grid-template-columns:1fr;gap:32px;margin-top:28px}
   .cmc-changes__grid > div{max-width:none}
 
-  .cmc-showcase{padding-left:var(--gutter);padding-right:var(--gutter)}
-  .cmc-showcase__shots{flex-direction:column;align-items:stretch;gap:20px}
-  .cmc-showcase__shot--1,.cmc-showcase__shot--2{flex:none;width:100%;aspect-ratio:auto;margin-bottom:0}
+  .cmc-showcase__band{padding:20px}
+  .cmc-showcase__shots{position:static;max-width:none;aspect-ratio:auto;display:flex;flex-direction:column;gap:16px}
+  .cmc-showcase__shot{position:static}
+  .cmc-showcase__shot--1,.cmc-showcase__shot--2{width:100%;aspect-ratio:auto}
   .cmc-showcase__shot img{height:auto}
 
   /* Bento: apilar en una columna */
   .cmc-bento{flex-direction:column;align-items:stretch;max-width:420px;gap:20px}
+  .cmc-filtro{width:100%;margin-left:0}
+  .cmc-sede{width:100%}
   .cmc-bento__col{flex:none !important;gap:20px;padding-top:0 !important}
-  .cmc-doctor{height:auto;aspect-ratio:322/317}
   .cmc-building__badge{right:8px}
 
   /* Mobile first: apilar foto y panel */
@@ -448,18 +486,20 @@
   .cmc-mobile__right{padding:32px 24px}
   .cmc-mobile__phone{height:auto;width:66%;max-height:none}
 
-  /* Location: pasar a columna con teléfonos en flujo */
+  /* Location: en móvil solo el móvil de Horarios (se ocultan la doctora y el móvil recortado) */
   .cmc-location{aspect-ratio:auto;height:auto;margin-top:32px;display:flex;flex-direction:column;gap:0}
-  .cmc-location__bg{position:relative;inset:auto;height:240px}
-  .cmc-location__phone{position:relative;left:auto !important;top:auto !important;width:70% !important;
-    margin:-60px auto 0;border-radius:22px}
-  .cmc-location__phone--back{margin-top:24px}
+  .cmc-location__bg{display:none}
+  .cmc-location__phone--back{display:none}
+  .cmc-location__phone{position:relative;left:auto !important;top:auto !important;
+    width:66% !important;height:auto !important;margin:0 auto;filter:none}
+  .cmc-location__phone--front{aspect-ratio:357/707}
 
   /* Eco */
   .cmc-eco{margin-top:72px;padding:72px 0 80px}
-  .cmc-eco__grid{grid-template-columns:1fr;gap:20px}
-  .cmc-eco__item--b,.cmc-eco__item--c{margin:0}
-  .cmc-eco__olive{right:24px;width:50px;height:50px}
+  .cmc-eco__grid{flex-direction:column;align-items:stretch;gap:20px}
+  .cmc-eco__col{width:100%;flex:none;align-items:stretch;gap:20px}
+  .cmc-eco__item--2{width:100%}
+  .cmc-eco__olive{left:auto;right:24px;top:-40px;width:44px}
   .cmc-reflections{margin-top:64px}
   .cmc-reflections__grid{grid-template-columns:1fr;gap:32px;margin-top:28px}
   .cmc-reflections__item{max-width:none}
