@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Milena Jasso · Portafolio</title>
 <meta name="description" content="Where functional UX meets strategic branding. I translate business goals into high-conversion digital experiences that connect with people and scale businesses.">
-<link rel="stylesheet" href="css/styles.css?v=8">
+<link rel="stylesheet" href="css/styles.css?v=15">
 </head>
 <body>
 
 <header class="header">
   <a class="header__logo" href="#" aria-label="Milena Jasso — inicio">
-    <img src="assets/logo-mj.png" alt="Milena Jasso" width="47" height="57">
+    <img src="assets/Index/logo-mj.png" alt="Milena Jasso" width="47" height="57">
   </a>
   <button class="header__toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-menu">
     <span></span><span></span>
@@ -26,7 +26,7 @@
 <div class="menu" id="primary-menu" aria-hidden="true">
   <div class="menu__bar">
     <a class="menu__logo" href="#" aria-label="Milena Jasso — inicio">
-      <img src="assets/logo-mj.png" alt="Milena Jasso">
+      <img src="assets/Index/logo-mj.png" alt="Milena Jasso">
     </a>
     <button class="menu__close" type="button" aria-label="Cerrar menú">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -46,55 +46,86 @@
 <main>
   <section class="hero" aria-label="Presentación">
     <div class="hero__inner">
-      <img class="hero__badge" src="assets/badge.gif" alt="Available for exciting projects">
-      <img class="hero__wordmark" src="assets/wordmark.png"
+      <img class="hero__badge" src="assets/Index/badge.gif" alt="Available for exciting projects">
+      <img class="hero__wordmark" src="assets/Index/wordmark.png"
            alt="MILENA JASSO — Branding lover, gastronomy and fashion enthusiastic">
     </div>
   </section>
 
   <section class="intro">
-    <h1 class="intro__title">Where functional <strong>UX</strong> meets strategic <strong>branding.</strong><br>I translate business goals into high-conversion digital experiences that connect with people and scale businesses.</h1>
+    <div class="intro__inner">
+      <h1 class="intro__title">Where functional <strong>UX</strong> meets strategic <strong>branding.</strong><br>I translate business goals into high-conversion digital experiences that connect with people and scale businesses.</h1>
+      <a class="intro__link" href="#work">Explore all projects</a>
+    </div>
   </section>
 
   <section class="work" id="work" aria-label="Proyectos">
+    <!-- PRIORDEI — texto izquierda, portada derecha -->
     <article class="project">
+      <div class="project__cover">
+        <img class="project__cover-media" src="assets/Index/priordei-cover.jpg" alt="Proyecto PRIORDEI — rediseño e-commerce del aceite">
+      </div>
       <div class="project__info">
         <div class="project__head">
           <h2 class="project__name">PRIORDEI</h2>
           <span class="project__divider" aria-hidden="true"></span>
           <span class="project__tag">Website</span>
         </div>
-        <p class="project__desc">Bringing premium oil to the digital top shelf.<br>Redesigning the e-commerce experience to turn Priordei's rich heritage into intuitive, high-converting customer journeys.</p>
+        <p class="project__desc">Turning Priordei's oil heritage into a seamless, high-converting e-commerce experience.</p>
+        <a class="project__link" href="priordei.html">View project</a>
+      </div>
+    </article>
+
+    <!-- PONTE GUAPO — portada (video puma) izquierda, texto derecha -->
+    <article class="project project--media-left">
+      <div class="project__cover project__cover--pg">
+        <video class="project__cover-media" autoplay muted loop playsinline preload="metadata"
+               poster="assets/Index/puma-poster.jpg">
+          <source src="assets/Index/puma-opt.mp4" type="video/mp4">
+        </video>
+        <img class="pg-wave" src="assets/Index/ponte-guapo-wave.png" alt="" aria-hidden="true">
+        <img class="pg-logo" src="assets/Index/ponte-guapo-logo.png" alt="Ponte Guapo · Conoce y conserva Baja California">
+      </div>
+      <div class="project__info">
+        <div class="project__head">
+          <h2 class="project__name">PONTE GUAPO</h2>
+          <span class="project__divider" aria-hidden="true"></span>
+          <span class="project__tag">Branding &amp; Fundraising Campaign</span>
+        </div>
+        <p class="project__desc">Branded conservation: identity, signage, and eco-infrastructure for over 5,000 hectares of natural reserves.</p>
         <a class="project__link" href="#">View project</a>
       </div>
-      <img class="project__img" src="assets/work-priordei.png" alt="Proyecto PRIORDEI">
     </article>
 
+    <!-- CENTRO MÉDICO CATALUNYA — texto izquierda, portada derecha -->
     <article class="project">
-      <img class="project__img" src="assets/work-priordei.png" alt="Proyecto PRIORDEI">
+      <div class="project__cover">
+        <img class="project__cover-media" src="assets/Index/centro-medico-cover.jpg" alt="Proyecto Centro Médico Catalunya — rediseño web">
+      </div>
       <div class="project__info">
         <div class="project__head">
-          <h2 class="project__name">PRIORDEI</h2>
+          <h2 class="project__name">CENTRO MÉDICO CATALUNYA</h2>
           <span class="project__divider" aria-hidden="true"></span>
           <span class="project__tag">Website</span>
         </div>
-        <p class="project__desc">Bringing premium oil to the <strong>digital top shelf.</strong><br>Redesigning the e-commerce experience to turn Priordei's rich heritage into intuitive, high-converting customer journeys.</p>
-        <a class="project__link" href="#">Ver proyecto</a>
+        <p class="project__desc">A complete editorial redesign: color-coded navigation, custom infographics, and striking visual layouts.</p>
+        <a class="project__link" href="centro-medico.html">View project</a>
       </div>
     </article>
 
-    <article class="project">
-      <div class="project__info">
-        <div class="project__head">
-          <h2 class="project__name">PRIORDEI</h2>
-          <span class="project__divider" aria-hidden="true"></span>
-          <span class="project__tag">Website</span>
-        </div>
-        <p class="project__desc">Bringing premium oil to the <strong>digital top shelf.</strong><br>Redesigning the e-commerce experience to turn Priordei's rich heritage into intuitive, high-converting customer journeys.</p>
-        <a class="project__link" href="#">Ver proyecto</a>
-      </div>
-      <img class="project__img" src="assets/work-priordei.png" alt="Proyecto PRIORDEI">
-    </article>
+    <a class="work__cta" href="#work">Explore all projects</a>
+  </section>
+
+  <!-- About me (Figma 451:5050) -->
+  <section class="about" id="about" aria-label="Sobre Milena">
+    <div class="about__photo">
+      <img src="assets/Index/about-milena.jpg" alt="Milena Jasso">
+    </div>
+    <div class="about__info">
+      <h2 class="about__title">Hi, I'm Milena!<br>A Barcelona based UX/UI Designer and Brand Builder</h2>
+      <p class="about__text">With a strong foundation in graphic design and branding, I've delivered <strong>over 40 web projects</strong> and managed strategies for <strong>20+ brands.</strong> I translate business goals into intuitive, high-conversion digital experiences where functional UX meets compelling brand identity.</p>
+      <a class="about__link" href="#">Meet Milena</a>
+    </div>
   </section>
 </main>
 
@@ -109,7 +140,7 @@
       </nav>
     </div>
     <a class="site-footer__logo" href="#" aria-label="Milena Jasso — inicio">
-      <img src="assets/logo-mj.png" alt="Milena Jasso" width="72" height="87">
+      <img src="assets/Index/logo-mj.png" alt="Milena Jasso" width="72" height="87">
     </a>
     <div class="site-footer__col">
       <p class="site-footer__head">Contacto</p>

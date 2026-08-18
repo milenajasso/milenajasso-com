@@ -13,15 +13,22 @@
   src:url("../assets/fonts/AktivGrotesk-Regular.woff2") format("woff2")}
 @font-face{font-family:'Aktiv Grotesk';font-weight:700;font-style:normal;font-display:swap;
   src:url("../assets/fonts/AktivGrotesk-Bold.woff2") format("woff2")}
+@font-face{font-family:'Aktiv Grotesk';font-weight:700;font-style:italic;font-display:swap;
+  src:url("../assets/fonts/AktivGrotesk-BoldItalic.woff2") format("woff2")}
+@font-face{font-family:"Editor's Note";font-weight:400;font-style:normal;font-display:swap;
+  src:url("../assets/fonts/EditorsNote-Regular.woff2") format("woff2")}
 
 /* ---- Tokens ---- */
 :root{
   --ink:#292929;
   --light:#FCFCFC;
   --pink:rgba(252,239,234,.8);
+  --pink-solid:#FCF2EE;
   --gutter:80px;
   --maxw:1280px;
   --sans:'Satoshi','Helvetica Neue',Arial,sans-serif;
+  --grotesk:'Aktiv Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --serif:"Editor's Note",Georgia,'Times New Roman',serif;
   --serif-ui:'Helvetica Neue',Helvetica,Arial,sans-serif;
   --legal:'Lato',system-ui,sans-serif;
 }
@@ -58,8 +65,9 @@ a{color:inherit;text-decoration:none}
 .hero{
   background:var(--pink);
   min-height:740px;
-  display:flex;align-items:center;justify-content:center;gap:0;
-  padding:60px var(--gutter);
+  /* Composicion subida ~40px para que quede centrada en la banda */
+  display:flex;align-items:flex-start;justify-content:center;gap:0;
+  padding:110px var(--gutter) 60px;
 }
 .hero__inner{
   display:flex;align-items:flex-start;gap:0;
@@ -79,38 +87,105 @@ a{color:inherit;text-decoration:none}
   max-width:var(--maxw);margin:0 auto;
   padding:220px var(--gutter);
 }
+.intro__inner{
+  max-width:961px;
+  display:flex;flex-direction:column;align-items:flex-start;gap:28px;
+}
 .intro__title{
-  font-weight:400;font-size:42px;line-height:52px;max-width:955px;
+  font-family:var(--grotesk);
+  font-weight:400;font-size:42px;line-height:52px;
 }
 .intro__title strong{font-weight:700}
+.intro__link{
+  font-family:var(--grotesk);font-weight:400;font-size:20px;
+  text-decoration:underline;text-underline-position:from-font;
+}
+/* Links de texto subrayados: Aktiv Grotesk Regular; al pasar el raton -> Bold Italic */
+.intro__link:hover,.project__link:hover,.about__link:hover{font-weight:700;font-style:italic}
 
 /* ---- Work ---- */
 .work{
   max-width:var(--maxw);margin:0 auto;
-  padding:0 var(--gutter) 112px;
-  display:flex;flex-direction:column;gap:102px;
+  padding:0 var(--gutter) 120px;
+  display:flex;flex-direction:column;align-items:center;gap:102px;
+  font-family:var(--grotesk);
 }
+/* Cada proyecto: en el DOM va [cover, info]; el desktop alterna con row-reverse */
 .project{
-  display:flex;align-items:center;justify-content:space-between;gap:48px;
+  width:100%;
+  display:flex;align-items:center;justify-content:space-between;gap:41px;
+  flex-direction:row-reverse; /* texto izquierda, imagen derecha */
 }
+.project--media-left{flex-direction:row} /* imagen izquierda, texto derecha */
 .project__info{
-  flex:0 0 auto;width:592px;max-width:50%;
+  flex:0 1 589px;min-width:0;
   display:flex;flex-direction:column;gap:28px;
 }
+/* info y portada escalan juntos manteniendo la proporcion de Figma (589:650) */
 .project__head{display:flex;align-items:center;gap:20px}
-.project__name{font-weight:700;font-size:20px;line-height:1;letter-spacing:1.6px}
-.project__divider{width:1px;height:20px;background:var(--ink);opacity:.4}
-.project__tag{font-weight:500;font-size:20px;line-height:1}
+.project__name{font-weight:700;font-size:20px;line-height:1.2;letter-spacing:.8px}
+.project__divider{width:2px;height:20px;background:var(--ink);flex-shrink:0}
+.project__tag{font-weight:700;font-size:20px;line-height:1.2;letter-spacing:.8px;white-space:nowrap}
+.project__name{white-space:nowrap}
 .project__desc{font-weight:400;font-size:24px;line-height:1.3}
-.project__desc strong{font-weight:500}
+.project__desc strong{font-weight:700}
 .project__link{
-  font-weight:500;font-style:italic;font-size:20px;text-decoration:underline;
+  font-weight:400;font-size:20px;text-decoration:underline;
   text-underline-position:from-font;align-self:flex-start;
 }
-.project__link:hover{opacity:.6}
-.project__img{
-  flex:1 1 0;min-width:0;height:500px;width:100%;
-  object-fit:cover;border-radius:2px;
+/* Portada: caja con relacion 650x500; admite <img> plana o capas (video + overlays) */
+.project__cover{
+  flex:0 1 650px;min-width:0;
+  position:relative;aspect-ratio:650/500;
+  border-radius:2px;overflow:hidden;
+}
+.project__cover-media{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;border-radius:inherit;
+}
+/* Tarjeta PONTE GUAPO: video de puma + onda azul + logo */
+.project__cover--pg{background:#fff}
+.project__cover--pg .pg-wave{
+  position:absolute;left:0;bottom:0;width:100%;height:auto;
+  z-index:1;pointer-events:none;
+}
+.project__cover--pg .pg-logo{
+  position:absolute;left:46.9%;top:72.4%;width:51.1%;height:auto;
+  z-index:2;pointer-events:none;
+}
+
+/* Boton "Explore all projects" (pill) */
+.work__cta{
+  align-self:center;
+  font-family:var(--grotesk);font-weight:400;font-size:18px;line-height:1;
+  padding:16px 20px;border:1px solid var(--ink);border-radius:32px;
+  transition:background .2s,color .2s;
+}
+.work__cta:hover{background:var(--ink);color:var(--light)}
+
+/* ---- About (Figma 451:5050) ---- */
+.about{
+  background:var(--pink-solid);
+  display:flex;align-items:center;justify-content:space-between;gap:41px;
+  padding:120px var(--gutter);
+}
+.about__photo{flex:0 1 585px;min-width:0}
+.about__photo img{
+  width:100%;height:auto;aspect-ratio:585/631;object-fit:cover;
+  border-radius:292px 292px 8px 8px; /* arco: cupula arriba, base recta */
+}
+.about__info{
+  flex:0 1 589px;min-width:0;
+  display:flex;flex-direction:column;gap:28px;font-family:var(--grotesk);
+}
+.about__title{
+  font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.1;letter-spacing:1.6px;
+}
+.about__text{font-weight:400;font-size:24px;line-height:1.3}
+.about__text strong{font-weight:700}
+.about__link{
+  font-weight:400;font-size:20px;text-decoration:underline;
+  text-underline-position:from-font;align-self:flex-start;
 }
 
 /* ---- Footer (Figma 255:127): compartido index + priordei ---- */
@@ -145,6 +220,8 @@ a{color:inherit;text-decoration:none}
   .intro{padding:150px var(--gutter)}
   .intro__title{font-size:34px;line-height:1.3}
   .project__desc{font-size:20px}
+  .about__title{font-size:34px}
+  .about__text{font-size:20px}
 }
 
 @media (max-width:768px){
@@ -181,9 +258,18 @@ a{color:inherit;text-decoration:none}
   .intro{padding:64px var(--gutter)}
   .intro__title{font-size:28px}
   .work{gap:64px;padding-bottom:64px}
-  .project{flex-direction:column;align-items:stretch;gap:24px}
-  .project__info{width:100%;max-width:none;gap:24px}
-  .project__img{height:auto;aspect-ratio:602/572}
-  .footer__top{flex-direction:column;gap:24px}
-  .footer__center{gap:24px}
+  /* Apilar: imagen arriba, texto abajo (mismo orden del DOM en todas las filas) */
+  /* flex:none para que el flex-basis (650/589px) no se interprete como ALTURA en columna */
+  .project,.project--media-left{flex-direction:column;align-items:stretch;gap:24px}
+  .project__cover{flex:none;width:100%}
+  .project__info{flex:none;width:100%;gap:24px}
+  .project__desc{font-size:20px}
+  .project__tag{white-space:normal} /* en movil el tag puede envolver */
+
+  /* About apilado */
+  .about{flex-direction:column;align-items:stretch;gap:32px;padding:64px var(--gutter)}
+  .about__photo{flex:none;width:100%}
+  .about__photo img{border-radius:180px 180px 8px 8px}
+  .about__info{flex:none;width:100%}
+  .about__title{font-size:30px}
 }
