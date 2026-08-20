@@ -11,6 +11,8 @@
   src:url("../assets/fonts/Lato-Regular.woff2") format("woff2")}
 @font-face{font-family:'Aktiv Grotesk';font-weight:400;font-style:normal;font-display:swap;
   src:url("../assets/fonts/AktivGrotesk-Regular.woff2") format("woff2")}
+@font-face{font-family:'Aktiv Grotesk';font-weight:500;font-style:normal;font-display:swap;
+  src:url("../assets/fonts/AktivGrotesk-Medium.woff2") format("woff2")}
 @font-face{font-family:'Aktiv Grotesk';font-weight:700;font-style:normal;font-display:swap;
   src:url("../assets/fonts/AktivGrotesk-Bold.woff2") format("woff2")}
 @font-face{font-family:'Aktiv Grotesk';font-weight:700;font-style:italic;font-display:swap;
@@ -170,10 +172,8 @@ a{color:inherit;text-decoration:none}
   padding:120px var(--gutter);
 }
 .about__photo{flex:0 1 585px;min-width:0}
-.about__photo img{
-  width:100%;height:auto;aspect-ratio:585/631;object-fit:cover;
-  border-radius:292px 292px 8px 8px; /* arco: cupula arriba, base recta */
-}
+/* La imagen ya viene recortada en arco con transparencia: sin border-radius ni crop */
+.about__photo img{width:100%;height:auto;display:block}
 .about__info{
   flex:0 1 589px;min-width:0;
   display:flex;flex-direction:column;gap:28px;font-family:var(--grotesk);
@@ -211,6 +211,13 @@ a{color:inherit;text-decoration:none}
   .site-footer__top{flex-direction:column;gap:40px}
 }
 
+/* ---- Reveal al hacer scroll (aparición suave, igual que los case studies) ---- */
+.reveal-on .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.61,.36,1)}
+.reveal-on .reveal.is-visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal-on .reveal{opacity:1!important;transform:none!important;transition:none!important}
+}
+
 /* ---- Responsive ---- */
 @media (max-width:1024px){
   :root{--gutter:48px}
@@ -230,6 +237,8 @@ a{color:inherit;text-decoration:none}
   .header{height:auto;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0;padding:16px var(--gutter)}
   .header__toggle{display:block}
   .nav{display:none}
+  /* Solo en movil: ocultar el sello/circulo del hero */
+  .hero__badge{display:none}
 
   /* Menú a pantalla completa (Figma 277:393) */
   body.menu-open{overflow:hidden}
@@ -269,7 +278,6 @@ a{color:inherit;text-decoration:none}
   /* About apilado */
   .about{flex-direction:column;align-items:stretch;gap:32px;padding:64px var(--gutter)}
   .about__photo{flex:none;width:100%}
-  .about__photo img{border-radius:180px 180px 8px 8px}
   .about__info{flex:none;width:100%}
   .about__title{font-size:30px}
 }

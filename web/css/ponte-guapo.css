@@ -1,0 +1,149 @@
+/* ============================================================
+   Ponte Guapo — case study
+   Solo estilos de ponte-guapo.html. Reutiliza styles.css
+   (header, footer, menú, tokens).
+   ============================================================ */
+
+.page-ponte{background:var(--light)}
+
+/* Aktiv Grotesk Medium (500): styles.css solo declara 400/700, así que el nav
+   saldría faux. Lo declaramos aquí para que ABOUT/WORK tengan el mismo peso
+   real que en Priordei (Aktiv Grotesk Medium, no Satoshi). */
+@font-face{font-family:'Aktiv Grotesk';font-weight:500;font-style:normal;font-display:swap;
+  src:url("../assets/fonts/AktivGrotesk-Medium.woff2") format("woff2")}
+
+/* Header con el mismo tono que Priordei: transparente sobre el fondo --light
+   (#FCFCFC). El resto de páginas sigue en --pink. */
+.page-ponte .header{background:transparent}
+
+/* Nav (ABOUT/WORK) en Aktiv Grotesk Medium, igual que Priordei (el peso 500
+   lo aporta .nav de styles.css). */
+.page-ponte .nav{font-family:var(--grotesk)}
+
+/* Línea divisoria superior del footer (Figma 462:5245, border-top 0.5px) */
+.page-ponte .site-footer{border-top:.5px solid #000}
+
+/* Contenedor del case study (mismo gutter/ancho que el resto) */
+.pg{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+
+/* ============ HERO ============ */
+.pg-hero{
+  display:flex;flex-direction:column;align-items:center;gap:20px;
+  text-align:center;
+  max-width:1123px;margin:0 auto;
+  padding:100px 0 0;
+}
+.pg-hero__title{
+  font-family:var(--serif);font-weight:400;
+  font-size:64px;line-height:1.05;color:var(--ink);
+}
+.pg-hero__tagline{
+  font-family:var(--grotesk);font-weight:700;
+  font-size:20px;line-height:1.35;color:var(--ink);
+  max-width:none;                 /* que quepa en una sola línea (como en Figma / Priordei) */
+}
+.pg-hero__eyebrow{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:20px;
+  font-family:var(--grotesk);font-weight:400;font-size:16px;
+  text-transform:uppercase;color:var(--ink);
+}
+.pg-hero__sep{color:var(--ink)}
+
+/* ============ FIGURAS / GALERÍA ============ */
+.pg-figure{margin:0}
+.pg-figure img{display:block;width:100%;height:auto}
+.pg-figure--first{margin-top:80px}
+
+.pg-gallery{
+  display:flex;flex-direction:column;gap:80px;
+  margin-top:112px;   /* distancia Solution → primera imagen (Figma: 2292 − 2180) */
+}
+
+/* ============ LEAD ============ */
+.pg-lead{
+  font-family:var(--serif);font-weight:400;
+  font-size:40px;line-height:1.25;text-align:center;color:var(--ink);
+  max-width:1064px;margin:160px auto 0;
+}
+
+/* ============ BRIEF: Product / Challenge / Solution + Role ============ */
+.pg-brief{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:80px;
+  margin-top:160px;
+}
+.pg-brief__main{
+  flex:1 1 auto;max-width:738px;
+  display:flex;flex-direction:column;gap:32px;
+}
+.pg-brief__block{display:flex;flex-direction:column;gap:16px}
+.pg-brief__label{
+  margin:0;
+  font-family:var(--grotesk);font-weight:700;
+  font-size:20px;text-transform:uppercase;letter-spacing:2.4px;color:var(--ink);
+}
+.pg-brief__block p{
+  margin:0;
+  font-family:var(--grotesk);font-weight:400;font-size:20px;line-height:1.4;color:var(--ink);
+}
+.pg-brief__block p strong{font-weight:700}
+.pg-brief__role{
+  flex:0 0 240px;
+  display:flex;flex-direction:column;gap:16px;align-items:flex-start;
+}
+.pg-brief__label--role{font-size:18px;letter-spacing:normal}
+.pg-brief__role p{
+  margin:0;
+  font-family:var(--grotesk);font-weight:400;font-size:20px;line-height:1.3;color:var(--ink);
+}
+
+/* ============ Crédito / leyenda antes del footer ============
+   En Figma era una imagen (884×141). Aquí es tipografía:
+   una línea corta encima + el texto en gris claro, alineado a la izquierda. */
+.pg-credit{margin:120px 0 72px}
+.pg-credit__rule{
+  width:210px;height:0;
+  border:0;border-top:1px solid var(--ink);
+  margin:0 0 56px;
+}
+.pg-credit__text{
+  font-family:var(--grotesk);font-weight:400;
+  font-size:15px;line-height:1.5;letter-spacing:.1px;
+  color:#8f8f8f;
+  max-width:884px;
+}
+
+/* ============ TABLET ============ */
+@media (max-width:1024px){
+  .pg-hero__title{font-size:56px}
+  .pg-lead{font-size:34px}
+  .pg-brief{gap:48px}
+  .pg-brief__role{flex-basis:200px}
+}
+
+/* ============ MÓVIL ============ */
+@media (max-width:768px){
+  .pg{padding:0 24px}
+
+  .pg-hero{padding-top:64px;gap:16px}
+  .pg-hero__title{font-size:clamp(38px,12vw,56px);line-height:1.05}
+  .pg-hero__tagline{font-size:17px}
+  .pg-hero__eyebrow{gap:10px 14px;font-size:13px}
+
+  .pg-figure--first{margin-top:56px}
+
+  .pg-lead{font-size:24px;line-height:1.3;margin-top:64px}
+
+  .pg-brief{
+    flex-direction:column;gap:40px;margin-top:100px;
+  }
+  .pg-brief__main{max-width:none}
+  .pg-brief__block p{font-size:17px}
+  .pg-brief__role{flex-basis:auto}
+  .pg-brief__label{font-size:18px}
+
+  .pg-gallery{gap:40px;margin-top:100px}
+
+  .pg-credit{margin:80px 0 48px}
+  .pg-credit__rule{width:140px;margin-bottom:32px}
+  .pg-credit__text{font-size:14px}
+}

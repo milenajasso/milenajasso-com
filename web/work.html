@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work — Milena Jasso</title>
+<meta name="description" content="All work by Milena Jasso — branding and websites. Transforming brands and building digital spaces: Priordei, Ponte Guapo, Centro Médico Catalunya, aPRICOTS and MAYA.">
+<link rel="stylesheet" href="css/styles.css?v=19">
+<link rel="stylesheet" href="css/work.css?v=7">
+</head>
+<body class="page-work">
+
+<header class="header">
+  <a class="header__logo" href="index.html" aria-label="Milena Jasso — inicio">
+    <img src="assets/Index/logo-mj.png" alt="Milena Jasso" width="47" height="57">
+  </a>
+  <button class="header__toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-menu">
+    <span></span><span></span>
+  </button>
+  <nav class="nav" id="primary-nav" aria-label="Principal">
+    <a href="#">About</a>
+    <a href="work.html">Work</a>
+  </nav>
+</header>
+
+<!-- Menú móvil a pantalla completa -->
+<div class="menu" id="primary-menu" aria-hidden="true">
+  <div class="menu__bar">
+    <a class="menu__logo" href="index.html" aria-label="Milena Jasso — inicio">
+      <img src="assets/Index/logo-mj.png" alt="Milena Jasso">
+    </a>
+    <button class="menu__close" type="button" aria-label="Cerrar menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="menu__links" aria-label="Menú principal">
+    <a href="index.html">ABOUT</a>
+    <a href="work.html">WORK</a>
+    <a href="#footer">CONTACT</a>
+  </nav>
+  <div class="menu__foot">
+    <p class="menu__foot-title">Let's work together</p>
+    <a class="menu__foot-mail" href="mailto:milena.jasso@gmail.com">milena.jasso@gmail.com</a>
+  </div>
+</div>
+
+<main class="work-page">
+
+  <!-- ============ Título + filtros ============ -->
+  <section class="work-intro">
+    <h1 class="work-intro__title">Transforming brands, building digital spaces</h1>
+    <div class="work-filters" role="group" aria-label="Filtrar proyectos">
+      <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">ALL WORK</button>
+      <button class="filter-btn" type="button" data-filter="branding" aria-pressed="false">BRANDING</button>
+      <button class="filter-btn" type="button" data-filter="website" aria-pressed="false">WEBSITES</button>
+    </div>
+  </section>
+
+  <!-- ============ Grid de proyectos ============ -->
+  <div class="work-grid" id="work-grid">
+
+    <!-- PRIORDEI — Website -->
+    <article class="wcard" data-category="website">
+      <a class="wcard__cover" href="priordei.html" aria-label="Ver proyecto PRIORDEI">
+        <img class="wcard__media" src="assets/Index/priordei-cover.jpg"
+          alt="Proyecto PRIORDEI — rediseño e-commerce del aceite" loading="lazy">
+      </a>
+      <div class="wcard__info">
+        <div class="wcard__head">
+          <h2 class="wcard__name">PRIORDEI</h2>
+          <span class="wcard__divider" aria-hidden="true"></span>
+          <span class="wcard__tag">Website</span>
+        </div>
+        <p class="wcard__desc">Turning Priordei's oil heritage into a seamless, high-converting e-commerce experience.</p>
+      </div>
+    </article>
+
+    <!-- PONTE GUAPO / TERRA PENINSULAR — Branding -->
+    <article class="wcard" data-category="branding">
+      <a class="wcard__cover wcard__cover--pg" href="ponte-guapo.html" aria-label="Ver proyecto Ponte Guapo">
+        <video class="wcard__media" autoplay muted loop playsinline preload="metadata"
+               poster="assets/Index/puma-poster.jpg">
+          <source src="assets/Index/puma-opt.mp4" type="video/mp4">
+        </video>
+        <img class="wcard__pg-wave" src="assets/Index/ponte-guapo-wave.webp" alt="" aria-hidden="true" loading="eager" decoding="async">
+        <img class="wcard__pg-logo" src="assets/Index/ponte-guapo-logo.png" alt="" aria-hidden="true">
+      </a>
+      <div class="wcard__info">
+        <div class="wcard__head">
+          <h2 class="wcard__name">Terra Peninsular</h2>
+          <span class="wcard__divider" aria-hidden="true"></span>
+          <span class="wcard__tag">Editorial Magazine, Branding</span>
+        </div>
+        <p class="wcard__desc">Branded conservation: identity, signage, and eco-infrastructure for over 5,000 hectares of natural reserves.</p>
+      </div>
+    </article>
+
+    <!-- CENTRO MÉDICO CATALUNYA — Website -->
+    <article class="wcard" data-category="website">
+      <a class="wcard__cover" href="centro-medico.html" aria-label="Ver proyecto Centro Médico Catalunya">
+        <img class="wcard__media" src="assets/work/centro-medico.webp"
+          alt="Proyecto Centro Médico Catalunya — rediseño web" loading="lazy">
+      </a>
+      <div class="wcard__info">
+        <div class="wcard__head">
+          <h2 class="wcard__name">Centro Médico Catalunya</h2>
+          <span class="wcard__divider" aria-hidden="true"></span>
+          <span class="wcard__tag">Website</span>
+        </div>
+        <p class="wcard__desc">Reimagining a 30-year medical institution through intuitive UX and high-converting booking journeys.</p>
+      </div>
+    </article>
+
+    <!-- MAIA — Branding (sin página de detalle todavía) -->
+    <article class="wcard" data-category="branding">
+      <div class="wcard__cover">
+        <img class="wcard__media" src="assets/work/maia.webp"
+          alt="Proyecto MAIA — branding de marroquinería mexicana" loading="lazy">
+      </div>
+      <div class="wcard__info">
+        <div class="wcard__head">
+          <h2 class="wcard__name">MAIA</h2>
+          <span class="wcard__divider" aria-hidden="true"></span>
+          <span class="wcard__tag">Branding</span>
+        </div>
+        <p class="wcard__desc">Premium 100% Mexican leather bags and wallets made for nationwide distribution.</p>
+      </div>
+    </article>
+
+    <!-- CHIVO GRUÑÓN — Packaging Design, Branding (sin página de detalle todavía) -->
+    <article class="wcard" data-category="branding">
+      <div class="wcard__cover wcard__cover--chivo">
+        <img class="wcard__media" src="assets/work/chivo-grunon.webp"
+          alt="Proyecto Chivo Gruñón — packaging y branding de cerveza artesanal" loading="lazy">
+      </div>
+      <div class="wcard__info">
+        <div class="wcard__head">
+          <h2 class="wcard__name">Chivo Gruñón</h2>
+          <span class="wcard__divider" aria-hidden="true"></span>
+          <span class="wcard__tag">Packaging Design, Branding</span>
+        </div>
+        <p class="wcard__desc">Stubborn for quality: crafting personality-driven beers that bridge craft enthusiasts and casual drinkers.</p>
+      </div>
+    </article>
+
+    <!-- JAPRI BOOKS — Website (sin página de detalle todavía) -->
+    <article class="wcard" data-category="website">
+      <div class="wcard__cover">
+        <img class="wcard__media" src="assets/work/japri-books.webp"
+          alt="Proyecto Japri Books — web de libros de bienestar" loading="lazy">
+      </div>
+      <div class="wcard__info">
+        <div class="wcard__head">
+          <h2 class="wcard__name">Japri Books</h2>
+          <span class="wcard__divider" aria-hidden="true"></span>
+          <span class="wcard__tag">Website</span>
+        </div>
+        <p class="wcard__desc">Bridging non-fiction and purpose-driven design through friction-free wellness activity books.</p>
+      </div>
+    </article>
+
+  </div>
+
+</main>
+
+<footer class="site-footer" id="footer">
+  <div class="site-footer__top">
+    <div class="site-footer__col">
+      <p class="site-footer__head">Descubre el studio</p>
+      <nav class="site-footer__links" aria-label="Secciones">
+        <a href="index.html">HOME</a>
+        <a href="#">ABOUT</a>
+        <a href="work.html">WORK</a>
+      </nav>
+    </div>
+    <a class="site-footer__logo" href="index.html" aria-label="Milena Jasso — inicio">
+      <img src="assets/Index/logo-mj.png" alt="Milena Jasso" width="72" height="87">
+    </a>
+    <div class="site-footer__col">
+      <p class="site-footer__head">Contacto</p>
+      <nav class="site-footer__links" aria-label="Contacto">
+        <a href="#">LINKEDIN</a>
+        <a href="mailto:milena.jasso@gmail.com">milena.jasso@gmail.com</a>
+      </nav>
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <p class="site-footer__tagline">Where strategic UX meets high-conversion design—connecting people and scaling businesses through intuitive digital experiences.</p>
+    <p class="site-footer__copy">Copyright 2026</p>
+  </div>
+</footer>
+
+<script>
+  // Menú móvil a pantalla completa (solo visible en móvil)
+  (function () {
+    var btn = document.querySelector('.header__toggle');
+    var menu = document.getElementById('primary-menu');
+    if (!btn || !menu) return;
+    function setOpen(open) {
+      document.body.classList.toggle('menu-open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+    btn.addEventListener('click', function () { setOpen(!document.body.classList.contains('menu-open')); });
+    var closeBtn = menu.querySelector('.menu__close');
+    if (closeBtn) closeBtn.addEventListener('click', function () { setOpen(false); });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { setOpen(false); });
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+  })();
+
+  // Filtro de proyectos por categoría (ALL WORK / BRANDING / WEBSITES)
+  (function () {
+    var buttons = document.querySelectorAll('.filter-btn');
+    var cards = document.querySelectorAll('.work-grid .wcard');
+    if (!buttons.length || !cards.length) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function applyFilter(filter) {
+      var shown = [];
+      cards.forEach(function (card) {
+        var match = (filter === 'all') || (card.getAttribute('data-category') === filter);
+        card.hidden = !match;
+        if (match) shown.push(card);
+      });
+      if (reduce) return;
+      // Reinicia la animación de entrada en las tarjetas visibles, con escalonado
+      shown.forEach(function (card, i) {
+        card.classList.remove('wcard--anim');
+        void card.offsetWidth; // fuerza reflow para reiniciar la animación
+        card.style.animationDelay = (i * 100) + 'ms';
+        card.classList.add('wcard--anim');
+      });
+    }
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        buttons.forEach(function (b) {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-pressed', 'true');
+        applyFilter(btn.getAttribute('data-filter'));
+      });
+    });
+  })();
+
+  // Aparición suave al hacer scroll (fade + subida). Igual que los case studies.
+  (function () {
+    if (!('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var selectors = ['.work-intro__title', '.work-filters', '.wcard', '.site-footer__top', '.site-footer__bottom'];
+    var els = [];
+    selectors.forEach(function (s) {
+      document.querySelectorAll(s).forEach(function (e) { if (els.indexOf(e) === -1) els.push(e); });
+    });
+    if (!els.length) return;
+    document.documentElement.classList.add('reveal-on');
+    els.forEach(function (e) {
+      e.classList.add('reveal');
+      var sibs = [].slice.call(e.parentNode.children).filter(function (c) { return c.classList.contains('reveal'); });
+      if (sibs.length >= 2 && sibs.length <= 6) {
+        var idx = sibs.indexOf(e);
+        if (idx > 0) e.style.transitionDelay = (idx * 90) + 'ms';
+      }
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting || en.boundingClientRect.top < 0) {
+          en.target.classList.add('is-visible');
+          io.unobserve(en.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
+
+</body>
+</html>

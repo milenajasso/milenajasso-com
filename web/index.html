@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Milena Jasso · Portafolio</title>
 <meta name="description" content="Where functional UX meets strategic branding. I translate business goals into high-conversion digital experiences that connect with people and scale businesses.">
-<link rel="stylesheet" href="css/styles.css?v=15">
+<link rel="stylesheet" href="css/styles.css?v=19">
 </head>
 <body>
 
@@ -83,7 +83,7 @@
                poster="assets/Index/puma-poster.jpg">
           <source src="assets/Index/puma-opt.mp4" type="video/mp4">
         </video>
-        <img class="pg-wave" src="assets/Index/ponte-guapo-wave.png" alt="" aria-hidden="true">
+        <img class="pg-wave" src="assets/Index/ponte-guapo-wave.webp" alt="" aria-hidden="true" loading="eager" decoding="async">
         <img class="pg-logo" src="assets/Index/ponte-guapo-logo.png" alt="Ponte Guapo · Conoce y conserva Baja California">
       </div>
       <div class="project__info">
@@ -93,7 +93,7 @@
           <span class="project__tag">Branding &amp; Fundraising Campaign</span>
         </div>
         <p class="project__desc">Branded conservation: identity, signage, and eco-infrastructure for over 5,000 hectares of natural reserves.</p>
-        <a class="project__link" href="#">View project</a>
+        <a class="project__link" href="ponte-guapo.html">View project</a>
       </div>
     </article>
 
@@ -108,7 +108,7 @@
           <span class="project__divider" aria-hidden="true"></span>
           <span class="project__tag">Website</span>
         </div>
-        <p class="project__desc">A complete editorial redesign: color-coded navigation, custom infographics, and striking visual layouts.</p>
+        <p class="project__desc">Reimagining a 30-year medical institution through intuitive UX and high-converting booking journeys.</p>
         <a class="project__link" href="centro-medico.html">View project</a>
       </div>
     </article>
@@ -119,7 +119,7 @@
   <!-- About me (Figma 451:5050) -->
   <section class="about" id="about" aria-label="Sobre Milena">
     <div class="about__photo">
-      <img src="assets/Index/about-milena.jpg" alt="Milena Jasso">
+      <img src="assets/Index/mile_about.webp" alt="Milena Jasso">
     </div>
     <div class="about__info">
       <h2 class="about__title">Hi, I'm Milena!<br>A Barcelona based UX/UI Designer and Brand Builder</h2>
@@ -175,6 +175,45 @@
       a.addEventListener('click', function () { setOpen(false); });
     });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+  })();
+</script>
+
+<script>
+  // Aparición suave al hacer scroll (fade + subida). Respeta prefers-reduced-motion.
+  (function () {
+    if (!('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var selectors = [
+      '.hero__badge', '.hero__wordmark',
+      '.intro__title', '.intro__link',
+      '.project__cover', '.project__info',
+      '.work__cta',
+      '.about__photo', '.about__info',
+      '.site-footer__top', '.site-footer__bottom'
+    ];
+    var els = [];
+    selectors.forEach(function (s) {
+      document.querySelectorAll(s).forEach(function (e) { if (els.indexOf(e) === -1) els.push(e); });
+    });
+    if (!els.length) return;
+    document.documentElement.classList.add('reveal-on');
+    els.forEach(function (e) {
+      e.classList.add('reveal');
+      var sibs = [].slice.call(e.parentNode.children).filter(function (c) { return c.classList.contains('reveal'); });
+      if (sibs.length >= 2 && sibs.length <= 6) {
+        var idx = sibs.indexOf(e);
+        if (idx > 0) e.style.transitionDelay = (idx * 90) + 'ms';
+      }
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting || en.boundingClientRect.top < 0) {
+          en.target.classList.add('is-visible');
+          io.unobserve(en.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+    els.forEach(function (e) { io.observe(e); });
   })();
 </script>
 

@@ -23,14 +23,19 @@ web/
   index.html            # Home (Milena Jasso)
   priordei.html         # Case study Priordei
   centro-medico.html    # Case study Centro Médico Catalunya
+  ponte-guapo.html      # Case study Ponte Guapo (branding Baja California)
+  work.html             # "All work" — grid de carátulas + filtro (Branding/Websites)
   css/
     styles.css          # Compartido por TODAS las páginas (header, footer, menú, tokens)
     priordei.css        # Estilos SOLO de priordei.html
     centro-medico.css   # Estilos SOLO de centro-medico.html
+    ponte-guapo.css     # Estilos SOLO de ponte-guapo.html
+    work.css            # Estilos SOLO de work.html (grid 2 col + filtro)
   assets/
     fonts/              # .woff2 (ver §3)
     priordei/           # imágenes y vídeos del case study Priordei
     centro-medico/      # imágenes/vídeo del case study Centro Médico Catalunya
+    ponte-guapo/        # slides del branding (webp) + gif-terra.gif (animado)
     logo-mj.png, wordmark.png, badge.gif, ...
 ```
 > Este documento vive en la **raíz del repo**, no en `web/`, porque `web/` es exactamente
@@ -45,9 +50,11 @@ web/
 ### Cache-busting (IMPORTANTE)
 Cada `<link>` de CSS lleva `?v=N`. **Cada vez que edites un CSS, sube el número** o el
 navegador (y el preview) sirven la versión cacheada. Estado actual:
-- `styles.css?v=13`
+- `styles.css?v=19`
 - `priordei.css?v=55`
 - `centro-medico.css?v=36`
+- `ponte-guapo.css?v=5`
+- `work.css?v=7`
 
 ---
 
