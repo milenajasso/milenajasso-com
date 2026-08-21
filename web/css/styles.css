@@ -54,6 +54,10 @@ a{color:inherit;text-decoration:none}
 .nav{display:flex;gap:32px;font-size:16px;text-transform:uppercase;letter-spacing:1.28px;font-weight:500}
 .nav a{transition:opacity .2s}
 .nav a:hover{opacity:.6}
+/* Home (index): header con el mismo rosa que el hero (var(--pink)) y nav en
+   grotesca (Aktiv Grotesk, como Priordei) en vez de Satoshi. */
+.page-home .header{background:var(--pink)}
+.page-home .nav{font-family:var(--grotesk)}
 /* Botón hamburguesa (2 líneas): oculto en escritorio, visible solo en móvil */
 .header__toggle{display:none;position:relative;width:28px;height:12px;background:none;border:0;padding:0;cursor:pointer;flex-shrink:0}
 .header__toggle span{position:absolute;left:0;width:100%;height:2px;background:var(--ink);border-radius:2px}

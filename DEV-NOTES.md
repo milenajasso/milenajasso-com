@@ -53,12 +53,12 @@ web/
 ### Cache-busting (IMPORTANTE)
 Cada `<link>` de CSS lleva `?v=N`. **Cada vez que edites un CSS, sube el número** o el
 navegador (y el preview) sirven la versión cacheada. Estado actual:
-- `styles.css?v=25`
+- `styles.css?v=27`
 - `priordei.css?v=55`
 - `centro-medico.css?v=36`
-- `ponte-guapo.css?v=5`
+- `ponte-guapo.css?v=6`
 - `japri-books.css?v=8`
-- `work.css?v=7`
+- `work.css?v=11`
 
 ---
 
