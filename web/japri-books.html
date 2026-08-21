@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japri Books · Case study — Milena Jasso</title>
+<meta name="description" content="Japri Books — Empower your mind. UX design and research for a social-impact publisher of non-fiction and well-being activity books, designed in a 9-day sprint.">
+<link rel="stylesheet" href="css/styles.css?v=25">
+<link rel="stylesheet" href="css/japri-books.css?v=8">
+</head>
+<body class="page-japri">
+
+<header class="header">
+  <a class="header__logo" href="index.html" aria-label="Milena Jasso — inicio">
+    <img src="assets/Index/logo-mj.png" alt="Milena Jasso" width="47" height="57">
+  </a>
+  <button class="header__toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-menu">
+    <span></span><span></span>
+  </button>
+  <nav class="nav" id="primary-nav" aria-label="Principal">
+    <a href="#">About</a>
+    <a href="index.html#work">Work</a>
+  </nav>
+</header>
+
+<!-- Menú móvil a pantalla completa (Figma 277:393) -->
+<div class="menu" id="primary-menu" aria-hidden="true">
+  <div class="menu__bar">
+    <a class="menu__logo" href="index.html" aria-label="Milena Jasso — inicio">
+      <img src="assets/Index/logo-mj.png" alt="Milena Jasso">
+    </a>
+    <button class="menu__close" type="button" aria-label="Cerrar menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="menu__links" aria-label="Menú principal">
+    <a href="index.html">ABOUT</a>
+    <a href="index.html#work">WORK</a>
+    <a href="#footer">CONTACT</a>
+  </nav>
+  <div class="menu__foot">
+    <p class="menu__foot-title">Let's work together</p>
+    <a class="menu__foot-mail" href="mailto:milena.jasso@gmail.com">milena.jasso@gmail.com</a>
+  </div>
+</div>
+
+<main class="case">
+  <!-- ============ HERO ============ -->
+  <article class="case-hero">
+    <header class="case-hero__head">
+      <h1 class="case-hero__title">Japri Books</h1>
+      <p class="case-hero__tagline">Empower your mind with Japri Books</p>
+      <p class="case-hero__tags">
+        <span>UX Design</span><span>/</span>
+        <span>UX Research</span><span>/</span>
+        <span>Design Thinking</span><span>/</span>
+        <span>Information Architecture</span>
+      </p>
+      <p class="case-hero__tags">
+        <span>Wireframes</span><span>/</span>
+        <span>Usability Testing</span><span>/</span>
+        <span>Prototyping</span><span>/</span>
+        <span>Figma</span>
+      </p>
+    </header>
+
+    <div class="case-hero__body">
+      <!-- Portada -->
+      <div class="jb-cover">
+        <img src="assets/japri-books/portada.png" alt="Japri Books — portada de la app móvil sobre fondo azul">
+      </div>
+
+      <!-- Frase serif -->
+      <div class="case-lead">
+        <p>Japri Books is a social impact publisher crafting non-fiction and activity books—from word searches and coloring to crosswords—designed to elevate mental, emotional, and spiritual well-being.</p>
+      </div>
+
+      <!-- Brief -->
+      <div class="case-brief">
+        <div class="case-brief__cols">
+          <div class="case-brief__text">
+            <section class="case-brief__block">
+              <h2 class="label">Product</h2>
+              <p>Japri Books is a social impact publisher bridging non-fiction literature with <strong>purpose-driven activity design.</strong> By crafting word searches, coloring books, and crosswords focused on <strong>mental, emotional, and spiritual well-being</strong>, the brand transforms daily activity into a <strong>friction-free wellness experience.</strong></p>
+            </section>
+            <section class="case-brief__block">
+              <h2 class="label">Challenge</h2>
+              <p>Designing a high-impact mobile app in a <strong>9-day sprint</strong> alongside a cross-functional <strong>team of 5</strong>—seamlessly integrating features that highlight the brand's social commitment and core values.</p>
+            </section>
+            <section class="case-brief__block">
+              <h2 class="label">Solution</h2>
+              <p>Grounded in <strong>user research, we optimized product benefit clarity</strong>, aligned user expectations, and embedded high-trust customer reviews—while strategically weaving the brand's social impact throughout the UX flow to reinforce community engagement.</p>
+            </section>
+          </div>
+          <aside class="case-brief__meta">
+            <div>
+              <h2 class="label">Role</h2>
+              <p>UX/UI Designer</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ USER RESEARCH & INSIGHTS ============ -->
+  <section class="jb-band jb-band--f1f5f7" aria-labelledby="jb-research-title">
+    <div class="jb-inner">
+      <div class="jb-head">
+        <h2 class="jb-title" id="jb-research-title">User research &amp; insights</h2>
+        <p class="jb-sub">We conducted user interviews and surveys across a 50-participant sample to uncover core needs, friction points, and behaviors. Key user quotes include:</p>
+      </div>
+      <div class="jb-collage">
+        <img class="jb-q jb-q1" src="assets/japri-books/cuote1.png" alt="Cita de usuaria: «Si esto además contribuye, no me importa gastarme el dinero»">
+        <img class="jb-q jb-q2" src="assets/japri-books/group2.png" alt="Cita de usuaria: «Me gustan las cosas menos comerciales, siento que se encuentran cosas más únicas»">
+        <img class="jb-q jb-q3" src="assets/japri-books/cuote4.png" alt="Cita de usuaria: «Usualmente regalo cosas que me gustan teniendo en cuenta los intereses del otro. Es como crear un puente entre nosotros»">
+        <img class="jb-q jb-q4" src="assets/japri-books/group1.png" alt="Cita de usuaria: «Para escoger un libro miro listas en internet»">
+        <img class="jb-q jb-q5" src="assets/japri-books/group3.png" alt="Cita de usuaria: «Uno de mis criterios para elegir un libro es si ya he escuchado hablar de él o que me lo hayan recomendado»">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KEY METRICS ============ -->
+  <section class="jb-band" aria-labelledby="jb-metrics-title">
+    <div class="jb-inner">
+      <div class="jb-head">
+        <h2 class="jb-title" id="jb-metrics-title">Key Metrics</h2>
+        <p class="jb-sub">We conducted user interviews and surveys across a 50-participant sample to uncover core needs, friction points, and behaviors. Key user quotes include:</p>
+      </div>
+      <div class="jb-metrics">
+        <div class="jb-metrics__row">
+          <div class="jb-metrics__item jb-metrics__item--wide"><img src="assets/japri-books/data1.png" alt="Métrica de investigación de usuarios (gráfico 1)"></div>
+          <div class="jb-metrics__item jb-metrics__item--wide"><img src="assets/japri-books/data2.png" alt="Métrica de investigación de usuarios (gráfico 2)"></div>
+        </div>
+        <div class="jb-metrics__row jb-metrics__row--split">
+          <div class="jb-metrics__item jb-metrics__item--wide"><img src="assets/japri-books/data3.png" alt="Métrica de investigación de usuarios (gráfico 3)"></div>
+          <div class="jb-metrics__item jb-metrics__item--small"><img src="assets/japri-books/data4.png" alt="Métrica de investigación de usuarios (2 de 6)"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESEARCH METHODS ============ -->
+  <section class="jb-band jb-band--f1f5f7" aria-labelledby="jb-methods-title">
+    <div class="jb-inner">
+      <div class="jb-head jb-head--left">
+        <h2 class="jb-title" id="jb-methods-title">Research Methods</h2>
+      </div>
+      <div class="jb-methods">
+        <div class="jb-method">
+          <img class="jb-method__icon" src="assets/japri-books/mosca.png" alt="">
+          <div class="jb-method__body">
+            <h3 class="label">Fly on the Wall Observation</h3>
+            <p>In-store observational research across multiple bookstores to analyze real-world user behavior, browsing patterns, and book selection heuristics.</p>
+          </div>
+        </div>
+        <div class="jb-method">
+          <img class="jb-method__icon" src="assets/japri-books/buy.png" alt="">
+          <div class="jb-method__body">
+            <h3 class="label">Mystery Shopping</h3>
+            <p>A end-to-end purchase simulation executed by our team to pinpoint critical friction points, uncover usability gaps, and streamline the overall buying journey.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CORE INSIGHTS ============ -->
+  <section class="jb-band jb-band--f8f8f8" aria-label="Core insights">
+    <div class="jb-inner jb-insights">
+      <div class="jb-insights__text">
+        <h2 class="jb-title jb-insights__title">Core Insights</h2>
+        <div class="jb-insight">
+          <h3 class="label">Product-Centric Decision Making</h3>
+          <p>Primary users prioritize product specifications, content relevance, and quality over brand storytelling during the purchasing flow.</p>
+        </div>
+        <div class="jb-insight">
+          <h3 class="label">Secondary Value of Social Impact</h3>
+          <p>While appreciated, the brand's social mission acts as an added value driver rather than the primary conversion trigger.</p>
+        </div>
+        <img class="jb-insights__arrow" src="assets/japri-books/flecha1.png" alt="">
+      </div>
+      <div class="jb-insights__photo">
+        <img src="assets/japri-books/woman-library.png" alt="Mujer joven leyendo en una biblioteca">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ USER PERSONA ============ -->
+  <section class="jb-band" aria-labelledby="jb-persona-title">
+    <div class="jb-inner">
+      <div class="jb-head">
+        <h2 class="jb-title" id="jb-persona-title">User persona</h2>
+      </div>
+      <div class="jb-figure jb-figure--full">
+        <img src="assets/japri-books/user-persona.png" alt="User persona — perfil de usuaria objetivo de Japri Books">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEM STATEMENT + SOLUTION (banda morada) ============ -->
+  <section class="jb-band jb-band--purple" aria-labelledby="jb-problem-title">
+    <div class="jb-inner jb-problem">
+      <div class="jb-head jb-head--center">
+        <h2 class="jb-title jb-title--light" id="jb-problem-title">Problem statement</h2>
+      </div>
+      <p class="jb-problem__quote">"Natalia needs a <strong>reliable way</strong> to preserve her mother's mental health, as <strong>she fears</strong> a decline in cognitive abilities could strain their relationship."</p>
+    </div>
+    <div class="jb-inner jb-solution">
+      <div class="jb-head jb-head--center">
+        <h2 class="jb-title jb-title--light">Solution</h2>
+      </div>
+      <div class="jb-benefits">
+        <div class="jb-benefit">
+          <div class="jb-benefit__head">
+            <img class="jb-benefit__icon" src="assets/japri-books/circle-check.svg" alt="">
+            <h3 class="label label--light">Key Benefits</h3>
+          </div>
+          <p>Clearly present product benefits, highlighting how they effectively meet user needs.</p>
+        </div>
+        <div class="jb-benefit">
+          <div class="jb-benefit__head">
+            <img class="jb-benefit__icon" src="assets/japri-books/circle-check.svg" alt="">
+            <h3 class="label label--light">Clear Expectations</h3>
+          </div>
+          <p>Accurately define what Natalia can expect from each product, instilling the confidence needed to complete her purchase.</p>
+        </div>
+        <div class="jb-benefit">
+          <div class="jb-benefit__head">
+            <img class="jb-benefit__icon" src="assets/japri-books/circle-check.svg" alt="">
+            <h3 class="label label--light">Social Proof</h3>
+          </div>
+          <p>Display user satisfaction reviews to build product credibility and foster trust.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ USER FLOW ============ -->
+  <section class="jb-band jb-band--f8f8f8" aria-labelledby="jb-flow-title">
+    <div class="jb-inner">
+      <div class="jb-head">
+        <h2 class="jb-title" id="jb-flow-title">User flow</h2>
+      </div>
+      <div class="jb-figure jb-figure--full">
+        <img src="assets/japri-books/user-flow.png" alt="User flow — diagrama del recorrido del usuario en la app">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WIREFRAMES ============ -->
+  <section class="jb-band" aria-labelledby="jb-wireframes-title">
+    <div class="jb-inner">
+      <div class="jb-head">
+        <h2 class="jb-title" id="jb-wireframes-title">Wireframes</h2>
+      </div>
+      <div class="jb-figure jb-figure--full">
+        <img src="assets/japri-books/mid-fi.png" alt="Wireframes mid-fidelity de las pantallas de la app">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONCLUSION ============ -->
+  <section class="jb-band jb-band--f1f5f7" aria-labelledby="jb-conclusion-title">
+    <div class="jb-inner">
+      <div class="jb-head">
+        <h2 class="jb-title" id="jb-conclusion-title">Conclusion: Building Trust and Credibility for Natalia</h2>
+        <p class="jb-sub">Our research highlighted that activities such as coloring books, crosswords, and word searches <strong>stimulate the brain's right hemisphere, actively engaging various cognitive functions.</strong> We strategically integrated these activities into the experience to provide Natalia with the <strong>confidence and reassurance</strong> that these books directly support her mother's well-being.</p>
+      </div>
+      <div class="jb-montages">
+        <div class="jb-figure"><img src="assets/japri-books/montaje1.png" alt="Montaje 1 — móvil con la app Japri Books"></div>
+        <div class="jb-figure"><img src="assets/japri-books/montaje2.png" alt="Montaje 2 — móvil con la app Japri Books"></div>
+        <div class="jb-figure"><img src="assets/japri-books/montaje3.png" alt="Montaje 3 — móvil con la app Japri Books"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROTOTYPE ============ -->
+  <section class="jb-band" aria-labelledby="jb-prototype-title">
+    <div class="jb-inner">
+      <div class="jb-head">
+        <h2 class="jb-title" id="jb-prototype-title">Prototype</h2>
+      </div>
+      <div class="jb-proto">
+        <video src="assets/japri-books/prototype.mp4" poster="assets/japri-books/prototype-poster.jpg"
+               autoplay muted loop playsinline
+               aria-label="Prototipo interactivo de la app Japri Books"></video>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="footer">
+  <div class="site-footer__top">
+    <div class="site-footer__col">
+      <p class="site-footer__head">Descubre el studio</p>
+      <nav class="site-footer__links" aria-label="Secciones">
+        <a href="index.html">HOME</a>
+        <a href="#">ABOUT</a>
+        <a href="index.html#work">WORK</a>
+      </nav>
+    </div>
+    <a class="site-footer__logo" href="index.html" aria-label="Milena Jasso — inicio">
+      <img src="assets/Index/logo-mj.png" alt="Milena Jasso" width="72" height="87">
+    </a>
+    <div class="site-footer__col">
+      <p class="site-footer__head">Contacto</p>
+      <nav class="site-footer__links" aria-label="Contacto">
+        <a href="#">LINKEDIN</a>
+        <a href="mailto:milena.jasso@gmail.com">milena.jasso@gmail.com</a>
+      </nav>
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <p class="site-footer__tagline">Where strategic UX meets high-conversion design—connecting people and scaling businesses through intuitive digital experiences.</p>
+    <p class="site-footer__copy">Copyright 2026</p>
+  </div>
+</footer>
+
+<script>
+  // Menú móvil a pantalla completa (solo visible en móvil)
+  (function () {
+    var btn = document.querySelector('.header__toggle');
+    var menu = document.getElementById('primary-menu');
+    if (!btn || !menu) return;
+    function setOpen(open) {
+      document.body.classList.toggle('menu-open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+    btn.addEventListener('click', function () { setOpen(!document.body.classList.contains('menu-open')); });
+    var closeBtn = menu.querySelector('.menu__close');
+    if (closeBtn) closeBtn.addEventListener('click', function () { setOpen(false); });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { setOpen(false); });
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+  })();
+</script>
+
+<script>
+  // Aparición suave al hacer scroll (fade + subida). Respeta prefers-reduced-motion.
+  (function () {
+    if (!('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var selectors = [
+      '.case-hero__head', '.jb-cover', '.case-lead', '.case-brief__cols',
+      '.jb-head', '.jb-collage', '.jb-metrics__row', '.jb-method',
+      '.jb-insights__text', '.jb-insights__photo',
+      '.jb-figure', '.jb-problem__quote', '.jb-benefit',
+      '.jb-proto', '.site-footer__top', '.site-footer__bottom'
+    ];
+
+    var els = [];
+    selectors.forEach(function (s) {
+      document.querySelectorAll(s).forEach(function (e) { if (els.indexOf(e) === -1) els.push(e); });
+    });
+    if (!els.length) return;
+
+    document.documentElement.classList.add('reveal-on');
+    els.forEach(function (e) {
+      e.classList.add('reveal');
+      var sibs = [].slice.call(e.parentNode.children).filter(function (c) { return c.classList.contains('reveal'); });
+      if (sibs.length >= 2 && sibs.length <= 6) {
+        var idx = sibs.indexOf(e);
+        if (idx > 0) e.style.transitionDelay = (idx * 90) + 'ms';
+      }
+    });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting || en.boundingClientRect.top < 0) {
+          en.target.classList.add('is-visible');
+          io.unobserve(en.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
+
+</body>
+</html>

@@ -24,18 +24,21 @@ web/
   priordei.html         # Case study Priordei
   centro-medico.html    # Case study Centro Médico Catalunya
   ponte-guapo.html      # Case study Ponte Guapo (branding Baja California)
+  japri-books.html      # Case study Japri Books (UX/UI editorial, app de bienestar)
   work.html             # "All work" — grid de carátulas + filtro (Branding/Websites)
   css/
     styles.css          # Compartido por TODAS las páginas (header, footer, menú, tokens)
     priordei.css        # Estilos SOLO de priordei.html
     centro-medico.css   # Estilos SOLO de centro-medico.html
     ponte-guapo.css     # Estilos SOLO de ponte-guapo.html
+    japri-books.css     # Estilos SOLO de japri-books.html
     work.css            # Estilos SOLO de work.html (grid 2 col + filtro)
   assets/
     fonts/              # .woff2 (ver §3)
     priordei/           # imágenes y vídeos del case study Priordei
     centro-medico/      # imágenes/vídeo del case study Centro Médico Catalunya
     ponte-guapo/        # slides del branding (webp) + gif-terra.gif (animado)
+    japri-books/        # imágenes + prototype.mp4 (vídeo del prototipo, comprimido 1280w) del case study Japri Books
     logo-mj.png, wordmark.png, badge.gif, ...
 ```
 > Este documento vive en la **raíz del repo**, no en `web/`, porque `web/` es exactamente
@@ -50,10 +53,11 @@ web/
 ### Cache-busting (IMPORTANTE)
 Cada `<link>` de CSS lleva `?v=N`. **Cada vez que edites un CSS, sube el número** o el
 navegador (y el preview) sirven la versión cacheada. Estado actual:
-- `styles.css?v=19`
+- `styles.css?v=25`
 - `priordei.css?v=55`
 - `centro-medico.css?v=36`
 - `ponte-guapo.css?v=5`
+- `japri-books.css?v=8`
 - `work.css?v=7`
 
 ---
@@ -177,6 +181,29 @@ después del bloque (aunque `--maxw`, etc. sí resuelvan). Síntoma: la mitad de
 aplica" sin error visible. **Fix:** usa comillas dobles: `--serif:"Editor's Note", ...`.
 (En `@font-face` el `'Editor\'s Note'` sí funciona; el problema es solo en custom properties.)
 Ya pasó al crear `centro-medico.css`.
+
+### 5.6 `white-space:nowrap` en columnas estrechas → OVERFLOW horizontal (corta hero/about)
+En layouts lado-a-lado que encogen en anchos intermedios (tablet / escritorio estrecho),
+un texto con `white-space:nowrap` dentro de una columna flex que se estrecha (p.ej.
+`.project__tag` "Branding & Fundraising Campaign", o `.project__name` largo) **no cabe y
+desborda a la derecha**, dando **scroll horizontal a toda la página**. Síntoma engañoso:
+como el hero y las bandas de color miden solo el ancho del *viewport* (no el ancho de
+scroll), sus **fondos se ven "cortados por la derecha"** — parece un bug del hero/about
+cuando en realidad el culpable es otro elemento (la sección Work).
+- **Diagnóstico:** comparar `document.documentElement.scrollWidth` vs `innerWidth`; recorrer
+  `body *` y listar los que tengan `getBoundingClientRect().right > innerWidth`.
+- **Aparece al INSPECCIONAR** (ancho exacto de dispositivo o DevTools acoplado que encoge el
+  viewport) y **no al redimensionar** la ventana (que no baja tanto y el scrollbar disimula).
+- **Fix (index):**
+  - Escritorio: nombre en `nowrap` + `flex-shrink:0` (una línea) y tag SIN nowrap (envuelve
+    dentro de su columna); apilar Work por debajo de **1100px** (donde el lado-a-lado deja de
+    tener sitio para el nombre largo). Escritorio ≥1101 sin cambios.
+  - Móvil (≤768): el `.project__head` se **apila** (`flex-direction:column`) y se oculta el
+    `.project__divider`; así el nombre largo dispone de toda la columna y no desborda. (El
+    nombre en `nowrap`+`flex-shrink:0` SÍ desbordaba a 390px: 311px de nombre + tag no caben
+    en ~342px, y el tag "Website" es una sola palabra que no envuelve.)
+  - **OJO con el pane del Browser:** no baja de ~461px por navegación normal, pero si fijas
+    `resize_window` a 360 y luego `navigate`, sí llega a 360 (ahí se reprodujo/verificó).
 
 ### 5.4 Regla general al apilar en móvil
 Cuando un layout de escritorio (row, con %/aspect-ratio/height:100%) pasa a columna en

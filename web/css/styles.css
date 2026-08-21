@@ -127,8 +127,10 @@ a{color:inherit;text-decoration:none}
 .project__head{display:flex;align-items:center;gap:20px}
 .project__name{font-weight:700;font-size:20px;line-height:1.2;letter-spacing:.8px}
 .project__divider{width:2px;height:20px;background:var(--ink);flex-shrink:0}
-.project__tag{font-weight:700;font-size:20px;line-height:1.2;letter-spacing:.8px;white-space:nowrap}
-.project__name{white-space:nowrap}
+/* El nombre queda SIEMPRE en una línea (no encoge); el tag envuelve dentro de su columna
+   si es muy largo (p.ej. "Branding & Fundraising Campaign"), en vez de desbordar. */
+.project__tag{font-weight:700;font-size:20px;line-height:1.2;letter-spacing:.8px;min-width:0}
+.project__name{white-space:nowrap;flex-shrink:0}
 .project__desc{font-weight:400;font-size:24px;line-height:1.3}
 .project__desc strong{font-weight:700}
 .project__link{
@@ -231,6 +233,16 @@ a{color:inherit;text-decoration:none}
   .about__text{font-size:20px}
 }
 
+/* Work: apila imagen sobre texto por debajo de 1100px. Es donde el layout lado-a-lado
+   deja de tener sitio para el head del proyecto (nombre largo, p.ej. "CENTRO MÉDICO
+   CATALUNYA", + tag) y desbordaba en horizontal; ese scroll "cortaba" los fondos de color
+   del hero y del about por la derecha. Escritorio (≥1101) sin cambios. */
+@media (max-width:1100px){
+  .project,.project--media-left{flex-direction:column;align-items:stretch;gap:24px}
+  .project__cover{flex:none;width:100%}
+  .project__info{flex:none;width:100%;gap:24px}
+}
+
 @media (max-width:768px){
   :root{--gutter:24px}
   /* Móvil: logo a la izquierda, hamburguesa a la derecha; el menú es un overlay */
@@ -274,6 +286,12 @@ a{color:inherit;text-decoration:none}
   .project__info{flex:none;width:100%;gap:24px}
   .project__desc{font-size:20px}
   .project__tag{white-space:normal} /* en movil el tag puede envolver */
+  /* En móvil, el head se APILA (nombre sobre tag) y se oculta el divisor: en una columna
+     estrecha (~342px a 390px) el nombre largo ("Centro Médico Catalunya") + tag inline
+     desbordaba y eso "cortaba" el fondo del header y del about. En escritorio queda inline. */
+  .project__head{flex-direction:column;align-items:flex-start;gap:8px}
+  .project__divider{display:none}
+  .project__name{white-space:normal}
 
   /* About apilado */
   .about{flex-direction:column;align-items:stretch;gap:32px;padding:64px var(--gutter)}

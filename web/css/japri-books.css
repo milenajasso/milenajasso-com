@@ -1,0 +1,229 @@
+/* Milena Jasso — Caso de estudio "Japri Books" (Figma node 418:4599)
+   Tipografías (ya declaradas en styles.css):
+     · Títulos display -> "Editor's Note" (serif)
+     · Cuerpo / UI    -> "Aktiv Grotesk" (grotesca)
+   Colores de bandas del diseño: #f1f5f7, #f8f8f8, #6c395a (morado). */
+
+:root{
+  --gray600:#656565;
+  --jb-f1:#f1f5f7;
+  --jb-f8:#f8f8f8;
+  --jb-purple:#6c395a;
+  --aktiv:'Aktiv Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --serif:"Editor's Note",Georgia,'Times New Roman',serif;
+}
+
+/* Toda la página usa la grotesca */
+body.page-japri{font-family:var(--aktiv)}
+
+/* El header de esta página es del mismo tono blanco que el fondo (no rosa) */
+.page-japri .header{background:var(--light);padding-top:16px;padding-bottom:16px}
+.page-japri .nav{font-family:var(--aktiv)}
+
+/* ---- Utilidades tipográficas ---- */
+.label{font-family:var(--aktiv);font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:var(--ink)}
+.label--light{color:#fcfcfc}
+
+/* ---- Contenedor del caso (contenido interior = 1280) ---- */
+.case{max-width:calc(var(--maxw) + 2*var(--gutter));margin:0 auto;padding:80px var(--gutter) 0}
+
+/* ---- Hero del caso ---- */
+/* padding-bottom = espacio en blanco que separa el brief de la primera banda de color */
+.case-hero{display:flex;flex-direction:column;align-items:center;gap:80px;padding-bottom:120px}
+.case-hero__head{display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center;max-width:1123px}
+.case-hero__title{font-family:var(--serif);font-weight:400;font-size:64px;line-height:1.05;color:var(--ink)}
+.case-hero__tagline{font-weight:700;font-size:20px;color:var(--ink)}
+.case-hero__tags{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:20px;
+  font-size:16px;text-transform:uppercase;color:var(--ink);
+}
+
+.case-hero__body{display:flex;flex-direction:column;gap:160px;width:100%}
+
+/* Portada full-width */
+.jb-cover{width:100%}
+.jb-cover img{width:100%;height:auto;display:block}
+
+/* Frase serif grande */
+.case-lead{
+  font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.3;
+  text-align:center;max-width:1064px;margin:0 auto;color:var(--ink);
+}
+
+/* Brief */
+.case-brief{display:flex;flex-direction:column;gap:64px}
+.case-brief__cols{display:flex;justify-content:space-between;gap:56px;align-items:flex-start}
+.case-brief__text{display:flex;flex-direction:column;gap:32px;max-width:738px}
+.case-brief__block{display:flex;flex-direction:column;gap:16px}
+.case-brief__block .label{font-size:20px}
+.case-brief__block p{font-size:20px;line-height:1.5;color:var(--ink)}
+.case-brief__block p strong{font-weight:700}
+.case-brief__meta{display:flex;flex-direction:column;gap:56px;align-items:flex-start;width:200px;flex-shrink:0}
+.case-brief__meta .label{font-size:18px;letter-spacing:1.2px}
+.case-brief__meta p{font-size:20px;color:var(--ink);margin-top:16px}
+
+/* ---- Bandas a ancho completo ---- */
+.jb-band{
+  width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;
+  padding:120px var(--gutter);
+  display:flex;flex-direction:column;align-items:center;gap:80px;
+}
+.jb-band--f1f5f7{background:var(--jb-f1)}
+.jb-band--f8f8f8{background:var(--jb-f8)}
+.jb-band--purple{background:var(--jb-purple)}
+.jb-inner{width:100%;max-width:var(--maxw);display:flex;flex-direction:column;align-items:center;gap:80px}
+
+.jb-head{display:flex;flex-direction:column;gap:20px;text-align:center;max-width:1000px}
+.jb-head--left{width:100%;max-width:none;text-align:left;align-items:flex-start}
+.jb-head--center{width:100%;max-width:none;text-align:center;align-items:center}
+.jb-title{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.3;color:var(--ink)}
+.jb-title--light{color:#fcfcfc}
+.jb-sub{font-family:var(--aktiv);font-size:20px;line-height:1.5;color:var(--ink)}
+.jb-sub strong{font-weight:700}
+
+/* Figuras centradas (imágenes de ancho completo o montajes) */
+.jb-figure{width:100%;display:flex;justify-content:center}
+.jb-figure img{width:100%;height:auto;display:block}
+.jb-figure--full img{max-width:var(--maxw)}
+
+/* ---- User research & insights: collage de citas ---- */
+.jb-collage{position:relative;width:100%;max-width:1113px;margin:0 auto;aspect-ratio:1113/615}
+.jb-q{position:absolute;width:39%;height:auto;display:block}
+.jb-q1{left:0;top:14.5%}
+.jb-q2{left:0;top:71.9%}
+.jb-q3{left:57.1%;top:0}
+.jb-q4{left:43.8%;top:39.8%}
+.jb-q5{left:61%;top:68.9%}
+
+/* ---- Key Metrics ---- */
+.jb-metrics{display:flex;flex-direction:column;gap:96px;width:100%;max-width:var(--maxw)}
+.jb-metrics__row{display:flex;align-items:flex-end;justify-content:space-between;gap:56px;width:100%}
+.jb-metrics__row--split{align-items:center;justify-content:flex-start;gap:clamp(48px,15vw,197px)}
+.jb-metrics__item img{width:100%;height:auto;display:block}
+.jb-metrics__item--wide{flex:0 1 542px;min-width:0}
+.jb-metrics__item--small{flex:0 0 234px;max-width:234px;min-width:0}
+
+/* ---- Research Methods ---- */
+.jb-methods{display:flex;gap:56px;justify-content:space-between;width:100%;max-width:var(--maxw)}
+.jb-method{flex:1 1 520px;max-width:560px;display:flex;flex-direction:column;gap:40px}
+.jb-method__icon{width:80px;height:80px;object-fit:contain;display:block}
+.jb-method__body{display:flex;flex-direction:column;gap:16px}
+.jb-method__body .label{font-size:20px}
+.jb-method__body p{font-size:20px;line-height:1.5;color:var(--ink)}
+
+/* ---- Core Insights ---- */
+.jb-insights{flex-direction:row;align-items:center;justify-content:center;gap:clamp(48px,10vw,153px);max-width:var(--maxw)}
+.jb-insights__text{display:flex;flex-direction:column;align-items:flex-start;gap:56px;width:520px;flex-shrink:0;text-align:left}
+.jb-insights__title{width:100%;text-align:left}
+.jb-insight{display:flex;flex-direction:column;gap:16px;text-align:left;width:100%}
+.jb-insight .label{font-size:20px}
+.jb-insight p{font-size:20px;line-height:1.5;color:var(--ink)}
+.jb-insights__arrow{width:149px;height:auto;display:block}
+.jb-insights__photo{width:565px;max-width:44%;flex-shrink:0}
+.jb-insights__photo img{width:100%;height:auto;display:block}
+
+/* ---- Problem statement + Solution (banda morada) ---- */
+.jb-problem{gap:56px}
+.jb-problem__quote{
+  font-family:var(--aktiv);font-weight:400;font-size:32px;line-height:1.35;
+  text-align:center;color:#fcfcfc;width:100%;
+}
+.jb-problem__quote strong{font-weight:700}
+.jb-solution{gap:56px}
+.jb-benefits{display:flex;align-items:flex-start;justify-content:space-between;gap:clamp(32px,4vw,43px);width:100%;max-width:1243px}
+.jb-benefit{flex:1 1 0;min-width:0;max-width:400px;display:flex;flex-direction:column;gap:16px}
+.jb-benefit__head{display:flex;align-items:flex-start;gap:8px}
+.jb-benefit__icon{width:24px;height:24px;flex-shrink:0;display:block}
+.jb-benefit .label{font-size:20px;line-height:1.2}
+.jb-benefit p{font-family:var(--aktiv);font-size:20px;line-height:1.4;color:#fcfcfc}
+
+/* ---- Conclusion: montajes apilados ---- */
+.jb-montages{display:flex;flex-direction:column;align-items:center;gap:56px;width:100%}
+.jb-montages .jb-figure img{max-width:1000px}
+
+/* ---- Prototype: vídeo interactivo ---- */
+.jb-proto{
+  width:100%;max-width:1155px;aspect-ratio:16/9;
+  border-radius:8px;overflow:hidden;background:#eaf3fb;
+}
+.jb-proto video{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ---- Footer: franja/línea superior (Figma 418:4658, border-top 0.5px) ---- */
+.page-japri .site-footer{border-top:0.5px solid #292929}
+
+/* ---- Reveal al hacer scroll ---- */
+.reveal-on .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.61,.36,1)}
+.reveal-on .reveal.is-visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal-on .reveal{opacity:1!important;transform:none!important;transition:none!important}
+}
+
+/* ---- Responsive ---- */
+@media (max-width:1024px){
+  :root{--gutter:48px}
+  .case{padding-top:48px}
+  .case-hero{gap:56px;padding-bottom:80px}
+  .case-hero__body{gap:100px}
+  .case-hero__title{font-size:52px}
+  .case-lead{font-size:32px}
+  .jb-band{padding:80px var(--gutter);gap:56px}
+  .jb-inner{gap:56px}
+  .jb-title{font-size:32px}
+  .case-brief__cols{gap:40px}
+  .jb-problem__quote{font-size:26px}
+
+  /* Key Metrics: apilar también en TABLET (≤1024) para que el "2/5" quede alineado
+     a la IZQUIERDA, debajo del "40%", y no a su derecha como en escritorio (>1024).
+     A ancho completo, el alto del 2/5 (cuadrado, ~44% del ancho) coincide con el de las barras. */
+  .jb-metrics{gap:40px}
+  .jb-metrics__row,.jb-metrics__row--split{flex-direction:column;align-items:flex-start;gap:40px}
+  .jb-metrics__item--wide{flex:none;width:100%;max-width:none}
+  .jb-metrics__item--small{flex:none;width:44%;max-width:none;align-self:flex-start}
+}
+
+@media (max-width:768px){
+  :root{--gutter:24px}
+  /* El header/nav móvil (hamburguesa) lo controla styles.css */
+  .case-hero{padding-bottom:64px}
+  .case-hero__title{font-size:40px}
+  .case-hero__tagline{font-size:18px}
+  .case-hero__tags{font-size:13px;gap:10px}
+  .case-lead{font-size:24px}
+  .case-hero__body{gap:64px}
+
+  /* Brief apilado */
+  .case-brief__cols{flex-direction:column;gap:32px}
+  .case-brief__meta{width:100%}
+
+  .jb-title{font-size:26px}
+  .jb-sub{font-size:17px}
+
+  /* Collage de citas -> columna */
+  .jb-collage{position:static;aspect-ratio:auto;display:flex;flex-direction:column;align-items:center;gap:20px;max-width:420px}
+  .jb-q{position:static;width:100%;max-width:360px}
+
+  /* (Key Metrics ya se apila y alinea desde el breakpoint ≤1024, arriba) */
+
+  /* Research Methods -> apilado */
+  .jb-methods{flex-direction:column;gap:48px}
+  .jb-method{flex:none;max-width:none;gap:24px}
+  .jb-method__body p{font-size:18px}
+
+  /* Core Insights -> apilado (imagen arriba, texto debajo) */
+  .jb-insights{flex-direction:column;gap:40px}
+  .jb-insights__text{width:100%;flex:none;align-items:flex-start;text-align:left;order:2;gap:32px}
+  .jb-insights__title{text-align:left}
+  .jb-insights__photo{width:100%;max-width:100%;flex:none;order:1}
+  .jb-insights__arrow{display:none}
+  .jb-insight p{font-size:18px}
+
+  /* Problem / Solution */
+  .jb-problem__quote{font-size:22px}
+  .jb-benefits{flex-direction:column;align-items:stretch;gap:32px}
+  .jb-benefit{flex:none;max-width:none}
+  .jb-benefit p{font-size:18px}
+
+  /* Padding vertical uniforme */
+  .jb-band{padding-top:64px;padding-bottom:64px;gap:40px}
+  .jb-inner{gap:40px}
+}
