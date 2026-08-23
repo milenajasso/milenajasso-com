@@ -1,0 +1,173 @@
+/* ============================================================
+   Lumma — case study
+   Solo estilos de lumma.html. Reutiliza styles.css
+   (header, footer, menú, tokens). Estructura basada en maia/ponte-guapo.
+   Diferencia principal: el hero es un VÍDEO con el logotipo blanco superpuesto.
+   ============================================================ */
+
+.page-lumma{background:var(--light)}
+
+/* Aktiv Grotesk Medium (500): styles.css solo declara 400/700, así que el nav
+   saldría faux. Lo declaramos aquí para que ABOUT/WORK tengan el mismo peso
+   real que en el resto de case studies. */
+@font-face{font-family:'Aktiv Grotesk';font-weight:500;font-style:normal;font-display:swap;
+  src:url("../assets/fonts/AktivGrotesk-Medium.woff2") format("woff2")}
+
+/* Header transparente sobre el fondo --light (#FCFCFC), igual que Maia. */
+.page-lumma .header{background:transparent}
+
+/* Nav (ABOUT/WORK) en Aktiv Grotesk Medium. */
+.page-lumma .nav{font-family:var(--grotesk)}
+
+/* Línea divisoria superior del footer (Figma, border-top 0.5px) */
+.page-lumma .site-footer{border-top:.5px solid #000}
+
+/* Contenedor del case study (mismo gutter/ancho que el resto) */
+.lumma{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+
+/* Reveal al hacer scroll (aparición suave: fade + subida). Los elementos
+   empiezan ocultos solo si el JS activa `reveal-on`. */
+.reveal-on .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.61,.36,1)}
+.reveal-on .reveal.is-visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal-on .reveal{opacity:1!important;transform:none!important;transition:none!important}
+}
+
+/* ============ HERO ============ */
+.lumma-hero{
+  display:flex;flex-direction:column;align-items:center;gap:20px;
+  text-align:center;
+  max-width:1123px;margin:0 auto;
+  padding:100px 0 0;
+}
+.lumma-hero__title{
+  font-family:var(--serif);font-weight:400;
+  font-size:64px;line-height:1.05;color:var(--ink);
+}
+.lumma-hero__tagline{
+  font-family:var(--grotesk);font-weight:700;
+  font-size:20px;line-height:1.35;color:var(--ink);
+  max-width:none;                 /* que quepa en una sola línea (como en Figma) */
+}
+.lumma-hero__eyebrow{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:20px;
+  font-family:var(--grotesk);font-weight:400;font-size:16px;
+  text-transform:uppercase;color:var(--ink);
+}
+.lumma-hero__sep{color:var(--ink)}
+
+/* ============ HERO MEDIA (vídeo + logotipo superpuesto) ============
+   En Figma el montaje mide 1281×854 (~3:2) y el vídeo original es 16:9;
+   `object-fit:cover` recorta a 3:2. El contenedor está en flujo normal
+   (no es flex-item de primer nivel), así que `aspect-ratio` da altura sin
+   el colapso a 0 de Chromium (ver DEV-NOTES §5.2). */
+.lumma-hero-media{
+  position:relative;margin:80px 0 0;
+  aspect-ratio:1281/854;overflow:hidden;
+}
+.lumma-hero-media__video{
+  position:absolute;inset:0;
+  width:100%;height:100%;object-fit:cover;display:block;
+}
+.lumma-hero-media__logo{
+  position:absolute;left:50%;top:66.6%;transform:translateX(-50%);
+  width:56.9%;height:auto;pointer-events:none;
+}
+
+/* ============ FIGURAS / GALERÍA ============ */
+.lumma-figure{margin:0}
+.lumma-figure img{display:block;width:100%;height:auto}
+
+.lumma-gallery{
+  display:flex;flex-direction:column;gap:80px;
+  margin-top:112px;   /* distancia Solution → primera imagen */
+}
+
+/* ============ LEAD ============ */
+.lumma-lead{
+  font-family:var(--serif);font-weight:400;
+  font-size:40px;line-height:1.25;text-align:center;color:var(--ink);
+  max-width:1064px;margin:160px auto 0;
+}
+
+/* ============ BRIEF: Product / Challenge / Solution + Role ============ */
+.lumma-brief{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:80px;
+  margin-top:160px;
+}
+.lumma-brief__main{
+  flex:1 1 auto;max-width:738px;
+  display:flex;flex-direction:column;gap:32px;
+}
+.lumma-brief__block{display:flex;flex-direction:column;gap:16px}
+.lumma-brief__label{
+  margin:0;
+  font-family:var(--grotesk);font-weight:700;
+  font-size:20px;text-transform:uppercase;letter-spacing:2.4px;color:var(--ink);
+}
+.lumma-brief__block p{
+  margin:0;
+  font-family:var(--grotesk);font-weight:400;font-size:20px;line-height:1.4;color:var(--ink);
+}
+.lumma-brief__block p strong{font-weight:700}
+.lumma-brief__role{
+  flex:0 0 240px;
+  display:flex;flex-direction:column;gap:16px;align-items:flex-start;
+}
+.lumma-brief__label--role{font-size:18px;letter-spacing:normal}
+.lumma-brief__role p{
+  margin:0;
+  font-family:var(--grotesk);font-weight:400;font-size:20px;line-height:1.3;color:var(--ink);
+}
+
+/* ============ Crédito / leyenda antes del footer ============
+   Igual que Maia/Ponte Guapo: en Figma era una imagen (884×141). Aquí es
+   tipografía: una línea corta encima + el texto en gris claro, a la izquierda. */
+.lumma-credit{margin:120px 0 72px}
+.lumma-credit__rule{
+  width:210px;height:0;
+  border:0;border-top:1px solid var(--ink);
+  margin:0 0 56px;
+}
+.lumma-credit__text{
+  font-family:var(--grotesk);font-weight:400;
+  font-size:15px;line-height:1.5;letter-spacing:.1px;
+  color:#8f8f8f;
+  max-width:884px;
+}
+
+/* ============ TABLET ============ */
+@media (max-width:1024px){
+  .lumma-hero__title{font-size:56px}
+  .lumma-lead{font-size:34px}
+  .lumma-brief{gap:48px}
+  .lumma-brief__role{flex-basis:200px}
+}
+
+/* ============ MÓVIL ============ */
+@media (max-width:768px){
+  .lumma{padding:0 24px}
+
+  .lumma-hero{padding-top:64px;gap:16px}
+  .lumma-hero__title{font-size:clamp(38px,12vw,56px);line-height:1.05}
+  .lumma-hero__tagline{font-size:17px}
+  .lumma-hero__eyebrow{gap:10px 14px;font-size:13px}
+
+  .lumma-hero-media{margin-top:56px}
+
+  .lumma-lead{font-size:24px;line-height:1.3;margin-top:64px}
+
+  .lumma-brief{
+    flex-direction:column;gap:40px;margin-top:72px;   /* intro → brief, igual que Priordei */
+  }
+  .lumma-brief__main{max-width:none}
+  .lumma-brief__block p{font-size:17px}
+  .lumma-brief__role{flex-basis:auto}
+  .lumma-brief__label{font-size:18px}
+
+  .lumma-gallery{gap:40px;margin-top:72px}   /* brief → primera imagen, igual que Priordei */
+
+  .lumma-credit{margin:80px 0 48px}
+  .lumma-credit__rule{width:140px;margin-bottom:32px}
+  .lumma-credit__text{font-size:14px}
+}

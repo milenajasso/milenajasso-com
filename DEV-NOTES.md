@@ -27,6 +27,7 @@ web/
   japri-books.html      # Case study Japri Books (UX/UI editorial, app de bienestar)
   chivo-grunon.html     # Case study Chivo Gruñón (packaging cerveza artesanal + branding)
   maia.html             # Case study Maia (branding piel mexicana premium; misma estructura que ponte-guapo)
+  lumma.html            # Case study Lumma (branding eventos premium; espejo de maia + HERO EN VÍDEO)
   work.html             # "All work" — grid de carátulas + filtro (Branding/Websites)
   contact.html          # Contact ("Let's talk!") — banda rosa + email/LinkedIn (Figma 532:463)
   about.html            # About ("Hi, I'm Milena!") — banda rosa + foto en arco + sello (Figma 532:100)
@@ -38,6 +39,7 @@ web/
     japri-books.css     # Estilos SOLO de japri-books.html
     chivo-grunon.css    # Estilos SOLO de chivo-grunon.html
     maia.css            # Estilos SOLO de maia.html (espejo de ponte-guapo.css con prefijo maia-)
+    lumma.css           # Estilos SOLO de lumma.html (espejo de maia.css con prefijo lumma-)
     work.css            # Estilos SOLO de work.html (grid 2 col + filtro)
     contact.css         # Estilos SOLO de contact.html (hero "Let's talk!" + 2 bloques)
     about.css           # Estilos SOLO de about.html (hero: texto izq + foto arco der + sello)
@@ -48,6 +50,7 @@ web/
     ponte-guapo/        # slides del branding (webp) + gif-terra.gif (animado)
     japri-books/        # imágenes + prototype.mp4 (vídeo del prototipo, comprimido 1280w) del case study Japri Books
     chivo-grunon/       # hero + galería (png) + final-gif.gif (animado, 4 frames) del case study Chivo Gruñón
+    lumma/              # 7 slides branding (jpg 1280w) + hero-video.mp4 (comprimido 1280w, 2.1MB) + hero-poster.jpg + lumma-blanco.png (logo overlay transparente)
     logo-mj.png, wordmark.png, badge.gif, ...
 ```
 > Este documento vive en la **raíz del repo**, no en `web/`, porque `web/` es exactamente
@@ -69,6 +72,7 @@ navegador (y el preview) sirven la versión cacheada. Estado actual:
 - `japri-books.css?v=9`
 - `chivo-grunon.css?v=3`
 - `maia.css?v=2`
+- `lumma.css?v=1`
 - `work.css?v=11`
 - `contact.css?v=2`
 - `about.css?v=2`
@@ -283,6 +287,17 @@ normal. Se calcula la región desde los % del recorte de desktop. Ejemplo real:
 ffmpeg -y -i montaje-mobile.png -vf "crop=1054:2174:1521:304" montaje-phone.png
 ```
 Se añade un `<img class="...-mobile">` y se hace swap desktop/móvil con `display:none`.
+
+### Hero en vídeo con logotipo superpuesto (Lumma)
+Cuando la portada del case study es un vídeo con un logo encima (en Figma el vídeo viene
+como un frame VACÍO sin `src` + un PNG blanco transparente aparte): contenedor
+`.lumma-hero-media` en **flujo normal** (no flex-item) con `aspect-ratio` del frame de Figma
+(1281/854 = 3:2) + `overflow:hidden`; el `<video>` va `position:absolute;inset:0;
+object-fit:cover` (recorta el 16:9 original a 3:2); el logo va `position:absolute`, centrado
+(`left:50%;transform:translateX(-50%)`) con `width`/`top` en **%** sacados de Figma
+(276/1281=56.9% ancho izq no, → width=729/1281=56.9%, top=569/854=66.6%). Comprimir el vídeo
+con ffmpeg (`scale=1280:-2`, `-crf 28`, `-an`, `+faststart`) y sacar póster con
+`-ss T -frames:v 1`. En Lumma bajó de 27.5MB a 2.1MB.
 
 ### Vídeos
 `autoplay muted loop playsinline`. Comprimir/escalar con `ffmpeg`. Extraer poster con
