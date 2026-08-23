@@ -26,7 +26,10 @@ web/
   ponte-guapo.html      # Case study Ponte Guapo (branding Baja California)
   japri-books.html      # Case study Japri Books (UX/UI editorial, app de bienestar)
   chivo-grunon.html     # Case study Chivo Gruñón (packaging cerveza artesanal + branding)
+  maia.html             # Case study Maia (branding piel mexicana premium; misma estructura que ponte-guapo)
   work.html             # "All work" — grid de carátulas + filtro (Branding/Websites)
+  contact.html          # Contact ("Let's talk!") — banda rosa + email/LinkedIn (Figma 532:463)
+  about.html            # About ("Hi, I'm Milena!") — banda rosa + foto en arco + sello (Figma 532:100)
   css/
     styles.css          # Compartido por TODAS las páginas (header, footer, menú, tokens)
     priordei.css        # Estilos SOLO de priordei.html
@@ -34,7 +37,10 @@ web/
     ponte-guapo.css     # Estilos SOLO de ponte-guapo.html
     japri-books.css     # Estilos SOLO de japri-books.html
     chivo-grunon.css    # Estilos SOLO de chivo-grunon.html
+    maia.css            # Estilos SOLO de maia.html (espejo de ponte-guapo.css con prefijo maia-)
     work.css            # Estilos SOLO de work.html (grid 2 col + filtro)
+    contact.css         # Estilos SOLO de contact.html (hero "Let's talk!" + 2 bloques)
+    about.css           # Estilos SOLO de about.html (hero: texto izq + foto arco der + sello)
   assets/
     fonts/              # .woff2 (ver §3)
     priordei/           # imágenes y vídeos del case study Priordei
@@ -58,11 +64,20 @@ Cada `<link>` de CSS lleva `?v=N`. **Cada vez que edites un CSS, sube el número
 navegador (y el preview) sirven la versión cacheada. Estado actual:
 - `styles.css?v=27`
 - `priordei.css?v=55`
-- `centro-medico.css?v=36`
-- `ponte-guapo.css?v=6`
-- `japri-books.css?v=8`
-- `chivo-grunon.css?v=2`
+- `centro-medico.css?v=38`
+- `ponte-guapo.css?v=7`
+- `japri-books.css?v=9`
+- `chivo-grunon.css?v=3`
+- `maia.css?v=2`
 - `work.css?v=11`
+- `contact.css?v=2`
+- `about.css?v=2`
+
+### Header: enlace CONTACT (añadido a TODAS las páginas)
+El nav de escritorio (`.nav`) ahora lleva **About · Work · Contact** en todas las páginas
+(antes solo About/Work). `Contact` apunta siempre a `contact.html`. Además, el `CONTACT`
+del menú móvil (`#primary-menu`) se **reapuntó de `#footer` a `contact.html`** en todas las
+páginas, para que ambos vayan a la página real de contacto.
 
 ---
 
@@ -217,6 +232,24 @@ móvil, **resetea explícitamente**: `position`, `left/top`, `width`, `height:au
 ---
 
 ## 6. Patrones útiles ya establecidos
+
+### Crédito / leyenda antes del footer → TIPOGRAFÍA, no imagen
+En Figma la nota final ("Proyecto realizado en sociedad en…") suele venir como una
+**imagen exportada** (p.ej. 884×141). **No la uses como imagen**: maquétala como en
+Ponte Guapo (`.pg-credit` / `.maia-credit` / `.credits` en chivo): una **línea corta**
+arriba (`<hr>` o span de ~200–210px) + el **texto en gris `#8f8f8f`** en Aktiv Grotesk,
+alineado a la izquierda, `max-width:884px`. (Ojo al copiar el texto: respeta dónde termina;
+en Maia debía cortar en "Blank Design Factory." sin la coletilla del colaborador.)
+
+### Ritmo vertical en móvil de los case studies = igual que Priordei (72px)
+En `@media (max-width:768px)`, los gaps **texto introductorio → bloque Product/Challenge/
+Solution** y **bloque → primera imagen** deben ser **72px** (el valor de referencia sale del
+`.case-hero__body{gap:72px}` de Priordei). Aplica a TODOS los case studies:
+- Branding (ponte-guapo, maia, chivo-grunon): los **dos** gaps a 72px (`.*-brief{margin-top}`
+  + `.*-gallery{margin-top}`, o en chivo `.case-hero__text{gap}` + `.gallery{margin-top}`).
+- UX (japri-books, centro-medico): solo el gap **intro→brief** (tras el brief va una banda/
+  caja de stats, no una imagen suelta): `.case-hero__body{gap}` / `.cmc-brief{margin-top}`.
+- El gap **portada → intro** (imagen de arriba → lead) se deja como estaba (64px), no se toca.
 
 ### Banda a ancho completo (full-bleed) rompiendo el gutter del `.case`
 ```css

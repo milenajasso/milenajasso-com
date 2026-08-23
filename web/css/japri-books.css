@@ -189,7 +189,7 @@ body.page-japri{font-family:var(--aktiv)}
   .case-hero__tagline{font-size:18px}
   .case-hero__tags{font-size:13px;gap:10px}
   .case-lead{font-size:24px}
-  .case-hero__body{gap:64px}
+  .case-hero__body{gap:72px}   /* intro → brief, igual que Priordei */
 
   /* Brief apilado */
   .case-brief__cols{flex-direction:column;gap:32px}

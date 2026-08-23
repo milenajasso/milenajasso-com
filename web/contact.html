@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chivo gruñón · Case study — Milena Jasso</title>
-<meta name="description" content="Chivo Gruñón — From character concept to high-conversion packaging. Redesigning a craft brewery's packaging line into a scalable, personality-driven visual system.">
+<title>Contact · Milena Jasso</title>
+<meta name="description" content="Let's talk! Drop me a line or connect on LinkedIn — Milena Jasso, UX/UI Designer and Brand Builder based in Barcelona.">
 <link rel="stylesheet" href="css/styles.css?v=27">
-<link rel="stylesheet" href="css/chivo-grunon.css?v=3">
+<link rel="stylesheet" href="css/contact.css?v=2">
 </head>
-<body class="page-chivo">
+<body class="page-contact">
 
 <header class="header">
   <a class="header__logo" href="index.html" aria-label="Milena Jasso — inicio">
@@ -45,67 +45,22 @@
   </div>
 </div>
 
-<main class="case">
-  <article class="case-hero">
-    <!-- Encabezado del caso -->
-    <header class="case-hero__head">
-      <h1 class="case-hero__title">Chivo gruñón</h1>
-      <p class="case-hero__tagline">From character concept to high-conversion packaging</p>
-      <p class="case-hero__tags">
-        <span>Packaging Design</span><span>/</span>
-        <span>Brand Identity &amp; Illustration</span>
-      </p>
-    </header>
-
-    <div class="case-hero__body">
-      <!-- Imagen hero (montaje de botellas) -->
-      <img class="case-shot" src="assets/chivo-grunon/hero.png"
-           alt="Línea de botellas de cerveza artesanal de Chivo Gruñón sobre pared de ladrillo">
-
-      <div class="case-hero__text">
-        <!-- Enunciado serif -->
-        <p class="case-lead">Redesigning Chivo Gruñón's packaging experience to turn stubborn quality and irreverent character into an intuitive,<br>scalable product line.</p>
-
-        <!-- Brief -->
-        <section class="brief">
-          <div class="brief__main">
-            <div class="brief__block">
-              <h2 class="brief__label">Product</h2>
-              <p class="brief__text">Chivo Gruñón is a <strong>craft brewery built on stubborn quality and singular character.</strong> Guided by their philosophy "Terco por calidad" (Stubborn for Quality), they bridge the gap between craft beer enthusiasts and casual drinkers through a diverse, personality-driven range.</p>
-            </div>
-            <div class="brief__block">
-              <h2 class="brief__label">Challenge</h2>
-              <p class="brief__text">Redesign the craft beer packaging line to reflect the brand's bold, irreverent personality, <strong>creating a cohesive visual system</strong> that easily scales across new varieties without losing impact.</p>
-            </div>
-            <div class="brief__block">
-              <h2 class="brief__label">Solution</h2>
-              <p class="brief__text">Engineered a <strong>scalable design system featuring custom illustrations</strong> of the signature "Grumpy Goat" mascot to distinctively personify each craft beer variety.</p>
-            </div>
-          </div>
-          <aside class="brief__role">
-            <h2 class="brief__label brief__label--role">Role</h2>
-            <p class="brief__text">Brand Designer &amp;<br>Visual Identity Specialist</p>
-          </aside>
-        </section>
+<main class="contact">
+  <!-- Hero de contacto (Figma 532:469) -->
+  <section class="contact-hero" aria-label="Contacto">
+    <div class="contact-hero__inner">
+      <h1 class="contact-hero__title">Let&rsquo;s talk!</h1>
+      <div class="contact-cols">
+        <div class="contact-block">
+          <p class="contact-block__label">Drop me a line</p>
+          <a class="contact-block__value" href="mailto:milena.jasso@gmail.com">milena.jasso@gmail.com</a>
+        </div>
+        <div class="contact-block">
+          <p class="contact-block__label">Let&rsquo;s connect</p>
+          <a class="contact-block__value" href="https://www.linkedin.com/in/milenajasso/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
       </div>
     </div>
-  </article>
-
-  <!-- Galería de imágenes del caso -->
-  <section class="gallery" aria-label="Piezas del proyecto">
-    <img src="assets/chivo-grunon/honey.png" alt="Packaging de la variedad Honey de Chivo Gruñón">
-    <img src="assets/chivo-grunon/irishred.png" alt="Packaging de la variedad Irish Red de Chivo Gruñón">
-    <img src="assets/chivo-grunon/final-gif.gif" alt="Animación del packaging de Chivo Gruñón">
-    <img src="assets/chivo-grunon/kolsh.png" alt="Packaging de la variedad Kölsch de Chivo Gruñón">
-    <img src="assets/chivo-grunon/stout.png" alt="Packaging de la variedad Stout de Chivo Gruñón">
-    <img src="assets/chivo-grunon/coasters.png" alt="Posavasos de la colección Chivo Gruñón">
-    <img src="assets/chivo-grunon/tshirt.png" alt="Camisetas de merchandising de Chivo Gruñón">
-  </section>
-
-  <!-- Créditos (enunciado final) -->
-  <section class="credits" aria-label="Créditos del proyecto">
-    <span class="credits__rule" aria-hidden="true"></span>
-    <p class="credits__text">Proyecto realizado en la Agencia Blank Design Factory con la colaboración del Diseñador Ernesto Monzón.<br>Ilustración: Rosa Jannet Sánchez.<br>Cuentas: Cristina Malacara M.</p>
   </section>
 </main>
 
@@ -125,7 +80,7 @@
     <div class="site-footer__col">
       <p class="site-footer__head">Contacto</p>
       <nav class="site-footer__links" aria-label="Contacto">
-        <a href="#">LINKEDIN</a>
+        <a href="https://www.linkedin.com/in/milenajasso/" target="_blank" rel="noopener">LINKEDIN</a>
         <a href="mailto:milena.jasso@gmail.com">milena.jasso@gmail.com</a>
       </nav>
     </div>
@@ -165,8 +120,7 @@
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     var selectors = [
-      '.case-hero__head', '.case-shot', '.case-lead',
-      '.brief__block', '.brief__role', '.gallery img', '.credits',
+      '.contact-hero__title', '.contact-block',
       '.site-footer__top', '.site-footer__bottom'
     ];
 

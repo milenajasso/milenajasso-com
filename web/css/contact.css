@@ -1,0 +1,51 @@
+/* Contact — SOLO contact.html (Figma 532:463)
+   Reutiliza header/menú/footer de styles.css. */
+
+/* ---- Hero de contacto (banda rosa, Figma 532:469) ---- */
+.contact-hero{
+  background:var(--pink-solid);
+  /* Figma: banda con padding top 56 + contenedor interno pt 72 ≈ 128; bottom 120 */
+  padding:128px var(--gutter) 120px;
+  /* La banda es una caja ALTA (Figma 738px): el contenido queda arriba y deja
+     espacio rosa vacío por debajo hasta el footer. box-sizing:border-box global. */
+  min-height:738px;
+}
+.contact-hero__inner{
+  max-width:var(--maxw);margin:0 auto;
+  display:flex;flex-direction:column;align-items:flex-start;gap:64px;
+}
+.contact-hero__title{
+  font-family:var(--serif);font-weight:400;
+  font-size:80px;line-height:1.1;letter-spacing:3.2px;color:var(--ink);
+}
+
+/* Dos bloques: "Drop me a line" y "Let's connect" */
+.contact-cols{
+  display:flex;align-items:flex-start;gap:64px;flex-wrap:wrap;
+  font-family:var(--grotesk);
+}
+.contact-block{display:flex;flex-direction:column;align-items:flex-start;gap:20px}
+.contact-block__label{
+  font-weight:700;font-size:16px;line-height:normal;
+  text-transform:uppercase;letter-spacing:.64px;color:var(--ink);
+}
+.contact-block__value{
+  font-weight:400;font-size:24px;line-height:normal;color:var(--ink);
+  text-decoration:underline;text-underline-position:from-font;
+}
+/* Convención del sitio: link subrayado -> hover Bold Italic */
+.contact-block__value:hover{font-weight:700;font-style:italic}
+
+/* ---- Responsive ---- */
+@media (max-width:1024px){
+  .contact-hero{padding:96px var(--gutter)}
+  .contact-hero__title{font-size:60px}
+}
+@media (max-width:768px){
+  /* En móvil la banda se ajusta al contenido (sin el alto fijo de escritorio) */
+  .contact-hero{padding:64px var(--gutter);min-height:0}
+  .contact-hero__inner{gap:40px}
+  .contact-hero__title{font-size:44px;letter-spacing:1.6px}
+  .contact-cols{flex-direction:column;gap:40px}
+  .contact-block__value{font-size:20px;word-break:break-word}
+}

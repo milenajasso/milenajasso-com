@@ -74,7 +74,7 @@ body.page-chivo{background:var(--light);font-family:var(--grotesk)}
   /* El header/nav móvil (hamburguesa) lo controla styles.css */
   .case-hero{gap:40px}
   .case-hero__body{gap:40px}
-  .case-hero__text{gap:64px}
+  .case-hero__text{gap:72px}   /* intro → brief, igual que Priordei */
   .case-hero__title{font-size:40px}
   .case-hero__tagline{font-size:18px}
   .case-hero__tags{font-size:14px;gap:12px}
@@ -85,6 +85,6 @@ body.page-chivo{background:var(--light);font-family:var(--grotesk)}
   .brief__role{flex:none;max-width:none;width:100%}
   .brief__label{font-size:18px}
   .brief__text{font-size:18px}
-  .gallery{gap:40px;margin-top:40px}
+  .gallery{gap:40px;margin-top:72px}   /* brief → primera imagen, igual que Priordei */
   .credits{margin:56px 0}
 }
