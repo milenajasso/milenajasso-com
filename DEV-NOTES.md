@@ -25,6 +25,7 @@ web/
   centro-medico.html    # Case study Centro Médico Catalunya
   ponte-guapo.html      # Case study Ponte Guapo (branding Baja California)
   japri-books.html      # Case study Japri Books (UX/UI editorial, app de bienestar)
+  chivo-grunon.html     # Case study Chivo Gruñón (packaging cerveza artesanal + branding)
   work.html             # "All work" — grid de carátulas + filtro (Branding/Websites)
   css/
     styles.css          # Compartido por TODAS las páginas (header, footer, menú, tokens)
@@ -32,6 +33,7 @@ web/
     centro-medico.css   # Estilos SOLO de centro-medico.html
     ponte-guapo.css     # Estilos SOLO de ponte-guapo.html
     japri-books.css     # Estilos SOLO de japri-books.html
+    chivo-grunon.css    # Estilos SOLO de chivo-grunon.html
     work.css            # Estilos SOLO de work.html (grid 2 col + filtro)
   assets/
     fonts/              # .woff2 (ver §3)
@@ -39,6 +41,7 @@ web/
     centro-medico/      # imágenes/vídeo del case study Centro Médico Catalunya
     ponte-guapo/        # slides del branding (webp) + gif-terra.gif (animado)
     japri-books/        # imágenes + prototype.mp4 (vídeo del prototipo, comprimido 1280w) del case study Japri Books
+    chivo-grunon/       # hero + galería (png) + final-gif.gif (animado, 4 frames) del case study Chivo Gruñón
     logo-mj.png, wordmark.png, badge.gif, ...
 ```
 > Este documento vive en la **raíz del repo**, no en `web/`, porque `web/` es exactamente
@@ -58,6 +61,7 @@ navegador (y el preview) sirven la versión cacheada. Estado actual:
 - `centro-medico.css?v=36`
 - `ponte-guapo.css?v=6`
 - `japri-books.css?v=8`
+- `chivo-grunon.css?v=2`
 - `work.css?v=11`
 
 ---
