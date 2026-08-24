@@ -42,7 +42,7 @@
   transition:background .2s,color .2s;
 }
 .filter-btn:hover{background:var(--ink);color:var(--light)}
-.filter-btn.is-active{background:var(--ink);color:var(--light)}
+.filter-btn.is-active{background:var(--ink);color:var(--light);font-family:var(--grotesk-italic);font-weight:400;font-style:italic}
 
 /* ---- Grid de proyectos (2 columnas uniformes) ---- */
 .work-grid{
