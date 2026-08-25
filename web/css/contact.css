@@ -32,6 +32,14 @@
 .contact-block__value{
   font-weight:400;font-size:24px;line-height:normal;color:var(--ink);
   text-decoration:underline;text-underline-position:from-font;
+  display:inline-flex;flex-direction:column;align-items:flex-start;
+}
+/* Reserva el ancho de la versión Bold Italic para que el hover no
+   ensanche la caja y desplace la otra columna (copia oculta que mide) */
+.contact-block__value::after{
+  content:attr(data-text);
+  height:0;overflow:hidden;visibility:hidden;pointer-events:none;
+  font-weight:700;font-style:italic;
 }
 /* Convención del sitio: link subrayado -> hover Bold Italic */
 .contact-block__value:hover{font-weight:700;font-style:italic}

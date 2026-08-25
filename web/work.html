@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/Index/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/Index/favicon-180.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Work — Milena Jasso</title>
 <meta name="description" content="All work by Milena Jasso — branding and websites. Transforming brands and building digital spaces: Priordei, Ponte Guapo, Centro Médico Catalunya, aPRICOTS and MAYA.">
@@ -20,7 +22,7 @@
   <nav class="nav" id="primary-nav" aria-label="Principal">
     <a href="about.html">About</a>
     <a href="work.html">Work</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html">Say hello!</a>
   </nav>
 </header>
 
@@ -61,7 +63,7 @@
   <div class="work-grid" id="work-grid">
 
     <!-- PRIORDEI — Website -->
-    <article class="wcard" data-category="website">
+    <article class="wcard" data-category="website" data-web-order="2">
       <a class="wcard__cover" href="priordei.html" aria-label="Ver proyecto PRIORDEI">
         <img class="wcard__media" src="assets/Index/priordei-cover.jpg"
           alt="Proyecto PRIORDEI — rediseño e-commerce del aceite" loading="lazy">
@@ -97,7 +99,7 @@
     </article>
 
     <!-- CENTRO MÉDICO CATALUNYA — Website -->
-    <article class="wcard" data-category="website">
+    <article class="wcard" data-category="website" data-web-order="3">
       <a class="wcard__cover" href="centro-medico.html" aria-label="Ver proyecto Centro Médico Catalunya">
         <img class="wcard__media" src="assets/work/centro-medico.webp"
           alt="Proyecto Centro Médico Catalunya — rediseño web" loading="lazy">
@@ -112,12 +114,12 @@
       </div>
     </article>
 
-    <!-- MAIA — Branding (sin página de detalle todavía) -->
+    <!-- MAIA — Branding -->
     <article class="wcard" data-category="branding">
-      <div class="wcard__cover">
+      <a class="wcard__cover" href="maia.html" aria-label="Ver proyecto MAIA">
         <img class="wcard__media" src="assets/work/maia.webp"
           alt="Proyecto MAIA — branding de marroquinería mexicana" loading="lazy">
-      </div>
+      </a>
       <div class="wcard__info">
         <div class="wcard__head">
           <h2 class="wcard__name">MAIA</h2>
@@ -128,12 +130,12 @@
       </div>
     </article>
 
-    <!-- CHIVO GRUÑÓN — Packaging Design, Branding (sin página de detalle todavía) -->
+    <!-- CHIVO GRUÑÓN — Packaging Design, Branding -->
     <article class="wcard" data-category="branding">
-      <div class="wcard__cover wcard__cover--chivo">
+      <a class="wcard__cover wcard__cover--chivo" href="chivo-grunon.html" aria-label="Ver proyecto Chivo Gruñón">
         <img class="wcard__media" src="assets/work/chivo-grunon.webp"
           alt="Proyecto Chivo Gruñón — packaging y branding de cerveza artesanal" loading="lazy">
-      </div>
+      </a>
       <div class="wcard__info">
         <div class="wcard__head">
           <h2 class="wcard__name">Chivo Gruñón</h2>
@@ -144,12 +146,12 @@
       </div>
     </article>
 
-    <!-- JAPRI BOOKS — Website (sin página de detalle todavía) -->
-    <article class="wcard" data-category="website">
-      <div class="wcard__cover">
+    <!-- JAPRI BOOKS — Website -->
+    <article class="wcard" data-category="website" data-web-order="1">
+      <a class="wcard__cover" href="japri-books.html" aria-label="Ver proyecto Japri Books">
         <img class="wcard__media" src="assets/work/japri-books.webp"
           alt="Proyecto Japri Books — web de libros de bienestar" loading="lazy">
-      </div>
+      </a>
       <div class="wcard__info">
         <div class="wcard__head">
           <h2 class="wcard__name">Japri Books</h2>
@@ -239,9 +241,15 @@
       cards.forEach(function (card) {
         var match = (filter === 'all') || (card.getAttribute('data-category') === filter);
         card.hidden = !match;
+        // Orden específico al filtrar Websites; se restablece en el resto
+        card.style.order = (filter === 'website') ? (card.dataset.webOrder || '') : '';
         if (match) shown.push(card);
       });
       if (reduce) return;
+      // El escalonado sigue el orden visual (en Websites, según data-web-order)
+      if (filter === 'website') {
+        shown.sort(function (a, b) { return (+a.dataset.webOrder || 0) - (+b.dataset.webOrder || 0); });
+      }
       // Reinicia la animación de entrada en las tarjetas visibles, con escalonado
       shown.forEach(function (card, i) {
         card.classList.remove('wcard--anim');
