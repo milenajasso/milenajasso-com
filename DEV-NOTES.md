@@ -28,6 +28,7 @@ web/
   chivo-grunon.html     # Case study Chivo Gruñón (packaging cerveza artesanal + branding)
   maia.html             # Case study Maia (branding piel mexicana premium; misma estructura que ponte-guapo)
   lumma.html            # Case study Lumma (branding eventos premium; espejo de maia + HERO EN VÍDEO)
+  uabc.html             # Case study UABC FIAD (UX/Web; espejo de lumma pero HERO SOLO TEXTO + portada = imagen escudo)
   work.html             # "All work" — grid de carátulas + filtro (Branding/Websites)
   contact.html          # Contact ("Let's talk!") — banda rosa + email/LinkedIn (Figma 532:463)
   about.html            # About ("Hi, I'm Milena!") — banda rosa + foto en arco + sello (Figma 532:100)
@@ -40,6 +41,7 @@ web/
     chivo-grunon.css    # Estilos SOLO de chivo-grunon.html
     maia.css            # Estilos SOLO de maia.html (espejo de ponte-guapo.css con prefijo maia-)
     lumma.css           # Estilos SOLO de lumma.html (espejo de maia.css con prefijo lumma-)
+    uabc.css            # Estilos SOLO de uabc.html (espejo de lumma.css con prefijo uabc-; sin hero-media)
     work.css            # Estilos SOLO de work.html (grid 2 col + filtro)
     contact.css         # Estilos SOLO de contact.html (hero "Let's talk!" + 2 bloques)
     about.css           # Estilos SOLO de about.html (hero: texto izq + foto arco der + sello)
@@ -73,6 +75,7 @@ navegador (y el preview) sirven la versión cacheada. Estado actual:
 - `chivo-grunon.css?v=3`
 - `maia.css?v=2`
 - `lumma.css?v=1`
+- `uabc.css?v=1`
 - `work.css?v=13`
 - `contact.css?v=2`
 - `about.css?v=2`
@@ -133,8 +136,22 @@ peso nuevo (p.ej. Aktiv Grotesk **Bold**) en una página que solo carga `styles.
 
 ## 4. Previsualización y verificación (limitaciones)
 
-Se usa el **Browser pane** (`mcp__Claude_Browser__*`) apuntando a `file://.../web/xxx.html`.
-Los `file://` se renderizan como **snapshot estático**: útil para ver CSS, con límites.
+### ⚠️ CAMBIO (2026-08): `file://` ya NO carga CSS ni imágenes
+El Browser pane ahora renderiza los `file://` como un snapshot `data:` que **pierde las
+rutas relativas** → `document.styleSheets` sale vacío y las `<img>` no cargan (se ve la
+página SIN estilos y con los `alt`). **Solución: servir `web/` por HTTP.**
+- Hay un `.claude/launch.json` con un server (`python3 -m http.server 4599 --directory web`),
+  pero `preview_start name:"web"` **falla** en el sandbox (`os.getcwd()` → PermissionError).
+- **Arráncalo a mano** (Bash con `dangerouslyDisableSandbox:true`, en background):
+  ```bash
+  cd web && python3 -m http.server 4599 >/tmp/uabc-server.log 2>&1 &
+  ```
+  Luego `tabs_create` + `navigate` a `http://localhost:4599/xxx.html` (el tab del
+  file-preview está "pinned" y no deja navegar; abre uno nuevo). Con HTTP real,
+  `resize_window` (mobile/desktop) y las rutas relativas **sí** funcionan bien.
+
+### (Histórico) Cuando el `file://` sí servía como snapshot estático
+Los `file://` se renderizaban como **snapshot estático**: útil para ver CSS, con límites.
 
 ### Qué funciona y qué no
 - ✅ Screenshot, `read_page`, `get_page_text`.

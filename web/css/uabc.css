@@ -1,0 +1,159 @@
+/* ============================================================
+   UABC FIAD — case study
+   Solo estilos de uabc.html. Reutiliza styles.css
+   (header, footer, menú, tokens). Estructura basada en lumma.
+   Diferencia con lumma: el hero es solo TEXTO y la portada es una
+   IMAGEN (escudo) en flujo normal, no un vídeo.
+   ============================================================ */
+
+.page-uabc{background:var(--light)}
+
+/* Aktiv Grotesk Medium (500): styles.css solo declara 400/700, así que el nav
+   saldría faux. Lo declaramos aquí para que ABOUT/WORK tengan el mismo peso
+   real que en el resto de case studies. */
+@font-face{font-family:'Aktiv Grotesk';font-weight:500;font-style:normal;font-display:swap;
+  src:url("../assets/fonts/AktivGrotesk-Medium.woff2") format("woff2")}
+
+/* Header transparente sobre el fondo --light (#FCFCFC), igual que Lumma/Maia. */
+.page-uabc .header{background:transparent}
+
+/* Nav (ABOUT/WORK) en Aktiv Grotesk Medium. */
+.page-uabc .nav{font-family:var(--grotesk)}
+
+/* Línea divisoria superior del footer (Figma, border-top 0.5px) */
+.page-uabc .site-footer{border-top:.5px solid #000}
+
+/* Contenedor del case study (mismo gutter/ancho que el resto) */
+.uabc{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+
+/* Reveal al hacer scroll (aparición suave: fade + subida). Los elementos
+   empiezan ocultos solo si el JS activa `reveal-on`. */
+.reveal-on .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.61,.36,1)}
+.reveal-on .reveal.is-visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal-on .reveal{opacity:1!important;transform:none!important;transition:none!important}
+}
+
+/* ============ HERO (solo texto) ============ */
+.uabc-hero{
+  display:flex;flex-direction:column;align-items:center;gap:20px;
+  text-align:center;
+  max-width:1123px;margin:0 auto;
+  padding:100px 0 0;
+}
+.uabc-hero__title{
+  font-family:var(--serif);font-weight:400;
+  font-size:64px;line-height:1.05;color:var(--ink);
+}
+.uabc-hero__tagline{
+  font-family:var(--grotesk);font-weight:700;
+  font-size:20px;line-height:1.35;color:var(--ink);
+  max-width:none;
+}
+.uabc-hero__eyebrow{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:20px;
+  font-family:var(--grotesk);font-weight:400;font-size:16px;
+  text-transform:uppercase;color:var(--ink);
+}
+.uabc-hero__sep{color:var(--ink)}
+
+/* ============ FIGURAS / GALERÍA ============ */
+.uabc-figure{margin:0}
+.uabc-figure img{display:block;width:100%;height:auto}
+
+/* Portada (escudo): gap hero → escudo = 80px (Figma) */
+.uabc-cover{margin-top:80px}
+
+.uabc-gallery{
+  display:flex;flex-direction:column;gap:80px;
+  margin-top:112px;   /* distancia Solution → primera imagen */
+}
+
+/* ============ LEAD ============ */
+.uabc-lead{
+  font-family:var(--serif);font-weight:400;
+  font-size:40px;line-height:1.25;text-align:center;color:var(--ink);
+  max-width:1064px;margin:160px auto 0;
+}
+
+/* ============ BRIEF: Product / Challenge / Solution + Role ============ */
+.uabc-brief{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:80px;
+  margin-top:160px;
+}
+.uabc-brief__main{
+  flex:1 1 auto;max-width:738px;
+  display:flex;flex-direction:column;gap:32px;
+}
+.uabc-brief__block{display:flex;flex-direction:column;gap:16px}
+.uabc-brief__label{
+  margin:0;
+  font-family:var(--grotesk);font-weight:700;
+  font-size:20px;text-transform:uppercase;letter-spacing:2.4px;color:var(--ink);
+}
+.uabc-brief__block p{
+  margin:0;
+  font-family:var(--grotesk);font-weight:400;font-size:20px;line-height:1.4;color:var(--ink);
+}
+.uabc-brief__block p strong{font-weight:700}
+.uabc-brief__role{
+  flex:0 0 240px;
+  display:flex;flex-direction:column;gap:16px;align-items:flex-start;
+}
+.uabc-brief__label--role{font-size:18px;letter-spacing:normal}
+.uabc-brief__role p{
+  margin:0;
+  font-family:var(--grotesk);font-weight:400;font-size:20px;line-height:1.3;color:var(--ink);
+}
+
+/* ============ Crédito / leyenda antes del footer ============
+   Idéntico a Lumma: la imagen del crédito en Figma es solo un placeholder de
+   posición; aquí es tipografía (línea corta + texto gris, a la izquierda). */
+.uabc-credit{margin:120px 0 72px}
+.uabc-credit__rule{
+  width:210px;height:0;
+  border:0;border-top:1px solid var(--ink);
+  margin:0 0 56px;
+}
+.uabc-credit__text{
+  font-family:var(--grotesk);font-weight:400;
+  font-size:15px;line-height:1.5;letter-spacing:.1px;
+  color:#8f8f8f;
+  max-width:884px;
+}
+
+/* ============ TABLET ============ */
+@media (max-width:1024px){
+  .uabc-hero__title{font-size:56px}
+  .uabc-lead{font-size:34px}
+  .uabc-brief{gap:48px}
+  .uabc-brief__role{flex-basis:200px}
+}
+
+/* ============ MÓVIL ============ */
+@media (max-width:768px){
+  .uabc{padding:0 24px}
+
+  .uabc-hero{padding-top:64px;gap:16px}
+  .uabc-hero__title{font-size:clamp(38px,12vw,56px);line-height:1.05}
+  .uabc-hero__tagline{font-size:17px}
+  .uabc-hero__eyebrow{gap:10px 14px;font-size:13px}
+
+  .uabc-cover{margin-top:56px}
+
+  .uabc-lead{font-size:24px;line-height:1.3;margin-top:64px}
+
+  .uabc-brief{
+    flex-direction:column;gap:40px;margin-top:72px;   /* intro → brief, igual que Priordei */
+  }
+  .uabc-brief__main{max-width:none}
+  .uabc-brief__block p{font-size:17px}
+  .uabc-brief__role{flex-basis:auto}
+  .uabc-brief__label{font-size:18px}
+
+  .uabc-gallery{gap:40px;margin-top:72px}   /* brief → primera imagen, igual que Priordei */
+
+  .uabc-credit{margin:80px 0 48px}
+  .uabc-credit__rule{width:140px;margin-bottom:32px}
+  .uabc-credit__text{font-size:14px}
+}
