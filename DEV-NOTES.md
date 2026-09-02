@@ -58,7 +58,7 @@ web/
     chivo-grunon/       # hero + galería (png) + final-gif.gif (animado, 4 frames) del case study Chivo Gruñón
     lumma/              # 7 slides branding (jpg 1280w) + hero-video.mp4 (comprimido 1280w, 2.1MB) + hero-poster.jpg + lumma-blanco.png (logo overlay transparente)
     apricots/           # portada (cover-hero) + 8 slides galería (png 1440w) + credito.png (placeholder no usado; leyenda es texto)
-    primal/             # cover (PR1MAL sobre negro) + galería: 6 png (1440w) + hero-athlete.mp4 (banner atleta, GIF→mp4 comprimido 8.3MB→583KB) + hero-athlete-poster.jpg; leyenda es texto (sin credito.png)
+    primal/             # cover (PR1MAL sobre negro) + galería: 6 png (1440w) + hero-athlete.mp4 (banner atleta en galería, GIF→mp4 comprimido 8.3MB→583KB) + hero-athlete-poster.jpg + hero-athlete-cover.gif (carátula de work.html: GIF animado recortado 630x500, ~2.6MB — el usuario la quiere GIF, no vídeo); leyenda es texto (sin credito.png)
     logo-mj.png, wordmark.png, badge.gif, ...
 ```
 > Este documento vive en la **raíz del repo**, no en `web/`, porque `web/` es exactamente
