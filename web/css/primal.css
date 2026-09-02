@@ -1,0 +1,160 @@
+/* ============================================================
+   Primal — case study
+   Solo estilos de primal.html. Reutiliza styles.css
+   (header, footer, menú, tokens). Estructura basada en uabc/apricots.
+   Como UABC/Apricots: el hero es solo TEXTO y la portada es una IMAGEN
+   en flujo normal (no un vídeo).
+   ============================================================ */
+
+.page-primal{background:var(--light)}
+
+/* Aktiv Grotesk Medium (500): styles.css solo declara 400/700, así que el nav
+   saldría faux. Lo declaramos aquí para que ABOUT/WORK tengan el mismo peso
+   real que en el resto de case studies. */
+@font-face{font-family:'Aktiv Grotesk';font-weight:500;font-style:normal;font-display:swap;
+  src:url("../assets/fonts/AktivGrotesk-Medium.woff2") format("woff2")}
+
+/* Header transparente sobre el fondo --light (#FCFCFC), igual que UABC/Apricots. */
+.page-primal .header{background:transparent}
+
+/* Nav (ABOUT/WORK) en Aktiv Grotesk Medium. */
+.page-primal .nav{font-family:var(--grotesk)}
+
+/* Línea divisoria superior del footer (Figma, border-top 0.5px) */
+.page-primal .site-footer{border-top:.5px solid #000}
+
+/* Contenedor del case study (mismo gutter/ancho que el resto) */
+.primal{max-width:calc(var(--maxw) + 2*var(--gutter));margin:0 auto;padding:0 var(--gutter)}
+
+/* Reveal al hacer scroll (aparición suave: fade + subida). Los elementos
+   empiezan ocultos solo si el JS activa `reveal-on`. */
+.reveal-on .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.61,.36,1)}
+.reveal-on .reveal.is-visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal-on .reveal{opacity:1!important;transform:none!important;transition:none!important}
+}
+
+/* ============ HERO (solo texto) ============ */
+.primal-hero{
+  display:flex;flex-direction:column;align-items:center;gap:20px;
+  text-align:center;
+  max-width:1123px;margin:0 auto;
+  padding:80px 0 0;   /* misma altura de título que Priordei (.case padding-top:80px) */
+}
+.primal-hero__title{
+  font-family:var(--serif);font-weight:400;
+  font-size:64px;line-height:1.05;color:var(--ink);
+}
+.primal-hero__tagline{
+  font-family:var(--grotesk);font-weight:700;
+  font-size:20px;line-height:1.35;color:var(--ink);
+  max-width:none;
+}
+.primal-hero__eyebrow{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:20px;
+  font-family:var(--grotesk);font-weight:400;font-size:16px;
+  text-transform:uppercase;color:var(--ink);
+}
+.primal-hero__sep{color:var(--ink)}
+
+/* ============ FIGURAS / GALERÍA ============ */
+.primal-figure{margin:0}
+.primal-figure img,
+.primal-figure__video{display:block;width:100%;height:auto}
+
+/* Portada: gap hero → portada = 80px (Figma) */
+.primal-cover{margin-top:80px}
+
+.primal-gallery{
+  display:flex;flex-direction:column;gap:80px;
+  margin-top:112px;   /* distancia Solution → primera imagen */
+}
+
+/* ============ LEAD ============ */
+.primal-lead{
+  font-family:var(--serif);font-weight:400;
+  font-size:40px;line-height:1.25;text-align:center;color:var(--ink);
+  max-width:1064px;margin:160px auto 0;
+}
+
+/* ============ BRIEF: Product / Challenge / Solution + Role ============ */
+.primal-brief{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:80px;
+  margin-top:160px;
+}
+.primal-brief__main{
+  flex:1 1 auto;max-width:738px;
+  display:flex;flex-direction:column;gap:32px;
+}
+.primal-brief__block{display:flex;flex-direction:column;gap:16px}
+.primal-brief__label{
+  margin:0;
+  font-family:var(--grotesk);font-weight:700;
+  font-size:20px;text-transform:uppercase;letter-spacing:2.4px;color:var(--ink);
+}
+.primal-brief__block p{
+  margin:0;
+  font-family:var(--grotesk);font-weight:400;font-size:20px;line-height:1.4;color:var(--ink);
+}
+.primal-brief__block p strong{font-weight:700}
+.primal-brief__role{
+  flex:0 0 240px;
+  display:flex;flex-direction:column;gap:16px;align-items:flex-start;
+}
+.primal-brief__label--role{font-size:18px;letter-spacing:normal}
+.primal-brief__role p{
+  margin:0;
+  font-family:var(--grotesk);font-weight:400;font-size:20px;line-height:1.3;color:var(--ink);
+}
+
+/* ============ Crédito / leyenda antes del footer ============
+   Igual que Lumma/Apricots/UABC: la imagen del crédito en Figma es solo un
+   placeholder de posición; aquí es tipografía (línea corta + texto gris, izq). */
+.primal-credit{margin:120px 0 72px}
+.primal-credit__rule{
+  width:210px;height:0;
+  border:0;border-top:1px solid var(--ink);
+  margin:0 0 56px;
+}
+.primal-credit__text{
+  font-family:var(--grotesk);font-weight:400;
+  font-size:15px;line-height:1.5;letter-spacing:.1px;
+  color:#8f8f8f;
+  max-width:884px;
+}
+
+/* ============ TABLET ============ */
+@media (max-width:1024px){
+  .primal-hero__title{font-size:56px}
+  .primal-lead{font-size:34px}
+  .primal-brief{gap:48px}
+  .primal-brief__role{flex-basis:200px}
+}
+
+/* ============ MÓVIL ============ */
+@media (max-width:768px){
+  .primal{padding:0 24px}
+
+  .primal-hero{padding-top:48px;gap:16px}   /* misma altura de título que Priordei (móvil) */
+  .primal-hero__title{font-size:clamp(38px,12vw,56px);line-height:1.05}
+  .primal-hero__tagline{font-size:17px}
+  .primal-hero__eyebrow{gap:10px 14px;font-size:13px}
+
+  .primal-cover{margin-top:56px}
+
+  .primal-lead{font-size:24px;line-height:1.3;margin-top:64px}
+
+  .primal-brief{
+    flex-direction:column;gap:40px;margin-top:72px;   /* intro → brief, igual que Priordei */
+  }
+  .primal-brief__main{max-width:none}
+  .primal-brief__block p{font-size:17px}
+  .primal-brief__role{flex-basis:auto}
+  .primal-brief__label{font-size:18px}
+
+  .primal-gallery{gap:40px;margin-top:72px}   /* brief → primera imagen, igual que Priordei */
+
+  .primal-credit{margin:80px 0 48px}
+  .primal-credit__rule{width:140px;margin-bottom:32px}
+  .primal-credit__text{font-size:14px}
+}
