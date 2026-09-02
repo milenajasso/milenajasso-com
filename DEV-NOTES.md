@@ -29,6 +29,7 @@ web/
   maia.html             # Case study Maia (branding piel mexicana premium; misma estructura que ponte-guapo)
   lumma.html            # Case study Lumma (branding eventos premium; espejo de maia + HERO EN VÍDEO)
   uabc.html             # Case study UABC FIAD (UX/Web; espejo de lumma pero HERO SOLO TEXTO + portada = imagen escudo)
+  apricots.html         # Case study Apricots (branding fast-casual; espejo de uabc: HERO SOLO TEXTO + portada = imagen)
   work.html             # "All work" — grid de carátulas + filtro (Branding/Websites)
   contact.html          # Contact ("Let's talk!") — banda rosa + email/LinkedIn (Figma 532:463)
   about.html            # About ("Hi, I'm Milena!") — banda rosa + foto en arco + sello (Figma 532:100)
@@ -42,6 +43,7 @@ web/
     maia.css            # Estilos SOLO de maia.html (espejo de ponte-guapo.css con prefijo maia-)
     lumma.css           # Estilos SOLO de lumma.html (espejo de maia.css con prefijo lumma-)
     uabc.css            # Estilos SOLO de uabc.html (espejo de lumma.css con prefijo uabc-; sin hero-media)
+    apricots.css        # Estilos SOLO de apricots.html (espejo de uabc.css con prefijo apricots-)
     work.css            # Estilos SOLO de work.html (grid 2 col + filtro)
     contact.css         # Estilos SOLO de contact.html (hero "Let's talk!" + 2 bloques)
     about.css           # Estilos SOLO de about.html (hero: texto izq + foto arco der + sello)
@@ -53,6 +55,7 @@ web/
     japri-books/        # imágenes + prototype.mp4 (vídeo del prototipo, comprimido 1280w) del case study Japri Books
     chivo-grunon/       # hero + galería (png) + final-gif.gif (animado, 4 frames) del case study Chivo Gruñón
     lumma/              # 7 slides branding (jpg 1280w) + hero-video.mp4 (comprimido 1280w, 2.1MB) + hero-poster.jpg + lumma-blanco.png (logo overlay transparente)
+    apricots/           # portada (cover-hero) + 8 slides galería (png 1440w) + credito.png (placeholder no usado; leyenda es texto)
     logo-mj.png, wordmark.png, badge.gif, ...
 ```
 > Este documento vive en la **raíz del repo**, no en `web/`, porque `web/` es exactamente
@@ -76,6 +79,7 @@ navegador (y el preview) sirven la versión cacheada. Estado actual:
 - `maia.css?v=2`
 - `lumma.css?v=1`
 - `uabc.css?v=1`
+- `apricots.css?v=1`
 - `work.css?v=13`
 - `contact.css?v=2`
 - `about.css?v=2`
