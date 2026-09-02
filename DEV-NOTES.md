@@ -73,13 +73,13 @@ navegador (y el preview) sirven la versión cacheada. Estado actual:
 - `styles.css?v=33`
 - `priordei.css?v=55`
 - `centro-medico.css?v=38`
-- `ponte-guapo.css?v=7`
+- `ponte-guapo.css?v=8`
 - `japri-books.css?v=9`
 - `chivo-grunon.css?v=3`
-- `maia.css?v=2`
-- `lumma.css?v=1`
+- `maia.css?v=3`
+- `lumma.css?v=2`
 - `uabc.css?v=1`
-- `apricots.css?v=2`
+- `apricots.css?v=3`
 - `work.css?v=13`
 - `contact.css?v=2`
 - `about.css?v=2`

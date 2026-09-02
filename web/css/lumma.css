@@ -23,7 +23,7 @@
 .page-lumma .site-footer{border-top:.5px solid #000}
 
 /* Contenedor del case study (mismo gutter/ancho que el resto) */
-.lumma{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+.lumma{max-width:calc(var(--maxw) + 2*var(--gutter));margin:0 auto;padding:0 var(--gutter)}
 
 /* Reveal al hacer scroll (aparición suave: fade + subida). Los elementos
    empiezan ocultos solo si el JS activa `reveal-on`. */
