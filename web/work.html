@@ -79,7 +79,7 @@
     </article>
 
     <!-- PONTE GUAPO / TERRA PENINSULAR — Branding -->
-    <article class="wcard" data-category="branding">
+    <article class="wcard" data-category="branding" data-branding-order="1">
       <a class="wcard__cover wcard__cover--pg" href="ponte-guapo.html" aria-label="Ver proyecto Ponte Guapo">
         <video class="wcard__media" autoplay muted loop playsinline preload="metadata"
                poster="assets/Index/puma-poster.jpg">
@@ -115,7 +115,7 @@
     </article>
 
     <!-- MAIA — Branding -->
-    <article class="wcard" data-category="branding">
+    <article class="wcard" data-category="branding" data-branding-order="2">
       <a class="wcard__cover" href="maia.html" aria-label="Ver proyecto MAIA">
         <img class="wcard__media" src="assets/work/maia.webp"
           alt="Proyecto MAIA — branding de marroquinería mexicana" loading="lazy">
@@ -131,7 +131,7 @@
     </article>
 
     <!-- CHIVO GRUÑÓN — Packaging Design, Branding -->
-    <article class="wcard" data-category="branding">
+    <article class="wcard" data-category="branding" data-branding-order="3">
       <a class="wcard__cover wcard__cover--chivo" href="chivo-grunon.html" aria-label="Ver proyecto Chivo Gruñón">
         <img class="wcard__media" src="assets/work/chivo-grunon.webp"
           alt="Proyecto Chivo Gruñón — packaging y branding de cerveza artesanal" loading="lazy">
@@ -163,7 +163,7 @@
     </article>
 
     <!-- LUMMA — Sophisticated UI, Branding -->
-    <article class="wcard" data-category="branding">
+    <article class="wcard" data-category="branding" data-branding-order="6">
       <a class="wcard__cover" href="lumma.html" aria-label="Ver proyecto LUMMA">
         <img class="wcard__media" src="assets/work/lumma.webp"
           alt="Proyecto LUMMA — branding y UI de eventos premium" loading="lazy">
@@ -179,7 +179,7 @@
     </article>
 
     <!-- PRIMAL — Branding -->
-    <article class="wcard" data-category="branding">
+    <article class="wcard" data-category="branding" data-branding-order="4">
       <a class="wcard__cover" href="primal.html" aria-label="Ver proyecto PRIMAL">
         <img class="wcard__media" src="assets/primal/hero-athlete-cover.gif"
           alt="Proyecto PRIMAL — atleta con el rótulo «PR1MAL — Strength and Movement»" loading="lazy">
@@ -195,7 +195,7 @@
     </article>
 
     <!-- APRICOTS — Branding -->
-    <article class="wcard" data-category="branding">
+    <article class="wcard" data-category="branding" data-branding-order="5">
       <a class="wcard__cover" href="apricots.html" aria-label="Ver proyecto APRICOTS">
         <img class="wcard__media" src="assets/apricots/bowl-label.png"
           alt="Proyecto APRICOTS — branding y packaging de restaurante fast-casual" loading="lazy">
@@ -289,14 +289,18 @@
       cards.forEach(function (card) {
         var match = (filter === 'all') || (card.getAttribute('data-category') === filter);
         card.hidden = !match;
-        // Orden específico al filtrar Websites; se restablece en el resto
-        card.style.order = (filter === 'website') ? (card.dataset.webOrder || '') : '';
+        // Orden específico al filtrar Websites / Branding; se restablece en "all"
+        card.style.order = (filter === 'website') ? (card.dataset.webOrder || '')
+                         : (filter === 'branding') ? (card.dataset.brandingOrder || '')
+                         : '';
         if (match) shown.push(card);
       });
       if (reduce) return;
-      // El escalonado sigue el orden visual (en Websites, según data-web-order)
+      // El escalonado sigue el orden visual (Websites: data-web-order; Branding: data-branding-order)
       if (filter === 'website') {
         shown.sort(function (a, b) { return (+a.dataset.webOrder || 0) - (+b.dataset.webOrder || 0); });
+      } else if (filter === 'branding') {
+        shown.sort(function (a, b) { return (+a.dataset.brandingOrder || 0) - (+b.dataset.brandingOrder || 0); });
       }
       // Reinicia la animación de entrada en las tarjetas visibles, con escalonado
       shown.forEach(function (card, i) {
