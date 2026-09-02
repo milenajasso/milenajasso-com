@@ -107,12 +107,12 @@ a.wcard__cover:hover .wcard__media{transform:scale(1.03)}
 }
 
 /* ============================================================
-   Pantalla grande (>=1440px): 3 columnas
-   A 1440px el contenido interior llega a --maxw (1280); con 3 columnas
-   las tarjetas quedan a ~413px y asoma la fila siguiente → se intuye scroll
-   y la primera fila muestra 3 proyectos en vez de 2.
+   Pantalla grande (>=1600px): 3 columnas
+   Umbral por encima del MacBook 14" (1512px) para que el portátil se quede
+   en 2 columnas; a partir de 16" (1728px) y monitores externos → 3 columnas
+   (la primera fila muestra 3 proyectos en vez de 2 y se ve más llena).
    ============================================================ */
-@media (min-width:1440px){
+@media (min-width:1600px){
   /* minmax(0,1fr): columnas iguales aunque un nombre/tag no quepa (evita que
      un nowrap ensanche su columna). El head envuelve como en móvil. */
   .work-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
