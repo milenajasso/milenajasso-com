@@ -79,7 +79,7 @@ navegador (y el preview) sirven la versión cacheada. Estado actual:
 - `maia.css?v=2`
 - `lumma.css?v=1`
 - `uabc.css?v=1`
-- `apricots.css?v=1`
+- `apricots.css?v=2`
 - `work.css?v=13`
 - `contact.css?v=2`
 - `about.css?v=2`
