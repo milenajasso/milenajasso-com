@@ -1,0 +1,291 @@
+/* Milena Jasso — Caso de estudio "ES Eventos" (Figma node 582:468)
+   Tipografías del diseño:
+     · Títulos display -> "Editor's Note" (serif, woff2 local).
+     · Cuerpo / UI     -> "Aktiv Grotesk" (grotesca, woff2 local).
+     · Ficha de finca (UI del producto): nombre en Spectral italic -> sustituido por
+       Newsreader italic (serif editorial ya disponible); specs en Barlow -> sustituido
+       por la pila Helvetica (mockup pequeño, decorativo). */
+
+/* ---- Fuentes reales del diseño ---- */
+@font-face{font-family:'Editor\'s Note';font-weight:400;font-style:normal;font-display:swap;
+  src:url("../assets/fonts/EditorsNote-Regular.woff2") format("woff2")}
+@font-face{font-family:'Editor\'s Note';font-weight:400;font-style:italic;font-display:swap;
+  src:url("../assets/fonts/EditorsNote-Italic.woff2") format("woff2")}
+@font-face{font-family:'Aktiv Grotesk';font-weight:400;font-style:normal;font-display:swap;
+  src:url("../assets/fonts/AktivGrotesk-Regular.woff2") format("woff2")}
+@font-face{font-family:'Aktiv Grotesk';font-weight:500;font-style:normal;font-display:swap;
+  src:url("../assets/fonts/AktivGrotesk-Medium.woff2") format("woff2")}
+@font-face{font-family:'Aktiv Grotesk';font-weight:700;font-style:normal;font-display:swap;
+  src:url("../assets/fonts/AktivGrotesk-Bold.woff2") format("woff2")}
+@font-face{font-family:'Newsreader';font-weight:400;font-style:italic;font-display:swap;
+  src:url("../assets/fonts/Newsreader-Italic.woff2") format("woff2")}
+
+:root{
+  --gray600:#656565;
+  --f5:#f5f5f5;
+  --dark:#2f2c3d;
+  --serif:"Editor's Note",Georgia,'Times New Roman',serif;
+  --aktiv:'Aktiv Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+/* Toda la página usa la grotesca */
+body.page-es{font-family:var(--aktiv)}
+.page-es .header{background:transparent;padding-top:16px;padding-bottom:16px}
+.page-es .nav{font-family:var(--aktiv)}
+
+/* ---- Utilidades tipográficas ---- */
+.label{font-family:var(--aktiv);font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:var(--ink)}
+
+/* ---- Contenedor del caso (contenido interior = 1280) ---- */
+.case{max-width:calc(var(--maxw) + 2*var(--gutter));margin:0 auto;padding:80px var(--gutter) 0}
+
+/* ---- Hero del caso ---- */
+.case-hero{display:flex;flex-direction:column;align-items:center;gap:80px;margin-bottom:120px}
+.case-hero__head{display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center;max-width:720px}
+.case-hero__title{font-family:var(--serif);font-weight:400;font-size:64px;line-height:1.05;color:var(--ink)}
+.case-hero__tagline{font-weight:700;font-size:20px;color:var(--ink)}
+.case-hero__tags{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:20px;
+  font-size:16px;text-transform:uppercase;color:var(--ink);
+}
+.case-hero__body{display:flex;flex-direction:column;gap:160px;width:100%}
+
+/* Hero en vídeo */
+.es-hero-media{
+  position:relative;width:100%;aspect-ratio:1281/750;overflow:hidden;background:#e9e6e0;
+}
+.es-hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+
+/* Frase serif grande */
+.case-lead{
+  font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.3;
+  text-align:center;max-width:1064px;margin:0 auto;color:var(--ink);
+}
+
+/* Brief */
+.case-brief{display:flex;flex-direction:column;gap:64px}
+.case-brief__cols{display:flex;justify-content:space-between;gap:56px;align-items:flex-start}
+.case-brief__text{display:flex;flex-direction:column;gap:32px;max-width:738px}
+.case-brief__block{display:flex;flex-direction:column;gap:16px}
+.case-brief__block .label{font-size:20px}
+.case-brief__block p{font-size:20px;line-height:1.5;color:var(--ink)}
+.case-brief__block strong{font-weight:700}
+.case-brief__meta{display:flex;flex-direction:column;gap:56px;align-items:flex-start;width:160px;flex-shrink:0}
+.case-brief__meta-block{display:flex;flex-direction:column;gap:16px}
+.case-brief__meta .label{font-size:18px;letter-spacing:1.2px}
+.case-brief__meta p{font-size:20px;color:var(--ink)}
+.case-brief__link{font-size:18px;color:var(--gray600);text-decoration:underline;text-underline-position:from-font}
+.case-brief__link:hover{color:var(--ink)}
+
+/* Caja de impacto */
+.impact{background:var(--f5);padding:80px 40px;display:flex;flex-direction:column;gap:56px}
+.impact>.label{font-size:20px}
+.impact__grid{display:flex;justify-content:space-between;gap:56px;align-items:flex-start}
+.impact__stat{display:flex;flex-direction:column;gap:16px;flex:1;max-width:373px}
+.impact__num{font-family:var(--aktiv);font-weight:500;font-size:56px;line-height:1;color:var(--ink)}
+.impact__cap{font-size:20px;color:var(--ink)}
+.impact__desc{font-size:16px;line-height:1.5;color:var(--gray600)}
+
+/* ======================================================================
+   BRIDGING — texto sticky a la izquierda + imagen alta que hace scroll
+   (Figma 640:3994). Banda a ancho completo con fondo de montañas atenuado.
+   ====================================================================== */
+.es-bridge{
+  width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;
+  padding:120px var(--gutter);
+  /* Fondo fijo: la foto no hace scroll (se ancla al viewport) mientras la imagen alta sí scrollea */
+  background:#d9dcd8 url("../assets/es-eventos/bridging-bg.jpg") center top/auto 1200px no-repeat fixed;
+}
+.es-bridge__inner{max-width:var(--maxw);margin:0 auto}
+.es-bridge__title{
+  font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.3;text-align:left;
+  color:var(--ink);width:100%;margin:0;
+}
+.es-bridge__row{display:flex;gap:116px;align-items:flex-start}
+.es-bridge__sticky{
+  position:sticky;top:64px;align-self:flex-start;
+  width:478px;flex-shrink:0;
+  display:flex;flex-direction:column;gap:40px;
+}
+.es-bridge__step{display:flex;flex-direction:column;gap:8px}
+.es-bridge__num{font-family:var(--aktiv);font-weight:700;font-size:20px;letter-spacing:2.4px;text-transform:uppercase;color:var(--ink)}
+.es-bridge__text{font-family:var(--aktiv);font-size:20px;line-height:1.4;color:var(--ink)}
+.es-bridge__media{position:relative;flex:1 1 0;min-width:0;display:flex;justify-content:center}
+.es-bridge__img{display:block;width:100%;max-width:577px;height:auto}
+
+/* ======================================================================
+   NUESTROS ESPACIOS — ficha de finca (UI) sobre panel oscuro + foto
+   (Figma 668:5339)
+   ====================================================================== */
+.es-venue{
+  display:flex;gap:20px;align-items:stretch;
+  max-width:var(--maxw);margin:120px auto;
+}
+.es-venue__dark{
+  flex:0 0 auto;width:672px;background:var(--dark);
+  display:flex;align-items:center;justify-content:center;padding:64px 80px;
+}
+.es-venue__photo{flex:1 1 0;min-width:0;position:relative;overflow:hidden}
+.es-venue__photo img,.es-venue__photo video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 72%;display:block}
+
+/* Tarjeta de finca (mockup UI) */
+.es-venue__card{
+  width:363px;background:#fff;overflow:hidden;
+  display:flex;flex-direction:column;gap:32px;padding-bottom:24px;
+}
+.es-venue__card-bar{display:flex;align-items:center;justify-content:space-between;padding:16px}
+.es-venue__logo{width:100px;height:auto;display:block}
+.es-venue__menu{width:24px;height:24px;display:block}
+.es-venue__card-body{display:flex;flex-direction:column;gap:24px;padding:0 19.5px;width:100%}
+.es-venue__name{display:flex;align-items:center;gap:8px;color:var(--ink)}
+.es-venue__name img{width:20px;height:20px;flex-shrink:0}
+.es-venue__name span{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:25px;line-height:1.1}
+.es-venue__photo-sm{display:block;width:100%;height:216px;object-fit:cover}
+.es-venue__specs{background:#f4f4f0;padding:20px;display:flex;flex-direction:column;gap:32px}
+.es-venue__specs-title{font-family:var(--aktiv);font-weight:700;font-size:18px;color:var(--ink)}
+.es-venue__specs-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:47px 61px;justify-items:center;
+}
+.es-venue__spec{display:flex;flex-direction:column;align-items:center;gap:8px;width:88px}
+.es-venue__spec img{width:24px;height:24px}
+.es-venue__spec-label{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;color:var(--ink);text-align:center}
+.es-venue__spec-line{width:100%;height:1px;background:#d9d9d3}
+.es-venue__spec-val{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:20px;color:var(--ink);text-align:center}
+.es-venue__spec--noval{align-self:start}
+
+/* ======================================================================
+   ALL-IN-ONE WEDDING — intro oscura + captura del módulo por pestañas
+   (Figma 668:5245)
+   ====================================================================== */
+.es-wedding{
+  width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;
+}
+.es-wedding__intro{
+  position:relative;padding:200px var(--gutter);overflow:hidden;
+  display:flex;justify-content:center;
+}
+.es-wedding__intro::before{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:url("../assets/es-eventos/wedding-bg.jpg") center/cover no-repeat;
+}
+.es-wedding__intro::after{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(0deg, rgba(47,44,61,1) 0%, rgba(47,44,61,0) 48%),
+             rgba(47,44,61,.9);
+}
+.es-wedding__intro p{
+  position:relative;z-index:2;
+  font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.3;text-align:center;
+  color:#fcfcfc;max-width:1064px;
+}
+.es-wedding__intro p span{display:block}
+.es-wedding__body{
+  background:var(--dark);padding:0 var(--gutter) 120px;
+  display:flex;flex-direction:column;align-items:center;gap:64px;
+}
+.es-wedding__shot{width:min(1119px,100%);border-radius:16px;overflow:hidden;
+  box-shadow:0 30px 70px rgba(0,0,0,.35)}
+.es-wedding__shot img{display:block;width:100%;height:auto}
+.es-wedding__cols{display:flex;gap:56px;width:100%;max-width:var(--maxw)}
+.es-wedding__col{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:16px}
+.es-wedding__col .label{font-size:20px;color:#fcfcfc}
+.es-wedding__col p{font-size:20px;line-height:1.4;color:#fcfcfc}
+
+/* ======================================================================
+   BRINGING THE EVENT EXPERIENCE TO LIFE — texto sticky + mockups móviles
+   (Figma 668:5251)
+   ====================================================================== */
+.es-bring{max-width:var(--maxw);margin:0 auto;padding:120px 0}
+.es-bring__row{display:flex;gap:106px;align-items:flex-start}
+.es-bring__sticky{
+  position:sticky;top:120px;align-self:flex-start;
+  width:478px;flex-shrink:0;display:flex;flex-direction:column;gap:56px;
+}
+.es-bring__title{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.3;color:var(--ink)}
+.es-bring__step{display:flex;flex-direction:column;gap:8px}
+.es-bring__num{font-family:var(--aktiv);font-weight:700;font-size:20px;letter-spacing:2.4px;text-transform:uppercase;color:var(--ink)}
+.es-bring__text{font-family:var(--aktiv);font-size:20px;line-height:1.4;color:var(--ink)}
+.es-bring__media{flex:1 1 0;min-width:0;display:flex;justify-content:center;
+  align-items:flex-start;gap:clamp(16px,3vw,63px)}
+.es-bring__phone{flex:0 1 auto;width:min(321px,calc((100% - 63px)/2))}
+.es-bring__phone img,.es-bring__phone video{display:block;width:100%;height:auto}
+.es-bring__phone--1{margin-top:0}
+.es-bring__phone--2{margin-top:clamp(80px,18vw,255px)}
+
+/* ---- Reveal al hacer scroll (aparición suave) ---- */
+.reveal-on .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.61,.36,1)}
+.reveal-on .reveal.is-visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal-on .reveal{opacity:1!important;transform:none!important;transition:none!important}
+}
+
+.site-footer{margin-top:0}
+/* Línea negra encima del footer (Figma 582:669: border-t) — mismo grosor que Ponte Guapo */
+.page-es .site-footer{border-top:.5px solid #000}
+
+/* ======================================================================
+   RESPONSIVE
+   ====================================================================== */
+@media (max-width:1180px){
+  .es-bridge__row{gap:64px}
+  .es-bring__row{gap:64px}
+}
+@media (max-width:1024px){
+  :root{--gutter:48px}
+  .case{padding-top:48px}
+  .case-hero{gap:56px}
+  .case-hero__body{gap:100px}
+  .case-hero__title{font-size:52px}
+  .case-lead{font-size:32px}
+  .case-brief__cols{gap:40px}
+  .impact__num{font-size:44px}
+  .es-bridge__title,.es-wedding__intro p,.es-bring__title{font-size:32px}
+  .es-venue{flex-direction:column}
+  .es-venue__dark{width:100%}
+  .es-venue__photo{height:420px;flex:none}
+  .es-bring__row{gap:48px}
+}
+
+@media (max-width:768px){
+  :root{--gutter:24px}
+  .case-hero{margin-bottom:80px}
+  .case-hero__title{font-size:40px}
+  .case-hero__tags{font-size:14px;gap:12px}
+  .case-lead{font-size:26px}
+  .lead-br{display:none}
+  .case-hero__body{gap:72px}
+  .case-brief__cols{flex-direction:column;gap:32px}
+  .case-brief__meta{width:100%}
+  .impact{padding:48px 24px}
+  .impact__grid{flex-direction:column;gap:40px}
+  .impact__stat{max-width:none}
+
+  /* Bridging: deja de ser sticky; texto arriba, imagen debajo */
+  .es-bridge{padding:80px var(--gutter);background-attachment:scroll}
+  .es-bridge__title{font-size:26px;margin-bottom:48px}
+  .es-bridge__row{flex-direction:column;gap:40px}
+  .es-bridge__sticky{position:static;width:100%;gap:32px}
+  .es-bridge__step:not(.is-active){opacity:1}
+  .es-bridge__media{justify-content:flex-start}
+
+  /* Nuestros espacios */
+  .es-venue{margin:80px auto}
+  .es-venue__dark{padding:48px 24px}
+  .es-venue__card{width:100%;max-width:363px}
+  .es-venue__photo{height:320px}
+
+  /* Wedding */
+  .es-wedding__intro{padding:120px var(--gutter)}
+  .es-wedding__intro p{font-size:26px}
+  .es-wedding__body{padding-bottom:80px;gap:40px}
+  .es-wedding__cols{flex-direction:column;gap:32px}
+
+  /* Bringing: los dos móviles apilados en columna */
+  .es-bring{padding:80px 0}
+  .es-bring__title{font-size:26px}
+  .es-bring__row{flex-direction:column;gap:48px}
+  .es-bring__sticky{position:static;width:100%;gap:32px}
+  .es-bring__media{min-height:0;display:flex;flex-direction:column;align-items:center;gap:32px}
+  .es-bring__phone{position:static;width:min(280px,80%)}
+  .es-bring__phone--2{left:auto;top:auto;margin-top:0}
+}

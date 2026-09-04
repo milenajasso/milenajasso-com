@@ -31,6 +31,7 @@ web/
   uabc.html             # Case study UABC FIAD (UX/Web; espejo de lumma pero HERO SOLO TEXTO + portada = imagen escudo)
   apricots.html         # Case study Apricots (branding fast-casual; espejo de uabc: HERO SOLO TEXTO + portada = imagen)
   primal.html           # Case study Primal (branding fitness adaptativo; espejo de apricots: HERO SOLO TEXTO + portada = imagen)
+  es-eventos.html       # Case study ES Eventos (UX/Producto; HERO EN VÍDEO + 2 secciones sticky-scroll estilo Priordei «Beyond the product»)
   work.html             # "All work" — grid de carátulas + filtro (Branding/Websites)
   contact.html          # Contact ("Let's talk!") — banda rosa + email/LinkedIn (Figma 532:463)
   about.html            # About ("Hi, I'm Milena!") — banda rosa + foto en arco + sello (Figma 532:100)
@@ -46,6 +47,7 @@ web/
     uabc.css            # Estilos SOLO de uabc.html (espejo de lumma.css con prefijo uabc-; sin hero-media)
     apricots.css        # Estilos SOLO de apricots.html (espejo de uabc.css con prefijo apricots-)
     primal.css          # Estilos SOLO de primal.html (espejo de apricots.css con prefijo primal-)
+    es-eventos.css      # Estilos SOLO de es-eventos.html (case-hero/lead/brief/impact copiados de priordei + secciones es-*)
     work.css            # Estilos SOLO de work.html (grid 2 col + filtro)
     contact.css         # Estilos SOLO de contact.html (hero "Let's talk!" + 2 bloques)
     about.css           # Estilos SOLO de about.html (hero: texto izq + foto arco der + sello)
@@ -58,6 +60,9 @@ web/
     chivo-grunon/       # hero + galería (png) + final-gif.gif (animado, 4 frames) del case study Chivo Gruñón
     lumma/              # 7 slides branding (jpg 1280w) + hero-video.mp4 (comprimido 1280w, 2.1MB) + hero-poster.jpg + lumma-blanco.png (logo overlay transparente)
     apricots/           # portada (cover-hero) + 8 slides galería (png 1440w) + credito.png (placeholder no usado; leyenda es texto)
+    es-eventos/         # hero.mp4/webm (APNG de Figma 5f→vídeo, wordmark integrado) + hero-poster.jpg + bridging-scroll.webp (home alto para el sticky-scroll) + bridging-bg.jpg (montañas atenuadas) + wedding-bg.jpg (overlay oscuro) + wedding-tabs.webp + finca-photo.jpg + eseventos-logo.png + montaje-phone.webp (mockup móvil, 2º teléfono de Bringing) + VÍDEO móvil 1 de Bringing = phone-boda.mp4/webm + phone-boda-poster.jpg (recorte del iPhone del vídeo «video_eseventos mobile.mp4», que YA trae iPhone + rótulo «El sí que lo cambia todo»; crop=368:688:456:18 — recorte AJUSTADO al teléfono completo (y18-706 incluye el marco plateado); NO recortar más adentro o se corta el marco del móvil, ni dejar el frame completo o salen bandas grises arriba/abajo. Sources con ?v=N para cache-bust al recodificar) + VÍDEO finca derecha = finca-bosque.mp4/webm + finca-right.jpg de póster (nodo 668:5392) + cover.webp (carátula de work.html: frame de la pareja del hero + wordmark, recorte 630/500) + 7 iconos svg. Vídeos comprimidos con ffmpeg.
+    Bridging (640:3994): TÍTULO dentro de la columna sticky izquierda (alineado a la izquierda, encima de los 4 puntos), no centrado arriba. Fondo = bridging-bg.jpg FIJO (background-attachment:fixed) y `background:center top/auto 1200px` (cielo de la foto detrás del texto, montaña neblinosa asoma al pie). La columna sticky se compactó (top:64px, gap:40px en vez de 120/56) para que quepa la franja de montaña bajo el texto en pantallas ~768-900. El fondo tiene el cielo en el ~58% superior; al anclarlo arriba (center top) el cielo cubre el texto y las montañas caen al pie. Equilibrio dependiente de la altura del viewport (texto alto). NO usar cover/center (mete montañas sobre el texto). — la foto tiene el cielo claro en el ~58% superior, así que anclada arriba el cielo queda detrás del texto (legible) y las montañas bajan al pie; NO usar cover (mete las montañas sobre el texto). En móvil, background-attachment:scroll (bug iOS). La imagen alta va SIN sombra (plana, como Figma). Texto sticky SIN fade (los N puntos quedan fijos, solo la imagen alta hace scroll). CLAVE: nada de overflow:hidden ni transform en ancestros del sticky (rompe position:sticky) — fue el bug de «el scroll no funciona». Queda «video_eseventos mobile.mp4» (1.7MB, fuente del phone-boda) en la carpeta.
+    NOTA MCP Figma: el servidor `figma-desktop` habla por HTTP en http://127.0.0.1:3845/mcp (JSON-RPC/SSE). Si el harness lo pierde, se puede llamar por curl: initialize → notifications/initialized (con mcp-session-id) → tools/call (get_metadata/get_design_context/get_screenshot). Los fills de vídeo/imagen a nivel de frame no salen como <img> en get_design_context; usar get_screenshot (renderiza a 1x) para extraerlos.
     primal/             # cover (PR1MAL sobre negro) + galería: 6 png (1440w) + hero-athlete.mp4 (banner atleta en galería, GIF→mp4 comprimido 8.3MB→583KB) + hero-athlete-poster.jpg + hero-athlete-cover.gif (carátula de work.html: GIF animado recortado 630x500, ~2.6MB — el usuario la quiere GIF, no vídeo); leyenda es texto (sin credito.png)
     logo-mj.png, wordmark.png, badge.gif, ...
 ```
@@ -84,6 +89,7 @@ navegador (y el preview) sirven la versión cacheada. Estado actual:
 - `uabc.css?v=1`
 - `apricots.css?v=3`
 - `primal.css?v=2`
+- `es-eventos.css?v=8`
 - `work.css?v=13`
 - `contact.css?v=2`
 - `about.css?v=2`

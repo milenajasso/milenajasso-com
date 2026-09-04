@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/Index/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/Index/favicon-180.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ES Eventos · Case study — Milena Jasso</title>
+<meta name="description" content="ES Eventos — Designing an end-to-end digital ecosystem for iconic event spaces. A high-conversion UX for a new event planning venture from the established English Summer Grupo.">
+<link rel="stylesheet" href="css/styles.css?v=33">
+<link rel="stylesheet" href="css/es-eventos.css?v=20">
+</head>
+<body class="page-es">
+
+<header class="header">
+  <a class="header__logo" href="index.html" aria-label="Milena Jasso — inicio">
+    <img src="assets/Index/logo-mj.png" alt="Milena Jasso" width="47" height="57">
+  </a>
+  <button class="header__toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-menu">
+    <span></span><span></span>
+  </button>
+  <nav class="nav" id="primary-nav" aria-label="Principal">
+    <a href="about.html">About</a>
+    <a href="work.html">Work</a>
+    <a href="contact.html">Say hello!</a>
+  </nav>
+</header>
+
+<!-- Menú móvil a pantalla completa (Figma 277:393) -->
+<div class="menu" id="primary-menu" aria-hidden="true">
+  <div class="menu__bar">
+    <a class="menu__logo" href="index.html" aria-label="Milena Jasso — inicio">
+      <img src="assets/Index/logo-mj.png" alt="Milena Jasso">
+    </a>
+    <button class="menu__close" type="button" aria-label="Cerrar menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="menu__links" aria-label="Menú principal">
+    <a href="about.html">ABOUT</a>
+    <a href="work.html">WORK</a>
+    <a href="contact.html">CONTACT</a>
+  </nav>
+  <div class="menu__foot">
+    <p class="menu__foot-title">Let's work together</p>
+    <a class="menu__foot-mail" href="mailto:milena.jasso@gmail.com">milena.jasso@gmail.com</a>
+  </div>
+</div>
+
+<main class="case">
+  <article class="case-hero">
+    <!-- Encabezado del caso -->
+    <header class="case-hero__head">
+      <h1 class="case-hero__title">ES Eventos</h1>
+      <p class="case-hero__tagline">Designing a End-to-End Digital Ecosystem for Iconic Event Spaces</p>
+      <p class="case-hero__tags">
+        <span>Product Design</span><span>/</span>
+        <span>Customer Experience</span><span>/</span>
+        <span>Event Planning</span><span>/</span>
+        <span>Hospitality</span>
+      </p>
+    </header>
+
+    <div class="case-hero__body">
+      <!-- Hero en vídeo (pareja de novios + wordmark ESeventos integrado) -->
+      <div class="es-hero-media">
+        <video poster="assets/es-eventos/hero-poster.jpg" autoplay muted loop playsinline
+               aria-label="ES Eventos — hero de la web">
+          <source src="assets/es-eventos/hero.webm" type="video/webm">
+          <source src="assets/es-eventos/hero.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- Frase serif -->
+      <div class="case-lead">
+        <p>Create a sophisticated and high-conversion UX for ES Eventos,<br class="lead-br">a new event planning venture from the established<br class="lead-br">English Summer Grupo.</p>
+      </div>
+
+      <!-- Brief: Product / Challenge / Solution + Role -->
+      <div class="case-brief">
+        <div class="case-brief__cols">
+          <div class="case-brief__text">
+            <section class="case-brief__block">
+              <h2 class="label">Product</h2>
+              <p>A dynamic online platform showcasing a diverse range of event spaces and services, empowering users to <strong>discover, explore, and book</strong> unforgettable experiences.</p>
+            </section>
+            <section class="case-brief__block">
+              <h2 class="label">Challenge</h2>
+              <p>Creating a compelling online presence from scratch for a new event venture, ensuring a <strong>cohesive brand identity and a friction-free user journey that drives conversions.</strong></p>
+            </section>
+            <section class="case-brief__block">
+              <h2 class="label">Solution</h2>
+              <p>A high-conversion UX framework balancing heritage with seamless lead capture. <strong>Standardized venue specs eliminate selection friction,</strong> while editorial layouts build brand trust—guiding users directly into embedded CTAs to accelerate quote requests.</p>
+            </section>
+          </div>
+          <div class="case-brief__meta">
+            <div class="case-brief__meta-block">
+              <h2 class="label">Role</h2>
+              <p>Product designer</p>
+            </div>
+            <a class="case-brief__link" href="#" target="_blank" rel="noopener">Visit live site</a>
+          </div>
+        </div>
+
+        <!-- Impacto proyectado -->
+        <section class="impact">
+          <h2 class="label">Projected Impact based on design benchmarks</h2>
+          <div class="impact__grid">
+            <div class="impact__stat">
+              <p class="impact__num">100%</p>
+              <p class="impact__cap">Technical spec accessibility</p>
+              <p class="impact__desc">Surfacing all key venue specs directly within the main view to prevent extra navigation.</p>
+            </div>
+            <div class="impact__stat">
+              <p class="impact__num">&lt;2 min</p>
+              <p class="impact__cap">Frictionless quote submission</p>
+              <p class="impact__desc">Streamlining the request process to achieve a sub-two-minute average form completion.</p>
+            </div>
+            <div class="impact__stat">
+              <p class="impact__num">92%</p>
+              <p class="impact__cap">Fast capacity discovery</p>
+              <p class="impact__desc">Enabling users to find venue setups and room capacities in under 60 seconds.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </article>
+
+  <!-- Bridging: texto sticky a la izquierda + imagen alta que hace scroll (Figma 640:3994) -->
+  <section class="es-bridge" aria-labelledby="bridge-title">
+    <div class="es-bridge__inner">
+      <div class="es-bridge__row">
+        <aside class="es-bridge__sticky">
+          <h2 class="es-bridge__title" id="bridge-title">Bridging a 40 year heritage with high conversion event design</h2>
+          <div class="es-bridge__step" data-step="1">
+            <p class="es-bridge__num">Segmented Hero</p>
+            <p class="es-bridge__text">Split multi-panel layout routing users directly by event vertical.</p>
+          </div>
+          <div class="es-bridge__step" data-step="2">
+            <p class="es-bridge__num">Heritage Social Proof</p>
+            <p class="es-bridge__text">Key authority metrics (+350 events, +40 years) placed upfront to build instant trust.</p>
+          </div>
+          <div class="es-bridge__step" data-step="3">
+            <p class="es-bridge__num">Editorial Media Grid</p>
+            <p class="es-bridge__text">Dynamic photo layout showcasing real venue atmosphere without UI clutter.</p>
+          </div>
+          <div class="es-bridge__step" data-step="4">
+            <p class="es-bridge__num">Interactive Venue Slider</p>
+            <p class="es-bridge__text">Seamless multi-space carousel allowing quick property exploration.</p>
+          </div>
+        </aside>
+        <div class="es-bridge__media">
+          <img class="es-bridge__img" src="assets/es-eventos/bridging-scroll.webp" alt="ES Eventos — página de inicio completa: hero segmentado, cifras, grid editorial y slider de espacios">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nuestros espacios: tarjeta de finca (UI) sobre panel oscuro + foto (Figma 668:5339) -->
+  <section class="es-venue" aria-label="Ficha de espacio — Finca La Capella Poblet">
+    <div class="es-venue__dark">
+      <div class="es-venue__card">
+        <div class="es-venue__card-bar">
+          <img class="es-venue__logo" src="assets/es-eventos/eseventos-logo.png" alt="ES Eventos" width="100" height="26">
+          <img class="es-venue__menu" src="assets/es-eventos/icon-menu.svg" alt="" width="24" height="24">
+        </div>
+        <div class="es-venue__card-body">
+          <p class="es-venue__name">
+            <img src="assets/es-eventos/icon-asterisk.svg" alt="" width="20" height="20">
+            <span>Finca La Capella Poblet</span>
+          </p>
+          <img class="es-venue__photo-sm" src="assets/es-eventos/finca-photo.jpg" alt="Finca La Capella Poblet — interior">
+          <div class="es-venue__specs">
+            <p class="es-venue__specs-title">Principales</p>
+            <div class="es-venue__specs-grid">
+              <div class="es-venue__spec">
+                <img src="assets/es-eventos/icon-measurement.svg" alt="" width="24" height="24">
+                <span class="es-venue__spec-label">Mts 2</span>
+                <span class="es-venue__spec-line"></span>
+                <span class="es-venue__spec-val">300 m2</span>
+              </div>
+              <div class="es-venue__spec">
+                <img src="assets/es-eventos/icon-teatro.svg" alt="" width="24" height="24">
+                <span class="es-venue__spec-label">Teatro</span>
+                <span class="es-venue__spec-line"></span>
+                <span class="es-venue__spec-val">140</span>
+              </div>
+              <div class="es-venue__spec es-venue__spec--noval">
+                <img src="assets/es-eventos/icon-cocina.svg" alt="" width="24" height="24">
+                <span class="es-venue__spec-label">Cocina</span>
+              </div>
+              <div class="es-venue__spec es-venue__spec--noval">
+                <img src="assets/es-eventos/icon-capilla.svg" alt="" width="24" height="24">
+                <span class="es-venue__spec-label">Capilla</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="es-venue__photo">
+      <video poster="assets/es-eventos/finca-right.jpg" autoplay muted loop playsinline
+             aria-label="Vídeo de pareja de novios en un espacio natural de ES Eventos">
+        <source src="assets/es-eventos/finca-bosque.mp4" type="video/mp4">
+        <source src="assets/es-eventos/finca-bosque.webm" type="video/webm">
+      </video>
+    </div>
+  </section>
+
+  <!-- All-In-One Wedding Experience: intro oscura + captura del módulo por pestañas (Figma 668:5245) -->
+  <section class="es-wedding" aria-labelledby="wedding-title">
+    <div class="es-wedding__intro">
+      <p id="wedding-title"><span>All-In-One Wedding Experience Showcase.</span> Interactive tabbed module organizing venues, catering, and services for seamless, reload-free exploration.</p>
+    </div>
+    <div class="es-wedding__body">
+      <div class="es-wedding__shot">
+        <img src="assets/es-eventos/wedding-tabs.webp" alt="ES Eventos — módulo de bodas con navegación por pestañas (Espacios, Gastronomía, Servicios)">
+      </div>
+      <div class="es-wedding__cols">
+        <div class="es-wedding__col">
+          <h3 class="label">Categorized Tab Navigation</h3>
+          <p>Grouped services (Espacios, Gastronomía, Servicios) to reduce cognitive load and simplify discovery.</p>
+        </div>
+        <div class="es-wedding__col">
+          <h3 class="label">Interactive Venue Index</h3>
+          <p>Linked list of available fincas paired with dynamic imagery for effortless cross-location comparison.</p>
+        </div>
+        <div class="es-wedding__col">
+          <h3 class="label">Contextual Imagery</h3>
+          <p>High-impact visual carousel synced with selected services to convey ambiance and elevate brand positioning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bringing the Event Experience to Life: texto sticky + mockups móviles (Figma 668:5251) -->
+  <section class="es-bring" aria-labelledby="bring-title">
+    <div class="es-bring__row">
+      <aside class="es-bring__sticky">
+        <h2 class="es-bring__title" id="bring-title">Bringing the Event Experience to Life</h2>
+        <div class="es-bring__step">
+          <p class="es-bring__num">Vertical Storytelling</p>
+          <p class="es-bring__text">Full screen imagery designed to connect emotionally on smaller screens.</p>
+        </div>
+        <div class="es-bring__step">
+          <p class="es-bring__num">Touch Optimized Resources</p>
+          <p class="es-bring__text">Quick access downloadable guides for frictionless mobile interaction.</p>
+        </div>
+      </aside>
+      <div class="es-bring__media">
+        <div class="es-bring__phone es-bring__phone--1">
+          <video poster="assets/es-eventos/phone-boda-poster.jpg?v=3" autoplay muted loop playsinline
+                 aria-label="ES Eventos — vídeo de boda «El sí que lo cambia todo» en móvil">
+            <source src="assets/es-eventos/phone-boda.mp4?v=3" type="video/mp4">
+            <source src="assets/es-eventos/phone-boda.webm?v=3" type="video/webm">
+          </video>
+        </div>
+        <div class="es-bring__phone es-bring__phone--2">
+          <img src="assets/es-eventos/montaje-phone.webp" alt="ES Eventos — pantalla móvil de recursos de bodas">
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="footer">
+  <div class="site-footer__top">
+    <div class="site-footer__col">
+      <p class="site-footer__head">Descubre el studio</p>
+      <nav class="site-footer__links" aria-label="Secciones">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="work.html">WORK</a>
+      </nav>
+    </div>
+    <a class="site-footer__logo" href="index.html" aria-label="Milena Jasso — inicio">
+      <img src="assets/Index/logo-mj.png" alt="Milena Jasso" width="72" height="87">
+    </a>
+    <div class="site-footer__col">
+      <p class="site-footer__head">Contacto</p>
+      <nav class="site-footer__links" aria-label="Contacto">
+        <a href="https://www.linkedin.com/in/milena-jasso-moranuxui/" target="_blank" rel="noopener">LINKEDIN</a>
+        <a href="mailto:milena.jasso@gmail.com">milena.jasso@gmail.com</a>
+      </nav>
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <p class="site-footer__tagline">Where strategic UX meets high-conversion design—connecting people and scaling businesses through intuitive digital experiences.</p>
+    <p class="site-footer__copy">Copyright 2026</p>
+  </div>
+</footer>
+
+<script>
+  // Menú móvil a pantalla completa (solo visible en móvil)
+  (function () {
+    var btn = document.querySelector('.header__toggle');
+    var menu = document.getElementById('primary-menu');
+    if (!btn || !menu) return;
+    function setOpen(open) {
+      document.body.classList.toggle('menu-open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+    btn.addEventListener('click', function () { setOpen(!document.body.classList.contains('menu-open')); });
+    var closeBtn = menu.querySelector('.menu__close');
+    if (closeBtn) closeBtn.addEventListener('click', function () { setOpen(false); });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { setOpen(false); });
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+  })();
+</script>
+
+<script>
+  // Aparición suave al hacer scroll (fade + subida). Respeta prefers-reduced-motion.
+  (function () {
+    if (!('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var selectors = [
+      '.case-hero__head', '.es-hero-media', '.case-lead', '.case-brief__cols', '.impact',
+      '.es-venue__dark', '.es-venue__photo',
+      '.es-wedding__intro', '.es-wedding__shot', '.es-wedding__col',
+      '.es-bring__sticky', '.es-bring__phone',
+      '.site-footer__top', '.site-footer__bottom'
+    ];
+    var els = [];
+    selectors.forEach(function (s) {
+      document.querySelectorAll(s).forEach(function (e) { if (els.indexOf(e) === -1) els.push(e); });
+    });
+    if (!els.length) return;
+    document.documentElement.classList.add('reveal-on');
+    els.forEach(function (e) { e.classList.add('reveal'); });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
+
+</body>
+</html>
